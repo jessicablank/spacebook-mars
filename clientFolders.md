@@ -3,7 +3,6 @@
 * favicon.ico 
 * index.html
 * manifest.json
-
 ### __src__
 * __components__
     * LoginForm folder
