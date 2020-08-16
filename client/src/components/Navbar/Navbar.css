@@ -1,0 +1,32 @@
+.Navbar,
+.Navbar * {
+  color: white;
+  background-color: #33ccff;
+}
+
+.Navbar {
+  display: flex;
+  justify-content: left;
+  padding: 0;
+}
+
+.Navbar .nav-item {
+  color: inherit;
+  padding: 1.5rem 0.75rem 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 0.3rem solid transparent;
+}
+
+.Navbar .nav-item:hover,
+.Navbar .nav-item.active {
+  border-bottom: 0.3rem solid #ff982b;
+}
+
+.Navbar .nav-item.active:hover {
+  color: inherit;
+}
+
+.Navbar .brand {
+  font-weight: bold;
+}
