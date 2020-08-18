@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const taskSchema = new Schema({
   title: { type: String, required: true },
   textBody: String,
-  date: { type: Date, default: Date.now }
+  date: { type: Date, default: Date.now },
 });
 
 const Task = mongoose.model("Task", taskSchema);
