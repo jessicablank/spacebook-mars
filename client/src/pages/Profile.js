@@ -3,9 +3,6 @@ import API from "./../utils/API";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
-import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 function Profile() {
   const [username, setUsername] = useState("");
