@@ -3,6 +3,7 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import API from "./../utils/API";
 import { useAuth } from "../utils/auth";
 import { Form, InputGroup } from "../components/LoginForm";
+import "../pages/Signup.css";
 
 const signupStyles = {
   maxWidth: "20rem",
@@ -48,12 +49,12 @@ function Signup() {
 
   return (
     <div style={signupStyles} className="Signup">
-      <h1>Signup</h1>
+      <h1>SPACEBOOK</h1>
       <Form onSubmit={handleFormSubmit}>
         <InputGroup
           id="username"
-          labelText="Username"
-          placeholder="WinterIsComing"
+          labelText="Martian Name"
+          placeholder="Mr. Martian XLF-12"
           name="username"
           type="text"
           onChange={handleChange}
@@ -61,7 +62,7 @@ function Signup() {
         <InputGroup
           id="email"
           labelText="Email"
-          placeholder="jon.snow@email.com"
+          placeholder="Mars.Rocks@email.com"
           name="email"
           type="email"
           onChange={handleChange}
@@ -74,7 +75,9 @@ function Signup() {
           type="password"
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        <button className="roundedBtn" type="submit">
+          Submit
+        </button>
       </Form>
       <Link
         style={{
@@ -85,6 +88,9 @@ function Signup() {
       >
         Go to Login
       </Link>
+      <button className="roundedBtn" type="submit">
+        Already a Martian?
+      </button>
     </div>
   );
 }

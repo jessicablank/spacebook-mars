@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import { Form, InputGroup } from "../components/LoginForm";
+import "../pages/Signup.css";
 
 const loginStyle = {
   display: "flex",
@@ -52,7 +53,9 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <button className="roundedBtn" type="submit">
+          Submit
+        </button>
       </Form>
       <Link
         style={{
