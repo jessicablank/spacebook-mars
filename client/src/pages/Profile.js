@@ -22,25 +22,10 @@ function Profile() {
   return (
     <Container>
       <h1>On the profile page!</h1>
-      <Card>
-        <Card.Body>
-          <p>Username: {username}</p>
-          <p>Email: {email}</p>
-          <Link to="/">Go home</Link>
-        </Card.Body>
-      </Card>
-      <Row>
-        <Col>
-          <button className="roundedBtn" type="submit">
-            Submit
-          </button>
-        </Col>
-        <Col>
-          <button className="roundedBtn" type="submit">
-            Submit
-          </button>
-        </Col>
-      </Row>
+
+      <p>Username: {username}</p>
+      <p>Email: {email}</p>
+      <Link to="/">Go home</Link>
     </Container>
   );
 }
