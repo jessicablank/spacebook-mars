@@ -1,6 +1,7 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 // Our Components
 import { AuthProvider } from "./utils/auth";
 import ProtectedRoute from "./components/ProtectedRoute";

@@ -20,4 +20,9 @@
 .LoginForm label {
   margin-bottom: 0.5rem;
   font-weight: bold;
+  color: white;
+}
+
+.roundedInput {
+  border-radius: 50px 50px 50px 50px;
 }
