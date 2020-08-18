@@ -5,6 +5,8 @@
 ### __models__
 * *index.js*
 * User.js
+* Task.js
+
 ### __routes__
 * auth.js
 * errorMiddleware.js
