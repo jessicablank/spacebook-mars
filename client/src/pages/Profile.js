@@ -56,20 +56,26 @@ function Profile() {
       <button type="button" className="btn btn-primary">
         Tasks
       </button>
-      {/* {Object.sol_keys.map((sol) => {
+      {forecast.map((data) => {
+        const marsDay = data[0];
+        const min = data[1].AT?.mn;
+        const max = data[1].AT?.mx;
+        const season = data[1].Season;
+        const earthDay = data[1].First_UTC;
+
         return (
-          <div className="card">
+          <div className="card" key={marsDay}>
             <div className="card-body">
-              <p>Season:</p>
-              <p>Earth Day:</p>
-              <p>Martian Day:{sol.sol_keys}</p>
-              <p>High Temp:</p>
-              <p>Low Temp:</p>
+              <p>Season: {season}</p>
+              <p>Earth Day: {earthDay}</p>
+              <p>Martian Day: {marsDay}</p>
+              <p>High Temp: {max}</p>
+              <p>Low Temp: {min}</p>
             </div>
           </div>
         );
-      })} */}
-      <div className="card">
+      })}
+      {/* <div className="card">
         <div className="card-body">
           <p>Season:</p>
           <p>Earth Day:</p>
@@ -77,7 +83,7 @@ function Profile() {
           <p>High Temp:</p>
           <p>Low Temp:</p>
         </div>
-      </div>
+      </div> */}
       <Link to="/">Go home</Link>
     </Container>
   );
