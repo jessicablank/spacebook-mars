@@ -78,7 +78,7 @@ function Profile() {
             </div>
           );
         })}
-        <Task />
+      <Task />
       <Link to="/">Go home</Link>
     </Container>
   );
