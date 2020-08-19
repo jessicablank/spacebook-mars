@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "./../utils/API";
+import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
@@ -8,6 +9,17 @@ function Profile() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const { user } = useAuth();
+
+  const [forecast, setForecast] = useState([]);
+
+  useEffect(() => {
+    insightAPI.getForecast().then((res) => {
+      setForecast(res.data);
+      console.log(res.data);
+    });
+  }, []);
+
+  console.log(forecast);
 
   useEffect(() => {
     API.getUser(user.id).then((res) => {
@@ -32,11 +44,25 @@ function Profile() {
       <button type="button" className="btn btn-primary">
         Tasks
       </button>
+
+      {/* {forecast.map((sol)=>{
+        return(
+        <div className="card">
+        <div className="card-body">
+          <p>Season:</p>
+          <p>Earth Day:</p>
+          <p>Martian Day:{sol.sol_keys}</p>
+          <p>High Temp:</p>
+          <p>Low Temp:</p>
+        </div>
+      </div>
+}) )} */}
+      
       <div className="card">
         <div className="card-body">
           <p>Season:</p>
           <p>Earth Day:</p>
-          <p>Martian Day:</p>
+          <p>Martian Day:{forecast.sol_keys}</p>
           <p>High Temp:</p>
           <p>Low Temp:</p>
         </div>
