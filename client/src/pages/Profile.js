@@ -13,13 +13,25 @@ function Profile() {
   const [forecast, setForecast] = useState([]);
 
   useEffect(() => {
-    insightAPI.getForecast().then((res) => {
-      setForecast(res.data);
-      console.log(res.data);
-    });
+    loadForecast();
   }, []);
 
-  console.log(forecast);
+  function loadForecast() {
+    insightAPI
+      .getForecast()
+      .then((res) => {
+        const forecastData = Object.entries(res.data);
+        console.log("forecast ", forecastData);
+        console.log("day", forecastData[0][0]);
+        console.log("Earth day", forecastData[0][1].First_UTC);
+        console.log("minimum ", forecastData[0][1].AT.mn);
+        console.log("maximum ", forecastData[0][1].AT.mx);
+        console.log("season ", forecastData[0][1].Season);
+        setForecast(forecastData);
+        // console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
 
   useEffect(() => {
     API.getUser(user.id).then((res) => {
@@ -44,20 +56,19 @@ function Profile() {
       <button type="button" className="btn btn-primary">
         Tasks
       </button>
-
-      {/* {forecast.map((sol)=>{
-        return(
-        <div className="card">
-        <div className="card-body">
-          <p>Season:</p>
-          <p>Earth Day:</p>
-          <p>Martian Day:{sol.sol_keys}</p>
-          <p>High Temp:</p>
-          <p>Low Temp:</p>
-        </div>
-      </div>
-}) )} */}
-      
+      {/* {Object.sol_keys.map((sol) => {
+        return (
+          <div className="card">
+            <div className="card-body">
+              <p>Season:</p>
+              <p>Earth Day:</p>
+              <p>Martian Day:{sol.sol_keys}</p>
+              <p>High Temp:</p>
+              <p>Low Temp:</p>
+            </div>
+          </div>
+        );
+      })} */}
       <div className="card">
         <div className="card-body">
           <p>Season:</p>
