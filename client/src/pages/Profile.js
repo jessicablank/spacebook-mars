@@ -33,6 +33,7 @@ function Profile() {
       .catch((err) => console.log(err));
   }
 
+ 
   useEffect(() => {
     API.getUser(user.id).then((res) => {
       setUsername(res.data.username);
@@ -65,11 +66,16 @@ function Profile() {
           const season = data[1].Season;
           const earthDay = data[1].First_UTC;
 
+          const formatDate = (date) =>
+          date.toLocaleDateString(undefined, { day: "numeric", month: "long" });
+
+          const earthDate = formatDate(new Date(earthDay))
+
           return (
             <div className="card" key={marsDay}>
               <div className="card-body">
                 <p>Season: {season}</p>
-                <p>Earth Day: {earthDay}</p>
+                <p>Earth Day: {earthDate}</p>
                 <p>Martian Day: {marsDay}</p>
                 <p>High Temp: {max}</p>
                 <p>Low Temp: {min}</p>
