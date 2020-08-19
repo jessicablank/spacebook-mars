@@ -68,11 +68,11 @@ function Profile() {
           const earthDay = data[1].First_UTC;
 
           const formatDate = (date) =>
-          date.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
-          const earthDate = formatDate(new Date(earthDay))
+            date.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
+          const earthDate = formatDate(new Date(earthDay));
 
-          const marsMax = max.toFixed(2)
-          const marsMin = min.toFixed(2)
+          const marsMax = max.toFixed(2);
+          const marsMin = min.toFixed(2);
 
           return (
             <div className="card" key={marsDay}>
