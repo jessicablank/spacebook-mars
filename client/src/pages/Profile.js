@@ -4,6 +4,7 @@ import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
+import Task from "../components/Form/taskCard"
 
 function Profile() {
   const [username, setUsername] = useState("");
@@ -67,6 +68,7 @@ function Profile() {
           <p>Low Temp:</p>
         </div>
       </div>
+      <Task />
       <Link to="/">Go home</Link>
     </Container>
   );
