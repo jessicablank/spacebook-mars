@@ -35,7 +35,7 @@ function Login() {
 
   return (
     <div style={loginStyle}>
-      <h1>Login</h1>
+      <h1>SPACEBOOK</h1>
       <Form onSubmit={handleFormSubmit}>
         <InputGroup
           id="email"
@@ -64,7 +64,9 @@ function Login() {
         }}
         to="/signup"
       >
-        Go to Signup
+        <button className="roundedBtn" type="button">
+          Go to Sign up
+        </button>
       </Link>
     </div>
   );
