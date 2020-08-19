@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
 import API from "./../utils/API";
 import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
@@ -35,7 +34,6 @@ function Profile() {
       .catch((err) => console.log(err));
   }
 
- 
   useEffect(() => {
     API.getUser(user.id).then((res) => {
       setUsername(res.data.username);
@@ -72,7 +70,11 @@ function Profile() {
           const earthDay = data[1].First_UTC;
 
           const formatDate = (date) =>
-            date.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
+            date.toLocaleDateString(undefined, {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            });
           const earthDate = formatDate(new Date(earthDay));
 
           const marsMax = max.toFixed(2);
