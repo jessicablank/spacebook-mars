@@ -21,6 +21,11 @@ function Navbar() {
       </NavLink>
     );
     links.push(
+      <NavLink key="profile" className="nav-item" to="/forecast">
+        Forecast
+      </NavLink>
+    );
+    links.push(
       <span key="lougout" className="nav-item" onClick={logout}>
         Logout
       </span>
