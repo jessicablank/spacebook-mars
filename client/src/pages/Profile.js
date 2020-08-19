@@ -34,7 +34,6 @@ function Profile() {
       .catch((err) => console.log(err));
   }
 
- 
   useEffect(() => {
     API.getUser(user.id).then((res) => {
       setUsername(res.data.username);
@@ -50,13 +49,16 @@ function Profile() {
           Greetings {username}!<p>Email: {email}</p>
         </div>
       </div>
-
-      <button type="button" className="btn btn-primary">
-        Forecast
-      </button>
-      <button type="button" className="btn btn-primary">
-        Tasks
-      </button>
+      <Link to="/forecast">
+        <button type="button" className="btn btn-primary">
+          Forecast
+        </button>
+      </Link>
+      <Link to="/task">
+        <button type="button" className="btn btn-primary">
+          Tasks
+        </button>
+      </Link>
       {forecast
         .slice(0, 6)
         .reverse()
@@ -68,7 +70,11 @@ function Profile() {
           const earthDay = data[1].First_UTC;
 
           const formatDate = (date) =>
-            date.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
+            date.toLocaleDateString(undefined, {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            });
           const earthDate = formatDate(new Date(earthDay));
 
           const marsMax = max.toFixed(2);
