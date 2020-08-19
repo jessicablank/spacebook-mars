@@ -4,7 +4,7 @@ import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
-import Task from "../components/Form/taskCard"
+import Task from "../components/Form/taskCard";
 
 function Profile() {
   const [username, setUsername] = useState("");
@@ -76,20 +76,7 @@ function Profile() {
           </div>
         );
       })}
-      {/* <div className="card">
-        <div className="card-body">
-          <p>Season:</p>
-          <p>Earth Day:</p>
-          <p>Martian Day:{forecast.sol_keys}</p>
-          <p>High Temp:</p>
-          <p>Low Temp:</p>
-        </div>
-<<<<<<< HEAD
-      </div>
       <Task />
-=======
-      </div> */}
->>>>>>> 681ad1be2f2badf9ef62ee9f12efcf7c54249d93
       <Link to="/">Go home</Link>
     </Container>
   );
