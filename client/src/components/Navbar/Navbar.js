@@ -16,6 +16,11 @@ function Navbar() {
       </NavLink>
     );
     links.push(
+      <NavLink key="profile" className="nav-item" to="/task">
+        Tasks
+      </NavLink>
+    );
+    links.push(
       <span key="lougout" className="nav-item" onClick={logout}>
         Logout
       </span>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import API from "./../utils/API";
 import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
@@ -49,13 +50,16 @@ function Profile() {
           Greetings {username}!<p>Email: {email}</p>
         </div>
       </div>
-
-      <button type="button" className="btn btn-primary">
-        Forecast
-      </button>
-      <button type="button" className="btn btn-primary">
-        Tasks
-      </button>
+      <Link to="/forecast">
+        <button type="button" className="btn btn-primary">
+          Forecast
+        </button>
+      </Link>
+      <Link to="/task">
+        <button type="button" className="btn btn-primary">
+          Tasks
+        </button>
+      </Link>
       {forecast
         .slice(0, 6)
         .reverse()

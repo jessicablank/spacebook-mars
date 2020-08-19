@@ -10,6 +10,7 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import TaskPage from "./pages/TaskPage";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route exact path="/signup">
               <Signup />
+            </Route>
+            <Route exact path="/task">
+              <TaskPage />
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
