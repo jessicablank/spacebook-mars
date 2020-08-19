@@ -16,14 +16,14 @@ router.get("/api/task", async (req, res) => {
 
 // create a new task
 router.post("/api/task", async (req, res) => {
-    try {
-      const task = await db.Task.create(req.body);
-      res.json(task);
-    } catch (error) {
-      console.log(error);
-      res.status(400).send(error.message);
-    }
-  });
+  try {
+    const task = await db.Task.create(req.body);
+    res.json(task);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error.message);
+  }
+});
 
 // read one task by task id
 router.get("/api/task/:id", async (req, res) => {
@@ -38,14 +38,17 @@ router.get("/api/task/:id", async (req, res) => {
 
 // Update one task by id
 router.put("/api/task/:id", async (req, res) => {
-    try {
-      const task = await db.Task.findOneAndUpdate({ _id: req.params.id },req.body);
-      res.json(task);
-    } catch (error) {
-      console.log(error);
-      res.status(400).send(error.message);
-    }
-  });
+  try {
+    const task = await db.Task.findOneAndUpdate(
+      { _id: req.params.id },
+      req.body
+    );
+    res.json(task);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error.message);
+  }
+});
 
 // delete one task by task id
 router.delete("/api/task/:id", async (req, res) => {
@@ -57,8 +60,6 @@ router.delete("/api/task/:id", async (req, res) => {
     res.status(400).send(error.message);
   }
 });
-
-
 
 // export the router
 module.exports = router;
