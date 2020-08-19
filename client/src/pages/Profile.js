@@ -49,6 +49,7 @@ function Profile() {
         </div>
       </div>
 
+      <p>Username: {username}</p>
       <button type="button" className="btn btn-primary">
         Forecast
       </button>
