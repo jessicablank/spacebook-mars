@@ -18,10 +18,28 @@ function Profile() {
 
   return (
     <Container>
-      <h1>On the profile page!</h1>
-
+      <h1>SpaceBook</h1>.
+      <div className="card">
+        <div className="card-body">Greetings {username}!</div>
+      </div>
+      {/* <h1>On the profile page!</h1>
       <p>Username: {username}</p>
-      <p>Email: {email}</p>
+      <p>Email: {email}</p> */}
+      <button type="button" className="btn btn-primary">
+        Forecast
+      </button>
+      <button type="button" className="btn btn-primary">
+        Tasks
+      </button>
+      <div className="card">
+        <div className="card-body">
+          <p>Season:</p>
+          <p>Earth Day:</p>
+          <p>Martian Day:</p>
+          <p>High Temp:</p>
+          <p>Low Temp:</p>
+        </div>
+      </div>
       <Link to="/">Go home</Link>
     </Container>
   );
