@@ -14,13 +14,25 @@ function Profile() {
   const [forecast, setForecast] = useState([]);
 
   useEffect(() => {
-    insightAPI.getForecast().then((res) => {
-      setForecast(res.data);
-      console.log(res.data);
-    });
+    loadForecast();
   }, []);
 
-  console.log(forecast);
+  function loadForecast() {
+    insightAPI
+      .getForecast()
+      .then((res) => {
+        const forecastData = Object.entries(res.data);
+        console.log("forecast ", forecastData);
+        console.log("day", forecastData[0][0]);
+        console.log("Earth day", forecastData[0][1].First_UTC);
+        console.log("minimum ", forecastData[0][1].AT.mn);
+        console.log("maximum ", forecastData[0][1].AT.mx);
+        console.log("season ", forecastData[0][1].Season);
+        setForecast(forecastData);
+        // console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
 
   useEffect(() => {
     API.getUser(user.id).then((res) => {
@@ -45,21 +57,26 @@ function Profile() {
       <button type="button" className="btn btn-primary">
         Tasks
       </button>
+      {forecast.map((data) => {
+        const marsDay = data[0];
+        const min = data[1].AT?.mn;
+        const max = data[1].AT?.mx;
+        const season = data[1].Season;
+        const earthDay = data[1].First_UTC;
 
-      {/* {forecast.map((sol)=>{
-        return(
-        <div className="card">
-        <div className="card-body">
-          <p>Season:</p>
-          <p>Earth Day:</p>
-          <p>Martian Day:{sol.sol_keys}</p>
-          <p>High Temp:</p>
-          <p>Low Temp:</p>
-        </div>
-      </div>
-}) )} */}
-      
-      <div className="card">
+        return (
+          <div className="card" key={marsDay}>
+            <div className="card-body">
+              <p>Season: {season}</p>
+              <p>Earth Day: {earthDay}</p>
+              <p>Martian Day: {marsDay}</p>
+              <p>High Temp: {max}</p>
+              <p>Low Temp: {min}</p>
+            </div>
+          </div>
+        );
+      })}
+      {/* <div className="card">
         <div className="card-body">
           <p>Season:</p>
           <p>Earth Day:</p>
@@ -67,8 +84,12 @@ function Profile() {
           <p>High Temp:</p>
           <p>Low Temp:</p>
         </div>
+<<<<<<< HEAD
       </div>
       <Task />
+=======
+      </div> */}
+>>>>>>> 681ad1be2f2badf9ef62ee9f12efcf7c54249d93
       <Link to="/">Go home</Link>
     </Container>
   );
