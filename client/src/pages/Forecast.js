@@ -1,39 +1,49 @@
-import React, { Component } from "react";
-import insightAPI from "..utils/insightAPI"
-const axios = require("axios");
+import React, { useEffect, useState } from "react";
+import {INSIGHT_API} from "..utils/insightAPI"
+
+function Forecast() {
+  const [weather, setWeather] = useState([]);
+  const [selectSol, setSelectSol] = useState(true);
+  const [previous, setPrevious] = useState(false);
+  const [metric, setMetric] = useState(true);
 
 
-class ForecastTable extends Component {
-    //sets the "table"
-    state = {
-      todayForecast: [],
-      allForecast: [],
+  useEffect(() => {
+    //call to load API the first time
+    const insightAPI = async () => {
+      const weather = await fetch(INSIGHT_API).then((data) => data.json());
+      console.log(weather);
+      const marsWeather = weather.sol_keys.map((solKey) => {
+        return {
+          sol: solKey,
+          maxTemp: weather[solKey].AT?.mx || "No Data",
+          minTemp: weather[solKey].AT?.mn || "No Data",
+          windSpeed: Math.round(weather[solKey].HWS?.av || 0),
+          windDirectionDegrees:
+            weather[solKey].WD?.most_common?.compass_degrees || 0,
+          date: formatDate(new Date(weather[solKey].First_UTC)),
+        };
+      });
+      setWeather(marsWeather);
+      setSelectSol(marsWeather.length - 1);
+      setLoading(false);
     };
-  
-    componentDidMount() {
-      this.getForecast();
-    }
-  
-    getForecast = () => {
-      API.getForecast()
-  
-        .then((res) => {
-          this.setState({
-            todayForecast: res.data.results,
-            allForecast: res.data.results,
-          });
-        })
-        .catch((error) => console.log(error));
-    };
-  
-renderPage(){
-    console.log(res.data.results)
 
-}
-render() {
-    return this.renderPage();
+    insightAPI();
+  }, []);
+
+  return(
+    <>
+    <CurrentData sol={weather[selectSol]} >
+    </CurrentData>
+    <Previous
+          weather={weather}
+          previous={previous}
+          setPrevious={setPrevious}
+          setSelectedSol={setSelectSol}
+          isMetric={metric}
+        />
+    </>
+  );
   }
-
-}
-
-export default ForecastTable;
+  export default Forecast;
