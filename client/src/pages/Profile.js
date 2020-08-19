@@ -20,11 +20,12 @@ function Profile() {
     <Container>
       <h1>SpaceBook</h1>.
       <div className="card">
-        <div className="card-body">Greetings {username}!</div>
+        <div className="card-body">
+          Greetings {username}!<p>Email: {email}</p>
+        </div>
       </div>
-      {/* <h1>On the profile page!</h1>
+      <h1>On the profile page!</h1>
       <p>Username: {username}</p>
-      <p>Email: {email}</p> */}
       <button type="button" className="btn btn-primary">
         Forecast
       </button>
