@@ -7,18 +7,6 @@ import { Input, TextArea, FormBtn } from "./index";
 function Task() {
   const [formObject, setFormObject] = useState({});
 
-  // useEffect(() => {
-  //     loadTasks()
-  // }, [])
-
-  // function loadTasks() {
-  //     taskAPI.getTasks()
-  //       .then(res => 
-  //         setTasks(res.data)
-  //       )
-  //       .catch(err => console.log(err));
-  //   };
-
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
