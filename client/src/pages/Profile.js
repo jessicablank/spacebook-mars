@@ -12,15 +12,15 @@ function Profile() {
 
   const [forecast, setForecast] = useState([]);
 
-  useEffect(()=>{
-    insightAPI.getForecast().then((res)=>{
+  useEffect(() => {
+    insightAPI.getForecast().then((res) => {
       setForecast(res.data);
       console.log(res.data);
-    })    
+    });
   }, []);
 
   console.log(forecast);
-  
+
   useEffect(() => {
     API.getUser(user.id).then((res) => {
       setUsername(res.data.username);
@@ -44,6 +44,7 @@ function Profile() {
       <button type="button" className="btn btn-primary">
         Tasks
       </button>
+
       {/* {forecast.map((sol)=>{
         return(
         <div className="card">
@@ -56,7 +57,7 @@ function Profile() {
         </div>
       </div>
 }) )} */}
-{/* We want to display the current forecast here */}
+      
       <div className="card">
         <div className="card-body">
           <p>Season:</p>
