@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
+import "./Profile.css";
 
 function ForecastPage() {
   const [forecast, setForecast] = useState([]);
@@ -29,16 +30,18 @@ function ForecastPage() {
   return (
     <Container>
       <h1>Extended Forecast</h1>
-      <Link to="/profile">
-        <button type="button" className="btn btn-primary">
-          Home
-        </button>
-      </Link>
-      <Link to="/task">
-        <button type="button" className="btn btn-primary">
-          Tasks
-        </button>
-      </Link>
+      <div className="mb-3 row justify-content-around">
+        <Link to="/profile">
+          <button type="button" className="btn btn-primary btn-lg styledBtn">
+            Home
+          </button>
+        </Link>
+        <Link to="/task">
+          <button type="button" className="btn btn-primary btn-lg styledBtn">
+            Tasks
+          </button>
+        </Link>
+      </div>
       {forecast
         .slice(0, 6)
         .reverse()

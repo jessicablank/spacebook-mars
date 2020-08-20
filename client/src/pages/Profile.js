@@ -5,6 +5,7 @@ import Container from "../components/Container";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import Task from "../components/Form/taskCard";
+import "./Profile.css";
 
 function Profile() {
   const [username, setUsername] = useState("");
@@ -51,12 +52,12 @@ function Profile() {
       </div>
       <div className="mb-3 row justify-content-around">
         <Link to="/forecast">
-          <button type="button" className="btn btn-primary btn-lg">
+          <button type="button" className="btn btn-primary btn-lg styledBtn">
             Forecast
           </button>
         </Link>
         <Link to="/task">
-          <button type="button" className="btn btn-primary btn-lg">
+          <button type="button" className="btn btn-primary btn-lg styledBtn">
             Tasks
           </button>
         </Link>
