@@ -1,5 +1,6 @@
 const express = require("express");
 const db = require("../models");
+const { isAuthenticated } = require("../config/auth");
 
 const router = express.Router();
 
@@ -15,9 +16,10 @@ router.get("/api/task", async (req, res) => {
 });
 
 // create a new task
-router.post("/api/task", async (req, res) => {
+router.post("/api/task", isAuthenticated, async (req, res) => {
   try {
-    const task = await db.Task.create(req.body);
+    const task = await db.Task.create(req.body)
+    await db.User.findOneAndUpdate({_id: req.user.id}, { $push: { tasks: task._id } }, { new: true })
     res.json(task);
   } catch (error) {
     console.log(error);
@@ -25,8 +27,9 @@ router.post("/api/task", async (req, res) => {
   }
 });
 
+
 // read one task by task id
-router.get("/api/task/:id", async (req, res) => {
+router.get("/api/task/:id", isAuthenticated, async (req, res) => {
   try {
     const task = await db.Task.findById({ _id: req.params.id });
     res.json(task);
@@ -37,7 +40,7 @@ router.get("/api/task/:id", async (req, res) => {
 });
 
 // Update one task by id
-router.put("/api/task/:id", async (req, res) => {
+router.put("/api/task/:id", isAuthenticated, async (req, res) => {
   try {
     const task = await db.Task.findOneAndUpdate(
       { _id: req.params.id },
@@ -51,7 +54,7 @@ router.put("/api/task/:id", async (req, res) => {
 });
 
 // delete one task by task id
-router.delete("/api/task/:id", async (req, res) => {
+router.delete("/api/task/:id", isAuthenticated, async (req, res) => {
   try {
     const task = await db.Task.remove({ _id: req.params.id });
     res.json(task);
