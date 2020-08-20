@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Changa+One:ital@1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
 
 h1 {
-  font-family: "Rubik Mono One", sans-serif;
+  /* font-family: "Rubik Mono One", sans-serif; */
+  font-family: "Press Start 2P", cursive;
   color: white;
   text-align: center;
 }
@@ -19,7 +21,15 @@ h1 {
 .clear-card {
   background-color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
-  font-family: Arial, sans-serif;
+  font-family: Montserrat, Arial, sans-serif;
+  color: white;
+  text-align: center;
+}
+
+button {
+  font-weight: bold;
+  font-family: Montserrat, Arial, sans-serif;
+  color: white;
 }
 
 .welcome-banner {

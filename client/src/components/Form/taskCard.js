@@ -19,7 +19,7 @@ function Task() {
           title: formObject.title,
           textBody: formObject.textBody,
         })
-        // .then(res => loadBooks())
+        //  .then(res => console.log(res))
         .catch((err) => console.log(err));
     }
   }
@@ -40,9 +40,7 @@ function Task() {
               name="textBody"
               placeholder="Plan your day on mars!"
             />
-            <FormBtn disabled={!formObject.title} onClick={handleFormSubmit}>
-              Submit Task
-            </FormBtn>
+            <FormBtn onClick={handleFormSubmit}>Submit Task</FormBtn>
           </form>
         </div>
       </div>
