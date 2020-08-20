@@ -63,7 +63,7 @@ function Profile() {
         </Link>
       </div>
       {forecast
-        .slice(0, 6)
+        .slice(6, 7)
         .reverse()
         .map((data) => {
           const marsDay = data[0];
