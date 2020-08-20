@@ -5,7 +5,7 @@ import Container from "../components/Container";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import Task from "../components/Form/taskCard";
-import "./Profile.css";
+import "./style.css";
 
 function Profile() {
   const [username, setUsername] = useState("");

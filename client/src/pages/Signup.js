@@ -3,7 +3,7 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import API from "./../utils/API";
 import { useAuth } from "../utils/auth";
 import { Form, InputGroup } from "../components/LoginForm";
-import "../pages/Signup.css";
+import "./style.css";
 
 const signupStyles = {
   maxWidth: "20rem",

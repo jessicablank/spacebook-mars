@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
-import "./Profile.css";
+import "./style.css";
 
 function ForecastPage() {
   const [forecast, setForecast] = useState([]);

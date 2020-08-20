@@ -6,6 +6,16 @@ body {
   background-image: linear-gradient(90deg, #fc56ca, #35224d, rgb(6, 0, 56));
 }
 
+.hero-image {
+  background-image: url("../src/images/planets.jpg");
+  background-color: white;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
 * {
   color: #006181;
 }
