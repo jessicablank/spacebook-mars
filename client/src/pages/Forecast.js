@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
-import "./Profile.css";
+import "./style.css";
 
 function ForecastPage() {
   const [forecast, setForecast] = useState([]);
@@ -64,7 +64,7 @@ function ForecastPage() {
           const marsMin = min.toFixed(2);
 
           return (
-            <div className="card mb-3" key={marsDay}>
+            <div className="card mb-3 clear-card" key={marsDay}>
               <div className="card-body">
                 <p>Season: {season}</p>
                 <p>Earth Day: {earthDate}</p>

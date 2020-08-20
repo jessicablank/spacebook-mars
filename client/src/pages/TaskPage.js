@@ -3,7 +3,7 @@ import Task from "../components/Form/taskCard";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
 import TaskCard from "../components/TasksCards/index";
-import "./Profile.css";
+import "./style.css";
 
 function TaskPage() {
   // const [setTasks] = useState([]);

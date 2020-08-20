@@ -27,7 +27,7 @@ function Task() {
   //style={{ marginLeft: -16, width: 450 }}
   return (
     <Container>
-      <div className="card container-sm">
+      <div className="card container-sm clear-card">
         <div className="card-body">
           <form>
             <Input
