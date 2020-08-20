@@ -8,8 +8,8 @@ body {
 
 .hero-image {
   background-image: url("../src/images/planets.jpg");
-  background-color: white;
-  height: 500px;
+  background-color: black;
+  height: 2000px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,7 +17,7 @@ body {
 }
 
 * {
-  color: #006181;
+  color: white;
 }
 
 button {

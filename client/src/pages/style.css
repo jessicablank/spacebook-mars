@@ -15,3 +15,13 @@ h1 {
 .styledBtn {
   width: 8em;
 }
+
+.clear-card {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+.welcome-banner {
+  font-size: 3em;
+}

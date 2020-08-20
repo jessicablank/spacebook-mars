@@ -9,7 +9,7 @@ import "./style.css";
 
 function Profile() {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  //const [email, setEmail] = useState("");
   const { user } = useAuth();
 
   const [forecast, setForecast] = useState([]);
@@ -38,16 +38,17 @@ function Profile() {
   useEffect(() => {
     API.getUser(user.id).then((res) => {
       setUsername(res.data.username);
-      setEmail(res.data.email);
+      //setEmail(res.data.email);
     });
   }, [user]);
 
   return (
     <Container>
       <h1>SpaceBook</h1>
-      <div className="card mb-3">
-        <div className="card-body">
-          Greetings {username}!<p>Email: {email}</p>
+      <div className="card mb-3 text-center clear-card">
+        <div className="card-body welcome-banner">
+          Greetings <br />
+          {username}!{/* <p>Email: {email}</p> */}
         </div>
       </div>
       <div className="mb-3 row justify-content-around">
@@ -84,7 +85,7 @@ function Profile() {
           const marsMin = min.toFixed(2);
 
           return (
-            <div className="card mb-3" key={marsDay}>
+            <div className="card mb-3 clear-card" key={marsDay}>
               <div className="card-body">
                 <p>Season: {season}</p>
                 <p>Earth Day: {earthDate}</p>

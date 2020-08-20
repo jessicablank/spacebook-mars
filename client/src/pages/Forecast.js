@@ -64,7 +64,7 @@ function ForecastPage() {
           const marsMin = min.toFixed(2);
 
           return (
-            <div className="card mb-3" key={marsDay}>
+            <div className="card mb-3 clear-card" key={marsDay}>
               <div className="card-body">
                 <p>Season: {season}</p>
                 <p>Earth Day: {earthDate}</p>
