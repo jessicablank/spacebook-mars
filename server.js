@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const initDb = require("./config/initDb");
 const authRouter = require("./routes/auth");
 const usersRouter = require("./routes/users");
+const taskRouter = require("./routes/taskAPI");
 const errorMiddleware = require("./routes/errorMiddleware");
 
 const PORT = process.env.PORT || 3001;
@@ -26,7 +27,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.use(authRouter, usersRouter, errorMiddleware);
+app.use(authRouter, usersRouter, taskRouter, errorMiddleware);
 
 // Send all other requests to react app
 app.get("*", (req, res) => {
