@@ -5,6 +5,7 @@ import Container from "../components/Container";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import Task from "../components/Form/taskCard";
+import "./Profile.css";
 
 function Profile() {
   const [username, setUsername] = useState("");
@@ -44,21 +45,23 @@ function Profile() {
   return (
     <Container>
       <h1>SpaceBook</h1>
-      <div className="card">
+      <div className="card mb-3">
         <div className="card-body">
           Greetings {username}!<p>Email: {email}</p>
         </div>
       </div>
-      <Link to="/forecast">
-        <button type="button" className="btn btn-primary">
-          Forecast
-        </button>
-      </Link>
-      <Link to="/task">
-        <button type="button" className="btn btn-primary">
-          Tasks
-        </button>
-      </Link>
+      <div className="mb-3 row justify-content-around">
+        <Link to="/forecast">
+          <button type="button" className="btn btn-primary btn-lg styledBtn">
+            Forecast
+          </button>
+        </Link>
+        <Link to="/task">
+          <button type="button" className="btn btn-primary btn-lg styledBtn">
+            Tasks
+          </button>
+        </Link>
+      </div>
       {forecast
         .slice(0, 6)
         .reverse()
@@ -81,7 +84,7 @@ function Profile() {
           const marsMin = min.toFixed(2);
 
           return (
-            <div className="card" key={marsDay}>
+            <div className="card mb-3" key={marsDay}>
               <div className="card-body">
                 <p>Season: {season}</p>
                 <p>Earth Day: {earthDate}</p>
@@ -93,7 +96,6 @@ function Profile() {
           );
         })}
       <Task />
-      <Link to="/">Go home</Link>
     </Container>
   );
 }

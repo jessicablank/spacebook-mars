@@ -3,7 +3,6 @@ import taskAPI from "../../utils/taskAPI";
 import Container from "../Container";
 import { Input, TextArea, FormBtn } from "./index";
 
-
 function Task() {
   const [formObject, setFormObject] = useState({});
 
@@ -15,12 +14,13 @@ function Task() {
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.title) {
-      taskAPI.saveTask({
-        title: formObject.title,
-        textBody: formObject.textBody
-      })
-      // .then(res => loadBooks())
-        .catch(err => console.log(err));
+      taskAPI
+        .saveTask({
+          title: formObject.title,
+          textBody: formObject.textBody,
+        })
+        // .then(res => loadBooks())
+        .catch((err) => console.log(err));
     }
   }
 
@@ -39,11 +39,9 @@ function Task() {
               onChange={handleInputChange}
               name="textBody"
               placeholder="Plan your day on mars!"
-            /><FormBtn
-              disabled={!(formObject.title)}
-              onClick={handleFormSubmit}
-            >
-                            Submit Task
+            />
+            <FormBtn disabled={!formObject.title} onClick={handleFormSubmit}>
+              Submit Task
             </FormBtn>
           </form>
         </div>
@@ -51,6 +49,5 @@ function Task() {
     </Container>
   );
 }
-
 
 export default Task;
