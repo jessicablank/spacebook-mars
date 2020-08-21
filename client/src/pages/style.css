@@ -32,6 +32,10 @@ button {
   color: white;
 }
 
+.btnWidth {
+  width: 100%;
+}
+
 .welcome-banner {
   font-size: 3em;
 }

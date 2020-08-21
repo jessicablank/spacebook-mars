@@ -86,7 +86,7 @@ function Signup() {
         }}
         to="/login"
       >
-        <button className="roundedBtn" type="button">
+        <button className="roundedBtn btnWidth" type="button">
           Already a Martian?
         </button>
       </Link>

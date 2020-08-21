@@ -64,8 +64,8 @@ function Login() {
         }}
         to="/signup"
       >
-        <button className="roundedBtn" type="button">
-          Go to Sign up
+        <button className="roundedBtn btnWidth" type="button">
+          Not a Martian yet?
         </button>
       </Link>
     </div>
