@@ -53,7 +53,7 @@ function Home() {
 
         return (
           <div className="card container-sm clear-card">
-            <img className="roverImages" alt="image" src={image} />
+            <img className="roverImages" alt="rover-camera" src={image} />
             <div className="card-body">
               <p className="card-text">{earthDate}</p>
             </div>
