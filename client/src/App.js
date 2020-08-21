@@ -12,7 +12,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import TaskPage from "./pages/TaskPage";
 import ForecastPage from "./pages/Forecast";
-import RoverPhotos from "./pages/RoverPhotos"
+import RoverPhotos from "./pages/RoverPhotos";
 
 function App() {
   return (
