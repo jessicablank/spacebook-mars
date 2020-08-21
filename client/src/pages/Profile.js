@@ -59,13 +59,18 @@ function Profile() {
       </div>
       <div className="mb-3 row justify-content-around">
         <Link to="/forecast">
-          <button type="button" className="btn btn-primary btn-lg styledBtn">
+          <button type="button" className="btn btn-primary btn-sm styledBtn">
             Forecast
           </button>
         </Link>
         <Link to="/task">
-          <button type="button" className="btn btn-primary btn-lg styledBtn">
+          <button type="button" className="btn btn-primary btn-sm styledBtn">
             Tasks
+          </button>
+        </Link>
+        <Link to="/roverphotos">
+          <button type="button" className="btn btn-primary btn-sm styledBtn">
+            Rover
           </button>
         </Link>
       </div>

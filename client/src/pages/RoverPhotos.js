@@ -30,17 +30,17 @@ function RoverPhotos() {
         </div>
         <div className="mb-3 row justify-content-around">
           <Link to="/profile">
-            <button type="button" className="btn btn-primary btn-md styledBtn">
+            <button type="button" className="btn btn-primary btn-sm styledBtn">
               Home
             </button>
           </Link>
           <Link to="/task">
-            <button type="button" className="btn btn-primary btn-md styledBtn">
+            <button type="button" className="btn btn-primary btn-sm styledBtn">
               Tasks
             </button>
           </Link>
           <Link to="/forecast">
-            <button type="button" className="btn btn-primary btn-md styledBtn">
+            <button type="button" className="btn btn-primary btn-sm styledBtn">
               Forecast
             </button>
           </Link>

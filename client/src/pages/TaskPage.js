@@ -39,13 +39,18 @@ function TaskPage() {
         <h1>Your Tasks</h1>
         <div className="mb-3 row justify-content-around">
           <Link to="/profile">
-            <button type="button" className="btn btn-primary btn-lg styledBtn">
+            <button type="button" className="btn btn-primary btn-sm styledBtn">
               Home
             </button>
           </Link>
           <Link to="/forecast">
-            <button type="button" className="btn btn-primary btn-lg styledBtn">
+            <button type="button" className="btn btn-primary btn-sm styledBtn">
               Forecast
+            </button>
+          </Link>
+          <Link to="/roverphotos">
+            <button type="button" className="btn btn-primary btn-sm styledBtn">
+              Rover
             </button>
           </Link>
         </div>
