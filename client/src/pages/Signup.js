@@ -53,7 +53,7 @@ function Signup() {
       <Form onSubmit={handleFormSubmit}>
         <InputGroup
           id="username"
-          labelText="Martian Name"
+          labelText="Choose a Martian Name"
           placeholder="Mr. Martian XLF-12"
           name="username"
           type="text"
@@ -86,7 +86,7 @@ function Signup() {
         }}
         to="/login"
       >
-        <button className="roundedBtn" type="button">
+        <button className="roundedBtn btnWidth" type="button">
           Already a Martian?
         </button>
       </Link>

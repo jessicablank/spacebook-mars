@@ -74,6 +74,7 @@ function Profile() {
           </button>
         </Link>
       </div>
+      <h2>Today's Weather</h2>
       {forecast
         //slice method for displaying most recent forecast date
         .slice(0, 1)
@@ -107,7 +108,7 @@ function Profile() {
             </div>
           );
         })}
-
+      <h2>Quickly Add a Task</h2>
       <Task onTaskSaved={handleTaskSaved} />
       {showModal && <ModalComp onHide={() => setShowModal(false)} />}
     </Container>
