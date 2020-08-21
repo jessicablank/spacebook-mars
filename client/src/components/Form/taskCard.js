@@ -40,7 +40,9 @@ function Task() {
               name="textBody"
               placeholder="Plan your day on mars!"
             />
-            <FormBtn onClick={handleFormSubmit}>Submit Task</FormBtn>
+            <FormBtn disabled={!formObject.title} onClick={handleFormSubmit}>
+              Submit Task
+            </FormBtn>
           </form>
         </div>
       </div>
