@@ -48,17 +48,17 @@ function Home() {
         // const id = data[0].id
         const image = data.img_src;
         const earthDate = data.earth_date;
-        console.log("my images" + images)
-        console.log("my data" + data)
+        console.log("my images" + images);
+        console.log("my data" + data);
 
         return (
-        <div className="card container-sm clear-card">
-          <img className="roverImages" alt="image" src={image} />
-          <div className="card-body">
-            <p className="card-text">{earthDate}</p>
+          <div className="card container-sm clear-card">
+            <img className="roverImages" alt="image" src={image} />
+            <div className="card-body">
+              <p className="card-text">{earthDate}</p>
+            </div>
           </div>
-        </div>
-      )})
+        );})
       }
     </div>
   );
