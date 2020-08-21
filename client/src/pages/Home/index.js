@@ -34,8 +34,8 @@ function Home() {
   return (
     <div className="Home">
       <div className="Home-header">
-        <img src={logo} className="Home-logo" alt="logo" />
-        <h2>Welcome {user.email}</h2>
+        {/* <img src={logo} className="Home-logo" alt="logo" /> */}
+        <h1>Rover Photos</h1>
       </div>
       <p className="Home-intro">
         <button onClick={goToEditProfile}>Go to Profile</button>
