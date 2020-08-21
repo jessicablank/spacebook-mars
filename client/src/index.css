@@ -16,10 +16,6 @@ body {
   position: relative;
 }
 
-* {
-  color: white;
-}
-
 button {
   border: none;
   cursor: pointer;
