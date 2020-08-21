@@ -29,6 +29,10 @@ function TaskPage() {
       .catch((err) => console.log(err));
   }
 
+  function handleTaskSaved() {
+    loadTasks();
+  }
+
   return (
     <div>
       <Container>
@@ -46,7 +50,7 @@ function TaskPage() {
           </Link>
         </div>
       </Container>
-      <Task />
+      <Task onTaskSaved={handleTaskSaved} />
 
       <Container>
         {tasksData.length ? (
