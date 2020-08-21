@@ -19,12 +19,13 @@ function Task() {
           title: formObject.title,
           textBody: formObject.textBody,
         })
-        // .then(res => loadBooks())
+        .then(res => window.location.reload())
         .catch((err) => console.log(err));
     }
   }
 
   //style={{ marginLeft: -16, width: 450 }}
+  
   return (
     <Container>
       <div className="card container-sm clear-card">
@@ -38,7 +39,7 @@ function Task() {
             <TextArea
               onChange={handleInputChange}
               name="textBody"
-              placeholder="Plan your day on mars!"
+              placeholder="Plan your day on Mars!"
             />
             <FormBtn disabled={!formObject.title} onClick={handleFormSubmit}>
               Submit Task

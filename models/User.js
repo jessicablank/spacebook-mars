@@ -26,6 +26,12 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  tasks: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Task",
+    },
+  ],
 });
 
 // Execute before each user.save() call
@@ -46,12 +52,6 @@ UserSchema.pre("save", async function () {
 
 UserSchema.methods.verifyPassword = async function (plainTextPassword) {
   return bcrypt.compare(plainTextPassword, this.password);
-  // bcrypt.compare(password, this.password, (err, isMatch) => {
-  //   if (err) {
-  //     return cb(err);
-  //   }
-  //   cb(null, isMatch);
-  // });
 };
 
 const User = mongoose.model("User", UserSchema);
