@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Home/home.css";
 import roverAPI from "../utils/roverAPI";
 import { Link } from "react-router-dom";
+import Container from "../components/Container";
 
 function RoverPhotos() {
   const [images, setImages] = useState([]);
@@ -51,17 +52,17 @@ function RoverPhotos() {
         console.log("my data" + data);
 
         return (
-          <div className="card container-sm clear-card">
-            <img className="roverImages" alt="rover-camera" src={image} />
-            <div className="card-body">
-              <p className="card-text">{earthDate}</p>
+          <Container>
+            <div className="card container-sm clear-card">
+              <img className="roverImages" alt="rover-camera" src={image} />
+              <div className="card-body">
+                <p className="card-text">{earthDate}</p>
+              </div>
             </div>
-          </div>
+          </Container>
         );
-      })
-      }
+      })}
     </div>
-
   );
 }
 

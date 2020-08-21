@@ -13,6 +13,7 @@ import Navbar from "./components/Navbar";
 import TaskPage from "./pages/TaskPage";
 import ForecastPage from "./pages/Forecast";
 import RoverPhotos from "./pages/RoverPhotos";
+import NoMatch from "./pages/NoMatch";
 
 function App() {
   return (
@@ -42,6 +43,9 @@ function App() {
             <ProtectedRoute exact path="/profile">
               <Profile />
             </ProtectedRoute>
+            <Route>
+              <NoMatch />
+            </Route>
           </Switch>
         </div>
       </Router>
