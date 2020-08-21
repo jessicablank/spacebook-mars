@@ -3,8 +3,9 @@ import DeleteBtn from "../components/DeleteBtn";
 import taskAPI from "../utils/taskAPI";
 import Task from "../components/Form/taskCard";
 import { Link } from "react-router-dom";
-import TaskCard from "../components/TasksCards/index";
+//import TaskCard from "../components/TasksCards/index";
 import Container from "../components/Container";
+import { List, ListItem } from "../components/List";
 import "./style.css";
 
 function TaskPage() {
@@ -46,16 +47,22 @@ function TaskPage() {
         </div>
       </Container>
       <Task />
-      <TaskCard>
-        
-      {tasksData.map((each,index)=>{
-          return(
-            console.log(each.title),
-            <p key={index} onClick={()=>alert(each.textBody)}>{each.title}</p>
-          );
-        })}
-       
-      </TaskCard>
+   
+      <Container>
+      {tasksData.length ? (
+        <List>
+      {tasksData.map(task=>(
+            <ListItem key={task._id}>
+            <Link onClick={()=>alert(task.textBody)}>{task.title} </Link>
+
+            <DeleteBtn onClick={() => deleteTask(task._id)} />
+            </ListItem>
+      ))}
+        </List>
+      ) : (<h3>Martian Will Tasks Display Here</h3>
+      )}
+      </Container>
+     
     </div>
   );
 }

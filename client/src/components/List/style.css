@@ -14,7 +14,6 @@
     border-radius: 0px;
     border-left: none;
     border-right: none;
-   
   }
   
   .list-overflow-container li * {
@@ -22,8 +21,7 @@
   }
   
   .list-overflow-container li a {
-    color: purple;
-    font-weight: bold;
+    color: black;
   }
   
   .list-overflow-container li:first-child {
@@ -33,3 +31,4 @@
   .list-overflow-container li:last-child {
     border-bottom: none;
   }
+  
