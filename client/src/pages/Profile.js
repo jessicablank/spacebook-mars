@@ -65,7 +65,7 @@ function Profile() {
       </div>
       {forecast
         //slice method for displaying most recent forecast date
-        .slice(6, 7)
+        .slice(0, 1)
         .map((data) => {
           const marsDay = data[0];
           const min = data[1].AT?.mn;

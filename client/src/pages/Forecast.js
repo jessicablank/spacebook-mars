@@ -43,12 +43,10 @@ function ForecastPage() {
       </div>
       {forecast
         .slice(0, 6)
-        .reverse()
         .map((data) => {
           const marsDay = data[0];
           const min = data[1].AT?.mn;
           const max = data[1].AT?.mx;
-          const season = data[1].Season;
           const earthDay = data[1].First_UTC;
 
           const formatDate = (date) =>
@@ -58,14 +56,13 @@ function ForecastPage() {
               year: "numeric",
             });
           const earthDate = formatDate(new Date(earthDay));
-
           const marsMax = max.toFixed(2);
           const marsMin = min.toFixed(2);
 
           return (
             <div className="card mb-3 clear-card" key={marsDay}>
               <div className="card-body">
-                <p>Season: {season}</p>
+               
                 <p>Earth Day: {earthDate}</p>
                 <p>Martian Day: {marsDay}</p>
                 <p>High Temp: {marsMax} °C</p>
