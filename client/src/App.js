@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
+//import Navbar from "./components/Navbar";
 import TaskPage from "./pages/TaskPage";
 import ForecastPage from "./pages/Forecast";
 import RoverPhotos from "./pages/RoverPhotos";
@@ -20,7 +20,7 @@ function App() {
     <AuthProvider>
       <Router>
         <div>
-          <Navbar />
+          {/* <Navbar /> */}
           <Switch>
             <ProtectedRoute exact path="/">
               <Home />
