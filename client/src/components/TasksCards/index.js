@@ -3,11 +3,11 @@ import taskAPI from "../../utils/taskAPI";
 import Container from "../Container";
 
 function TaskCard() {
-  const [tasksData, setTasksData] = useState([])
+  const [tasksData, setTasksData] = useState([]);
 
   useEffect(()=>{
-    loadTasks()
-  }, [])
+    loadTasks();
+  }, []);
 
   function loadTasks() {
     taskAPI.getTasks()
@@ -15,18 +15,18 @@ function TaskCard() {
         setTasksData(res.data)
       )
       .catch(err => console.log(err));
-  };
+  }
 
   return (
     <Container>
       <div className="card container-sm clear-card">
-        <div className="card-body">Task:</div>
+        <div className="card-body">Tasks:</div>
         
         {tasksData.map((each,index)=>{
-           return(
+          return(
             <p key={index} onClick={()=>alert(each.textBody)}>{each.title}</p>
-          )
-          })}
+          );
+        })}
       
       </div>
     </Container>

@@ -18,15 +18,18 @@ router.get("/api/task", async (req, res) => {
 // create a new task
 router.post("/api/task", isAuthenticated, async (req, res) => {
   try {
-    const task = await db.Task.create(req.body)
-    await db.User.findOneAndUpdate({_id: req.user.id}, { $push: { tasks: task._id } }, { new: true })
+    const task = await db.Task.create(req.body);
+    await db.User.findOneAndUpdate(
+      { _id: req.user.id },
+      { $push: { tasks: task._id } },
+      { new: true }
+    );
     res.json(task);
   } catch (error) {
     console.log(error);
     res.status(400).send(error.message);
   }
 });
-
 
 // read one task by task id
 router.get("/api/task/:id", isAuthenticated, async (req, res) => {

@@ -29,9 +29,9 @@ const UserSchema = new Schema({
   tasks: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Task"
-    }
-  ]
+      ref: "Task",
+    },
+  ],
 });
 
 // Execute before each user.save() call
@@ -52,7 +52,6 @@ UserSchema.pre("save", async function () {
 
 UserSchema.methods.verifyPassword = async function (plainTextPassword) {
   return bcrypt.compare(plainTextPassword, this.password);
- 
 };
 
 const User = mongoose.model("User", UserSchema);
