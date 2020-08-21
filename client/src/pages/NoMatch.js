@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
-import { List, ListItem } from "../components/List";
+import { List } from "../components/List";
 
 function NoMatch() {
   return (

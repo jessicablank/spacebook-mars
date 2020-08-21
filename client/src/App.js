@@ -12,7 +12,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import TaskPage from "./pages/TaskPage";
 import ForecastPage from "./pages/Forecast";
-import NoMatch from "./pages/NoMatch";
+import RoverPhotos from "./pages/RoverPhotos";
 
 function App() {
   return (
@@ -35,6 +35,9 @@ function App() {
             </Route>
             <Route exact path="/forecast">
               <ForecastPage />
+            </Route>
+            <Route exact path="/roverphotos">
+              <RoverPhotos />
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />

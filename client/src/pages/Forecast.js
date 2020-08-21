@@ -23,7 +23,6 @@ function ForecastPage() {
         console.log("maximum ", forecastData[0][1].AT.mx);
         console.log("season ", forecastData[0][1].Season);
         setForecast(forecastData);
-        // console.log(res.data);
       })
       .catch((err) => console.log(err));
   }

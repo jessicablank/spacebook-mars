@@ -24,6 +24,13 @@ function Navbar() {
       <NavLink key="profile" className="nav-item" to="/forecast">
         Forecast
       </NavLink>
+      
+    );
+    links.push(
+      <NavLink key="profile" className="nav-item" to="/roverphotos">
+        Rover Photos
+      </NavLink>
+      
     );
     links.push(
       <span key="lougout" className="nav-item" onClick={logout}>
