@@ -5,13 +5,14 @@ import Container from "../components/Container";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import Task from "../components/Form/taskCard";
+import ModalComp from "../components/Modal/Modal";
 import "./style.css";
 
 function Profile() {
   const [username, setUsername] = useState("");
   //const [email, setEmail] = useState("");
   const { user } = useAuth();
-
+  const [showModal, setShowModal] = useState(false);
   const [forecast, setForecast] = useState([]);
 
   useEffect(() => {
@@ -42,9 +43,14 @@ function Profile() {
     });
   }, [user]);
 
+  const handleTaskSaved = () => {
+    setShowModal(true);
+  };
+
   return (
     <Container>
       <h1>SpaceBook</h1>
+
       <div className="card mb-3 text-center clear-card">
         <div className="card-body welcome-banner">
           Greetings <br />
@@ -96,7 +102,9 @@ function Profile() {
             </div>
           );
         })}
-      <Task />
+
+      <Task onTaskSaved={handleTaskSaved} />
+      {showModal && <ModalComp onHide={() => setShowModal(false)} />}
     </Container>
   );
 }

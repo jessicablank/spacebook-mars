@@ -29,6 +29,10 @@ function TaskPage() {
       .catch((err) => console.log(err));
   }
 
+  function handleTaskSaved() {
+    loadTasks();
+  }
+
   return (
     <div>
       <Container>
@@ -46,23 +50,23 @@ function TaskPage() {
           </Link>
         </div>
       </Container>
-      <Task />
-   
+      <Task onTaskSaved={handleTaskSaved} />
+
       <Container>
         {tasksData.length ? (
           <List>
-            {tasksData.map(task=>(
+            {tasksData.map((task) => (
               <ListItem key={task._id}>
-                <Link onClick={()=>alert(task.textBody)}>{task.title} </Link>
+                <Link onClick={() => alert(task.textBody)}>{task.title} </Link>
 
                 <DeleteBtn onClick={() => deleteTask(task._id)} />
               </ListItem>
             ))}
           </List>
-        ) : (<h3>Martian Tasks Will Display Here</h3>
+        ) : (
+          <h3>Martian Will Tasks Display Here</h3>
         )}
       </Container>
-     
     </div>
   );
 }
