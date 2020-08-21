@@ -53,18 +53,16 @@ function RoverPhotos() {
 
         return (
           <Container>
-          <div className="card container-sm clear-card">
-            <img className="roverImages" alt="rover-camera" src={image} />
-            <div className="card-body">
-              <p className="card-text">{earthDate}</p>
+            <div className="card container-sm clear-card">
+              <img className="roverImages" alt="rover-camera" src={image} />
+              <div className="card-body">
+                <p className="card-text">{earthDate}</p>
+              </div>
             </div>
-          </div>
           </Container>
         );
-      })
-      }
+      })}
     </div>
-
   );
 }
 
