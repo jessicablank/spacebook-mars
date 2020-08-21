@@ -1,24 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import DeleteBtn from "../components/DeleteBtn";
+import taskAPI from "../utils/taskAPI";
 import Task from "../components/Form/taskCard";
 import { Link } from "react-router-dom";
-import Container from "../components/Container";
 import TaskCard from "../components/TasksCards/index";
+import Container from "../components/Container";
 import "./style.css";
 
 function TaskPage() {
-  // const [setTasks] = useState([]);
+  const [tasksData, setTasksData] = useState([]);
 
-  // useEffect(() => {
-  //   loadTasks();
-  // }, [loadTasks]);
+  useEffect(() => {
+    loadTasks();
+  }, []);
 
-  // function loadTasks() {
-  //   taskAPI.getTasks()
-  //     .then(res =>
-  //       setTasks(res.data)
-  //     )
-  //     .catch(err => console.log(err));
-  // }
+  function loadTasks() {
+    taskAPI
+      .getTasks()
+      .then((res) => setTasksData(res.data))
+      .catch((err) => console.log(err));
+  }
+
+  function deleteTask(id) {
+    taskAPI
+      .deleteTask(id)
+      .then((res) => loadTasks())
+      .catch((err) => console.log(err));
+  }
 
   return (
     <div>
@@ -36,9 +44,18 @@ function TaskPage() {
             </button>
           </Link>
         </div>
-        <Task />
-        <TaskCard />
       </Container>
+      <Task />
+      <TaskCard>
+        
+      {tasksData.map((each,index)=>{
+          return(
+            console.log(each.title),
+            <p key={index} onClick={()=>alert(each.textBody)}>{each.title}</p>
+          );
+        })}
+       
+      </TaskCard>
     </div>
   );
 }
