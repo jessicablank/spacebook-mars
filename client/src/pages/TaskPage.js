@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 //import TaskCard from "../components/TasksCards/index";
 import Container from "../components/Container";
 import { List, ListItem } from "../components/List";
+import Logout from "../components/Logout/Logout";
 import "./style.css";
 
 function TaskPage() {
@@ -72,6 +73,9 @@ function TaskPage() {
           <h3>Martian Will Tasks Display Here</h3>
         )}
       </Container>
+      <div className="mb-3 row justify-content-around">
+        <Logout />
+      </div>
     </div>
   );
 }
