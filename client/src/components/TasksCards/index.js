@@ -23,7 +23,7 @@ function TaskCard() {
         <div className="card-body">Task:</div>
         
         {tasksData.map((each,index)=>{
-          return(
+           return(
             <p key={index} onClick={()=>alert(each.textBody)}>{each.title}</p>
           )
           })}
