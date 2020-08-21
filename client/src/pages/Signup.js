@@ -53,7 +53,7 @@ function Signup() {
       <Form onSubmit={handleFormSubmit}>
         <InputGroup
           id="username"
-          labelText="Martian Name"
+          labelText="Choose your Martian name!"
           placeholder="Mr. Martian XLF-12"
           name="username"
           type="text"
