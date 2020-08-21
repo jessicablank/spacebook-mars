@@ -3,8 +3,9 @@ import taskAPI from "../../utils/taskAPI";
 import Container from "../Container";
 import { Input, TextArea, FormBtn } from "./index";
 
-function Task() {
+function Task({ onTaskSaved }) {
   const [formObject, setFormObject] = useState({});
+  const [isPending, setIsPending] = useState(false);
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -13,19 +14,27 @@ function Task() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.title) {
+
+    if (formObject.title && !isPending) {
+      setIsPending(true);
       taskAPI
         .saveTask({
           title: formObject.title,
           textBody: formObject.textBody,
         })
-        .then(res => window.location.reload())
-        .catch((err) => console.log(err));
+        .then((res) => {
+          if (onTaskSaved) {
+            onTaskSaved();
+          }
+          setIsPending(false);
+        })
+        .catch((err) => {
+          setIsPending(false);
+          console.log(err);
+        });
     }
   }
 
-  //style={{ marginLeft: -16, width: 450 }}
-  
   return (
     <Container>
       <div className="card container-sm clear-card">
@@ -41,8 +50,12 @@ function Task() {
               name="textBody"
               placeholder="Plan your day on Mars!"
             />
-            <FormBtn disabled={!formObject.title} onClick={handleFormSubmit}>
-              Submit Task
+
+            <FormBtn
+              disabled={isPending || !formObject.title}
+              onClick={handleFormSubmit}
+            >
+              Save
             </FormBtn>
           </form>
         </div>
