@@ -18,10 +18,10 @@ function RoverPhotos() {
         const imagesData = Object.entries(res.data);
         console.log("images ", imagesData[0][1]);
         setImages(imagesData[0][1]);
-        // console.log(res.data);
       })
       .catch((err) => console.log(err));
   }
+
   return (
     <div className="Rover-Photos">
       <div className="Rover-header">
@@ -44,19 +44,19 @@ function RoverPhotos() {
           </button>
         </Link>
       </div>
-      {images.slice(0, 5).map((data) => {
-        // const id = data[0].id
-        const image = data.img_src;
-        const earthDate = data.earth_date;
-        console.log("my images" + images);
-        console.log("my data" + data);
+      {images.filter(data=>data.id % 2 === 0).slice(0,3).map((filteredData) => {
+        //const index = data.id
+        const image = filteredData.img_src;
+        const earthDate = filteredData.earth_date;
+        const cameraName = filteredData.camera.full_name;
+        console.log("earth date" + earthDate)
 
         return (
           <Container>
             <div className="card container-sm clear-card">
               <img className="roverImages" alt="rover-camera" src={image} />
               <div className="card-body">
-                <p className="card-text">{earthDate}</p>
+                <p className="card-text">{cameraName}</p>
               </div>
             </div>
           </Container>
