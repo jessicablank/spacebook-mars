@@ -3,7 +3,7 @@ import "./Home/home.css";
 import roverAPI from "../utils/roverAPI";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
-import Logout from "../components/Logout/Logout";
+//import Logout from "../components/Logout/Logout";
 
 function RoverPhotos() {
   const [images, setImages] = useState([]);
@@ -65,9 +65,9 @@ function RoverPhotos() {
           </Container>
         );
       })}
-      <div className="mb-3 row justify-content-around">
+      {/* <div className="mb-3 row justify-content-around">
         <Logout />
-      </div>
+      </div> */}
     </div>
   );
 }
