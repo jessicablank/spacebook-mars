@@ -43,7 +43,7 @@ function RoverPhotos() {
             Forecast
           </button>
         </Link>
-      </div>
+      </div> 
       {images.filter(data=>data.id % 2 === 0).slice(0,3).map((filteredData) => {
         //const index = data.id
         const image = filteredData.img_src;
