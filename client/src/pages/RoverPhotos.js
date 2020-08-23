@@ -25,44 +25,49 @@ function RoverPhotos() {
 
   return (
     <div className="Rover-Photos">
-      <div className="Rover-header">
-        <h1>Rover Photos</h1>
-      </div>
-      <div className="mb-3 row justify-content-around">
-        <Link to="/profile">
-          <button type="button" className="btn btn-primary btn-lg styledBtn">
-            Home
-          </button>
-        </Link>
-        <Link to="/task">
-          <button type="button" className="btn btn-primary btn-lg styledBtn">
-            Tasks
-          </button>
-        </Link>
-        <Link to="/forecast">
-          <button type="button" className="btn btn-primary btn-lg styledBtn">
-            Forecast
-          </button>
-        </Link>
-      </div> 
-      {images.filter(data=>data.id % 2 === 0).slice(0,3).map((filteredData) => {
-        //const index = data.id
-        const image = filteredData.img_src;
-        const earthDate = filteredData.earth_date;
-        const cameraName = filteredData.camera.full_name;
-        console.log("earth date" + earthDate);
+      <Container>
+        <div className="Rover-header">
+          <h1>Rover Photos</h1>
+        </div>
+        <div className="mb-3 row justify-content-around">
+          <Link to="/profile">
+            <button type="button" className="btn btn-primary btn-sm styledBtn">
+              Home
+            </button>
+          </Link>
+          <Link to="/task">
+            <button type="button" className="btn btn-primary btn-sm styledBtn">
+              Tasks
+            </button>
+          </Link>
+          <Link to="/forecast">
+            <button type="button" className="btn btn-primary btn-sm styledBtn">
+              Forecast
+            </button>
+          </Link>
+        </div>
+      </Container>
+      {images
+        .filter((data) => data.id % 2 === 0)
+        .slice(0, 3)
+        .map((filteredData) => {
+          //const index = data.id
+          const image = filteredData.img_src;
+          const earthDate = filteredData.earth_date;
+          const cameraName = filteredData.camera.full_name;
+          console.log("earth date" + earthDate);
 
-        return (
-          <Container>
-            <div className="card container-sm clear-card">
-              <img className="roverImages" alt="rover-camera" src={image} />
-              <div className="card-body">
-                <p className="card-text">{cameraName}</p>
+          return (
+            <Container>
+              <div className="card container-sm clear-card">
+                <img className="roverImages" alt="rover-camera" src={image} />
+                <div className="card-body">
+                  <p className="card-text">{cameraName}</p>
+                </div>
               </div>
-            </div>
-          </Container>
-        );
-      })}
+            </Container>
+          );
+        })}
       {/* <div className="mb-3 row justify-content-around">
         <Logout />
       </div> */}
