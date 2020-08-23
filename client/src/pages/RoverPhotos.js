@@ -49,7 +49,7 @@ function RoverPhotos() {
         const image = filteredData.img_src;
         const earthDate = filteredData.earth_date;
         const cameraName = filteredData.camera.full_name;
-        console.log("earth date" + earthDate)
+        console.log("earth date" + earthDate);
 
         return (
           <Container>
