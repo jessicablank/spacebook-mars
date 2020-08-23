@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import Task from "../components/Form/taskCard";
 import ModalComp from "../components/Modal/Modal";
+//import Logout from "../components/Logout/Logout";
 import "./style.css";
 
 function Profile() {
@@ -59,16 +60,22 @@ function Profile() {
       </div>
       <div className="mb-3 row justify-content-around">
         <Link to="/forecast">
-          <button type="button" className="btn btn-primary btn-lg styledBtn">
+          <button type="button" className="btn btn-primary btn-sm styledBtn">
             Forecast
           </button>
         </Link>
         <Link to="/task">
-          <button type="button" className="btn btn-primary btn-lg styledBtn">
+          <button type="button" className="btn btn-primary btn-sm styledBtn">
             Tasks
           </button>
         </Link>
+        <Link to="/roverphotos">
+          <button type="button" className="btn btn-primary btn-sm styledBtn">
+            Rover
+          </button>
+        </Link>
       </div>
+      <h2>Today's Weather</h2>
       {forecast
         //slice method for displaying most recent forecast date
         .slice(0, 1)
@@ -102,9 +109,12 @@ function Profile() {
             </div>
           );
         })}
-
+      <h2>Quickly Add a Task</h2>
       <Task onTaskSaved={handleTaskSaved} />
       {showModal && <ModalComp onHide={() => setShowModal(false)} />}
+      {/* <div className="mb-3 row justify-content-around">
+        <Logout />
+      </div> */}
     </Container>
   );
 }
