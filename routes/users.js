@@ -11,7 +11,7 @@ router.get("/api/user/:id", isAuthenticated, (req, res) => {
       if (data) {
         res.json(data);
       } else {
-        res.status(404).send({ success: false, message: "No user found" });
+        res.status(404).send({ success: false, message: "No Martian Found" });
       }
     })
     .catch((err) => res.status(400).send(err));

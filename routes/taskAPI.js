@@ -7,7 +7,7 @@ const router = express.Router();
 // get all tasks
 router.get("/api/task", isAuthenticated,async (req, res) => {
   try {
-    const task = await db.Task.find({martianID:"5f42cab219f6bd1468fd8a27"});
+    const task = await db.Task.find({martianID:"5f42f9a0e0fa7836bce66524"});
     res.json(task);
   } catch (error) {
     console.log(error);

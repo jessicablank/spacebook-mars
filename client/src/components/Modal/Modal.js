@@ -8,9 +8,9 @@ function ModalComp({ onHide }) {
     <>
       <Modal show={true} onHide={onHide}>
         <Modal.Header closeButton>
-          <Modal.Title>Your task was saved!</Modal.Title>
+          <Modal.Title>Your Task was Saved!</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Click Task button to view all of your tasks!</Modal.Body>
+        <Modal.Body>Click Tasks Button to View All of Your Tasks!</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={onHide}>
             Close
