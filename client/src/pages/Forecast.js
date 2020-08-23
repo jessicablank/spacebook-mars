@@ -67,7 +67,7 @@ function ForecastPage() {
           <div className="card mb-3 clear-card" key={marsDay}>
             <div className="card-body">
               <p>Earth Day: {earthDate}</p>
-              <p>Martian Day: {marsDay}</p>
+              <p>Martian Sol: {marsDay}</p>
               <p>High Temp: {marsMax} °C</p>
               <p>Low Temp: {marsMin} °C</p>
             </div>

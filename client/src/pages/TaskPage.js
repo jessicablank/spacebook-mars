@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import taskAPI from "../utils/taskAPI";
 import Task from "../components/Form/taskCard";
+import TaskModal from "../components/Modal/TaskModal";
 import { Link } from "react-router-dom";
-//import TaskCard from "../components/TasksCards/index";
 import Container from "../components/Container";
 import { List, ListItem } from "../components/List";
 //import Logout from "../components/Logout/Logout";
@@ -11,6 +11,8 @@ import "./style.css";
 
 function TaskPage() {
   const [tasksData, setTasksData] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [singleTaskForModal, setSingleTaskForModal] = useState({});
 
   useEffect(() => {
     loadTasks();
@@ -32,6 +34,11 @@ function TaskPage() {
 
   function handleTaskSaved() {
     loadTasks();
+  }
+
+  function setTaskStateAndShowModal(task) {
+    setSingleTaskForModal(task);
+    setShowModal(true);
   }
 
   return (
@@ -58,12 +65,21 @@ function TaskPage() {
       </Container>
       <Task onTaskSaved={handleTaskSaved} />
 
+      {showModal && (
+        <TaskModal
+          onHide={() => setShowModal(false)}
+          task={singleTaskForModal}
+        />
+      )}
+
       <Container>
         {tasksData.length ? (
           <List>
             {tasksData.map((task) => (
               <ListItem key={task._id}>
-                <Link onClick={() => alert(task.textBody)}>{task.title} </Link>
+                <Link onClick={() => setTaskStateAndShowModal(task)}>
+                  {task.title}
+                </Link>
 
                 <DeleteBtn onClick={() => deleteTask(task._id)} />
               </ListItem>
