@@ -10,12 +10,23 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-weight: bold;
+  font-family: Montserrat, Arial, sans-serif;
+  color: black;
+  text-align: center;
+}
+
 .roundedBtn {
   border-radius: 50px 50px 50px 50px;
 }
 
 .styledBtn {
   width: 8em;
+}
+
+.btnWidth {
+  width: 100%;
 }
 
 .clear-card {

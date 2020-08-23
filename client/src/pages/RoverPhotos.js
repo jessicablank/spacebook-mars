@@ -3,6 +3,7 @@ import "./Home/home.css";
 import roverAPI from "../utils/roverAPI";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
+//import Logout from "../components/Logout/Logout";
 
 function RoverPhotos() {
   const [images, setImages] = useState([]);
@@ -24,32 +25,34 @@ function RoverPhotos() {
 
   return (
     <div className="Rover-Photos">
-      <div className="Rover-header">
-        <h1>Rover Photos</h1>
-      </div>
-      <div className="mb-3 row justify-content-around">
-        <Link to="/profile">
-          <button type="button" className="btn btn-primary btn-lg styledBtn">
-            Home
-          </button>
-        </Link>
-        <Link to="/task">
-          <button type="button" className="btn btn-primary btn-lg styledBtn">
-            Tasks
-          </button>
-        </Link>
-        <Link to="/forecast">
-          <button type="button" className="btn btn-primary btn-lg styledBtn">
-            Forecast
-          </button>
-        </Link>
-      </div> 
-      {images.filter(data=>data.id % 2 === 0).slice(0,3).map((filteredData) => {
-        //const index = data.id
-        const image = filteredData.img_src;
-        const earthDate = filteredData.earth_date;
-        const cameraName = filteredData.camera.full_name;
-        console.log("earth date" + earthDate);
+      <Container>
+        <div className="Rover-header">
+          <h1>Rover Photos</h1>
+        </div>
+        <div className="mb-3 row justify-content-around">
+          <Link to="/profile">
+            <button type="button" className="btn btn-primary btn-sm styledBtn">
+              Home
+            </button>
+          </Link>
+          <Link to="/task">
+            <button type="button" className="btn btn-primary btn-sm styledBtn">
+              Tasks
+            </button>
+          </Link>
+          <Link to="/forecast">
+            <button type="button" className="btn btn-primary btn-sm styledBtn">
+              Forecast
+            </button>
+          </Link>
+        </div>
+      </Container>
+      {images.slice(0, 5).map((data) => {
+        // const id = data[0].id
+        const image = data.img_src;
+        const earthDate = data.earth_date;
+        console.log("my images" + images);
+        console.log("my data" + data);
 
         return (
           <Container>
@@ -62,6 +65,9 @@ function RoverPhotos() {
           </Container>
         );
       })}
+      {/* <div className="mb-3 row justify-content-around">
+        <Logout />
+      </div> */}
     </div>
   );
 }
