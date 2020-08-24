@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import taskAPI from "../../utils/taskAPI";
 import Container from "../Container";
 import { Input, TextArea, FormBtn } from "./index";
+import taskAPI from "../../utils/taskAPI";
 
 function Task({ onTaskSaved }) {
   const [formObject, setFormObject] = useState({});
@@ -22,6 +22,10 @@ function Task({ onTaskSaved }) {
           title: formObject.title,
           textBody: formObject.textBody,
         })
+        .then(() => setFormObject({
+          title: formObject.title = "",
+          textBody: formObject.textBody = "",
+        }))
         .then((res) => {
           if (onTaskSaved) {
             onTaskSaved();

@@ -1,7 +1,9 @@
 import React from "react";
 import "./style.css";
 import Container from "../Container";
-//Currently not in use, see List Component Folder and TaskPage.js
+
+//currently not in use
+
 
 function TaskCard() {
   return (

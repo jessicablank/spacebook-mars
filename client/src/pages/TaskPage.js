@@ -14,6 +14,7 @@ function TaskPage() {
   const [showModal, setShowModal] = useState(false);
   const [singleTaskForModal, setSingleTaskForModal] = useState({});
 
+
   useEffect(() => {
     loadTasks();
   }, []);

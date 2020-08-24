@@ -18,7 +18,7 @@ router.get("/api/task", isAuthenticated,async (req, res) => {
 // create a new task
 router.post("/api/task", isAuthenticated, async (req, res) => {
   try {
-    const task = await db.Task.create({...req.body, martianID:req.user.email});
+    const task = await db.Task.create({...req.body, martianID:req.user.id});
     res.json(task);
   } catch (error) {
     console.log(error);
