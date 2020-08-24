@@ -6,9 +6,9 @@ const router = express.Router();
 
 // get all tasks
 router.get("/api/task", isAuthenticated, async (req, res) => {
-  console.log(req.user)
+  console.log(req.user);
   try {
-    const task = await db.Task.find({martianID: req.user.id});
+    const task = await db.Task.find({ martianID: req.user.id });
     //What I keep trying: martianID:req.params.id
     res.json(task);
   } catch (error) {
