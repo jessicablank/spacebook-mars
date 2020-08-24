@@ -14,14 +14,17 @@ module.exports = {
   logUserIn: async (email, password) => {
     const user = await db.User.findOne({ email });
     if (!user) {
-      return { success: false, message: "User not found" };
+      return {
+        success: false,
+        message: "Martian Not Found. Please Create an Account",
+      };
     }
 
     const isMatch = await user.verifyPassword(password);
     if (!isMatch) {
       return {
         success: false,
-        message: "Authentication failed. Wrong password.",
+        message: "Martian Authentication Failed. Wrong password.",
       };
     }
 

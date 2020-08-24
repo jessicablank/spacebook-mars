@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
-//import Logout from "../components/Logout/Logout";
+import Logout from "../components/Logout/Logout";
 import { Link } from "react-router-dom";
 import "./style.css";
 
@@ -63,20 +63,27 @@ function ForecastPage() {
         const marsMax = max.toFixed(2);
         const marsMin = min.toFixed(2);
 
+        const marsMaxF = ((marsMax * 9) / 5 + 32).toFixed(2);
+        const marsMaxC = ((marsMin * 9) / 5 + 32).toFixed(2);
+
         return (
           <div className="card mb-3 clear-card" key={marsDay}>
             <div className="card-body">
               <p>Earth Day: {earthDate}</p>
-              <p>Martian Day: {marsDay}</p>
-              <p>High Temp: {marsMax} °C</p>
-              <p>Low Temp: {marsMin} °C</p>
+              <p>Martian Sol: {marsDay}</p>
+              <p>
+                High Temp: {marsMax} °C | {marsMaxF} °F
+              </p>
+              <p>
+                Low Temp: {marsMin} °C | {marsMaxC} °F
+              </p>
             </div>
           </div>
         );
       })}
-      {/* <div className="mb-3 row justify-content-around">
+      <div className="mb-3 row justify-content-around">
         <Logout />
-      </div> */}
+      </div>
     </Container>
   );
 }

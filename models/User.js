@@ -26,12 +26,6 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  tasks: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Task",
-    },
-  ],
 });
 
 // Execute before each user.save() call

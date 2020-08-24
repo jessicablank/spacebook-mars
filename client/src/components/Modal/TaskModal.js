@@ -2,15 +2,15 @@ import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-//Used on the Profile Page
-function ModalComp({ onHide }) {
+//Used on the Tasks Page
+function TaskModal({ onHide, task }) {
   return (
     <>
       <Modal show={true} onHide={onHide}>
         <Modal.Header closeButton>
-          <Modal.Title>Your Task was Saved!</Modal.Title>
+          <Modal.Title>{task.title}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Click Tasks Button to View All of Your Tasks!</Modal.Body>
+        <Modal.Body>{task.textBody}</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={onHide}>
             Close
@@ -21,4 +21,4 @@ function ModalComp({ onHide }) {
   );
 }
 
-export default ModalComp;
+export default TaskModal;

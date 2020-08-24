@@ -31,7 +31,7 @@ function Navbar() {
       </NavLink>
     );
     links.push(
-      <span key="lougout" className="nav-item" onClick={logout}>
+      <span key="logout" className="nav-item" onClick={logout}>
         Logout
       </span>
     );
