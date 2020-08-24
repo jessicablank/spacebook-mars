@@ -10,26 +10,6 @@ function Navbar() {
   const links = [<BrandLink key="/" to="/" />];
 
   if (isLoggedIn) {
-    // links.push(
-    //   <NavLink key="profile" className="nav-item" to="/profile">
-    //     Profile
-    //   </NavLink>
-    // );
-    // links.push(
-    //   <NavLink key="profile" className="nav-item" to="/task">
-    //     Tasks
-    //   </NavLink>
-    // );
-    // links.push(
-    //   <NavLink key="profile" className="nav-item" to="/forecast">
-    //     Forecast
-    //   </NavLink>
-    // );
-    // links.push(
-    //   <NavLink key="profile" className="nav-item" to="/roverphotos">
-    //     Rover Photos
-    //   </NavLink>
-    // );
     links.push(
       <span key="logout" className="nav-item" onClick={logout}>
         Logout

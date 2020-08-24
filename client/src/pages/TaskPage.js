@@ -43,7 +43,7 @@ function TaskPage() {
   return (
     <div>
       <Container>
-        <h1>Your Tasks</h1>
+        <h1>YOUR TASKS</h1>
         <div className="mb-3 row justify-content-around">
           <Link to="/profile">
             <button type="button" className="btn btn-primary btn-sm styledBtn">

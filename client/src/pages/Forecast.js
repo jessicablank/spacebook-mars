@@ -16,19 +16,13 @@ function ForecastPage() {
       .getForecast()
       .then((res) => {
         const forecastData = Object.entries(res.data);
-        console.log("forecast ", forecastData);
-        console.log("day", forecastData[0][0]);
-        console.log("Earth day", forecastData[0][1].First_UTC);
-        console.log("minimum ", forecastData[0][1].AT.mn);
-        console.log("maximum ", forecastData[0][1].AT.mx);
-        console.log("season ", forecastData[0][1].Season);
         setForecast(forecastData);
       })
       .catch((err) => console.log(err));
   }
   return (
     <Container>
-      <h1>Extended Forecast</h1>
+      <h1>EXTENDED FORECAST</h1>
       <div className="mb-3 row justify-content-around">
         <Link to="/profile">
           <button type="button" className="btn btn-primary btn-sm styledBtn">

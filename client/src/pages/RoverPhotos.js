@@ -16,7 +16,6 @@ function RoverPhotos() {
       .getImages()
       .then((res) => {
         const imagesData = Object.entries(res.data);
-        console.log("images ", imagesData[0][1]);
         setImages(imagesData[0][1]);
       })
       .catch((err) => console.log(err));
@@ -26,7 +25,7 @@ function RoverPhotos() {
     <div className="Rover-Photos">
       <Container>
         <div className="Rover-header">
-          <h1>Rover Photos</h1>
+          <h1>ROVER PHOTOS</h1>
         </div>
         <div className="mb-3 row justify-content-around">
           <Link to="/profile">
@@ -52,9 +51,7 @@ function RoverPhotos() {
         .map((filteredData) => {
           const index = filteredData.id;
           const image = filteredData.img_src;
-          // const earthDate = filteredData.earth_date;
           const cameraName = filteredData.camera.full_name;
-          //console.log("earth date" + earthDate);
 
           return (
             <Container key={index}>
