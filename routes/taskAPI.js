@@ -9,7 +9,6 @@ router.get("/api/task", isAuthenticated, async (req, res) => {
   console.log(req.user);
   try {
     const task = await db.Task.find({ martianID: req.user.id });
-    //What I keep trying: martianID:req.params.id
     res.json(task);
   } catch (error) {
     console.log(error);

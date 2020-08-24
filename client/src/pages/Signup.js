@@ -4,6 +4,8 @@ import API from "./../utils/API";
 import { useAuth } from "../utils/auth";
 import { Form, InputGroup } from "../components/LoginForm";
 import "./style.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const signupStyles = {
   maxWidth: "20rem",
@@ -23,6 +25,8 @@ function Signup() {
   const { isLoggedIn } = useAuth();
 
   const history = useHistory();
+
+  const notify = () => toast.warn("Account already exists !");
 
   if (isLoggedIn) {
     return <Redirect to="/" />;
@@ -75,9 +79,14 @@ function Signup() {
           type="password"
           onChange={handleChange}
         />
-        <button className="roundedBtn" type="submit">
+        <button
+          className="roundedBtn"
+          type="submit"
+          onClick={isLoggedIn ? <Redirect to="/" /> : notify}
+        >
           Submit
         </button>
+        <ToastContainer />
       </Form>
       <Link
         style={{
