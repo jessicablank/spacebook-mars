@@ -6,14 +6,13 @@
 ## Description:  
  The year is 2099. Martians live in small colonies and need an app to help them plan their day. 
  
- Spacebook allows Martians to see the current weather for their colony location, check on photos from the nearby rover, and manage a task list. 
+SPACEBOOK allows Martians to see the current weather for their colony location, check on photos from the nearby rover, and manage a task list. 
 
     
 ## Table of Contents:
 * [Installation](#installing-locally)
 * [Quick Start](#quick-start)
 * [Tests](#tests)
-* [Routes](/routes.md)
 * [Questions](#questions)
 * [License](#license-info)
 
@@ -81,7 +80,7 @@ These Martians are already registered if the User would like to test the applica
     1. Upon log-in, the Martian will be greeted by Martian Name
     2. The Martian will see the current Martian weather card:
         * Season: Displays current Martian season using current data from the NASA InSight API
-        * Earth Day: Displays the Earth Day corresponding to the oldest data from the NASA InSight API. Note that this date will be approximately 15 days behind the actual current Earth Day. For example, if the actual Earth Day for the User is August 23, 2020, the Profile Page for the Spacebook Martian will display August 8, 2020. This is for several reasons:
+        * Earth Day: Displays the Earth Day corresponding to the oldest data from the NASA InSight API. Note that this date will be approximately 15 days behind the actual current Earth Day. For example, if the actual Earth Day for the User is August 23, 2020, the Profile Page for the SPACEBOOK Martian will display August 8, 2020. This is for several reasons:
             1. The actual data from the InSight API displays seven days worth of historical Mars data. For the purposes of this application, the developers imagined that data as a forecast. As a result, the current weather card always displays the oldest data from the seven days received from the Insight API. 
             2. There are 668 sols on Mars while there are 365 days on Earth. This means the data from Mars does not exactly line up with an Earth Day timeline. 
             3. The data from the InSight API displays seven sols with the most recent sol corresponding to about  days behind the current actual Earth Day. 
@@ -91,5 +90,13 @@ These Martians are already registered if the User would like to test the applica
     3. The Martian will see a task card to record a task. 
         * The Task Title is required in order to save the task. For Example: "*Eat Mars Bars*"
         * The Task Body is provided for more description. For Example: "*Because chocolate will help you stay alert.*"
-        * Once the Martian clicks "Save", a modal will confirm the task is saved.
-* 
+        * Once the Martian clicks **Save**, a modal will confirm the task is saved.
+* **Tasks Page**
+    1. The Martian will see a card to quickly add a new task. Upon **save**, task will be added to the bottom of the task list below. 
+    2. The task list allows the Martian to see previously added tasks with the oldest tasks displaying first. 
+        1. The Martian can click on the title of a task to see a modal with the task body. 
+        2. The Martian can delete the task by clicking the **X**.
+* **Rover Page**
+    1. The Martian will see up to three images from the Curiosity Rover that correspond to the approximate date displayed on the **Profile** page.
+
+ 
