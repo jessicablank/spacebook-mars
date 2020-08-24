@@ -53,7 +53,7 @@ function RoverPhotos() {
         .map((filteredData) => {
           //const index = data.id
           const image = filteredData.img_src;
-         // const earthDate = filteredData.earth_date;
+          // const earthDate = filteredData.earth_date;
           const cameraName = filteredData.camera.full_name;
           //console.log("earth date" + earthDate);
 

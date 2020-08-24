@@ -5,7 +5,7 @@ const { isAuthenticated } = require("../config/auth");
 const router = express.Router();
 
 // get all tasks
-router.get("/api/task", isAuthenticated,async (req, res) => {
+router.get("/api/task", isAuthenticated, async (req, res) => {
   try {
     const task = await db.Task.find({});
     //What I keep trying: martianID:req.params.id
@@ -19,7 +19,7 @@ router.get("/api/task", isAuthenticated,async (req, res) => {
 // create a new task
 router.post("/api/task", isAuthenticated, async (req, res) => {
   try {
-    const task = await db.Task.create({...req.body, martianID:req.user.id});
+    const task = await db.Task.create({ ...req.body, martianID: req.user.id });
     res.json(task);
   } catch (error) {
     console.log(error);

@@ -81,7 +81,7 @@ function TaskPage() {
         />
       )}
 
-  <h2>Click Task Title to See Details</h2>
+      <h2>Click Task Title to See Details</h2>
       <Container>
         {tasksData.length ? (
           <List>
