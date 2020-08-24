@@ -22,7 +22,8 @@ router.post("/api/task", isAuthenticated, async (req, res) => {
     res.json(task);
   } catch (error) {
     console.log(error);
-    res.status(400).send(error.message);n
+    res.status(400).send(error.message);
+    n;
   }
 });
 

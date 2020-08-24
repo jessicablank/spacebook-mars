@@ -77,7 +77,7 @@ These Martians are already registered if the User would like to test the applica
         * Must match the email entered during sign-up or receive an error
     2. Password
         * Must match the password entered during sign-up or receive an error
-* **Profile Page**
+* **Profile Page (Home Page)**
     1. Upon log-in, the Martian will be greeted by Martian Name
     2. The Martian will see the current Martian weather card:
         * Season: Displays current Martian season using current data from the NASA InSight API
