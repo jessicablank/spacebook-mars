@@ -6,14 +6,12 @@ import TaskModal from "../components/Modal/TaskModal";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
 import { List, ListItem } from "../components/List";
-//import Logout from "../components/Logout/Logout";
 import "./style.css";
 
 function TaskPage() {
   const [tasksData, setTasksData] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [singleTaskForModal, setSingleTaskForModal] = useState({});
-
 
   useEffect(() => {
     loadTasks();
@@ -99,9 +97,6 @@ function TaskPage() {
           <h4>Martian Tasks Will Display Here. Add some!</h4>
         )}
       </Container>
-      {/* <div className="mb-3 row justify-content-around">
-        <Logout />
-      </div> */}
     </div>
   );
 }
