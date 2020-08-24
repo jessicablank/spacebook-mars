@@ -3,7 +3,7 @@ import Container from "../Container";
 import { Input, TextArea, FormBtn } from "./index";
 import taskAPI from "../../utils/taskAPI";
 
-function Task() {
+function Task({ onTaskSaved }) {
   const [title, setTitle] = useState("");
   const [textBody, setTextBody] = useState("");
   const [isPending, setIsPending] = useState(false);
@@ -16,6 +16,9 @@ function Task() {
       .then((response) => {
         setTitle("");
         setTextBody("");
+      })
+      .then((response)=>{
+        onTaskSaved();
         setIsPending(false);
       })
       .catch((error) => {

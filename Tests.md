@@ -26,8 +26,8 @@
         * High Temp: Displays the high temperature recorded from the NASA InSight API in Celsius. 
         * Low Temp: Displays the low temperature recorded from the NASA InSight API in Celsius. 
     3. The Martian will see a task card to record a task. 
-        * The Task Title is required in order to save the task. For Example: "Eat Mars Bars"
-        * The Task Body is provided for more description. For Example: "Because chocolate will help you stay alert."
+        * The Task Title is required in order to save the task. For Example: "*Eat Mars Bars*"
+        * The Task Body is provided for more description. For Example: "*Because chocolate will help you stay alert.*"
         * Once the Martian clicks "Save", a modal will confirm the task is saved. 
 
            

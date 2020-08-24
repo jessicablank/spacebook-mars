@@ -91,14 +91,21 @@ function Profile() {
           const marsMax = max.toFixed(2);
           const marsMin = min.toFixed(2);
 
+          const marsMaxF = ((marsMax * 9) / 5 + 32).toFixed(2);
+          const marsMaxC = ((marsMin * 9) / 5 + 32).toFixed(2);
+
           return (
             <div className="card mb-3 clear-card" key={marsDay}>
               <div className="card-body">
                 <p>Season: {season}</p>
                 <p>Earth Day: {earthDate}</p>
                 <p>Martian Sol: {marsDay}</p>
-                <p>High Temp: {marsMax} °C</p>
-                <p>Low Temp: {marsMin} °C</p>
+                <p>
+                  High Temp: {marsMax} °C | {marsMaxF} °F
+                </p>
+                <p>
+                  Low Temp: {marsMin} °C | {marsMaxC} °F
+                </p>
               </div>
             </div>
           );
