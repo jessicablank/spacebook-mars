@@ -1,7 +1,7 @@
 .Navbar,
 .Navbar * {
   color: white;
-  background-color: #33ccff;
+  /* background-color: rgb(51, 204, 255, 0.5); */
 }
 
 .Navbar {
@@ -16,6 +16,7 @@
   cursor: pointer;
   text-decoration: none;
   border-bottom: 0.3rem solid transparent;
+  font-weight: bold;
 }
 
 .Navbar .nav-item:hover,
