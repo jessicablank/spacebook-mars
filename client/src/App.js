@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 // Our Components
@@ -8,7 +7,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
-//import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import TaskPage from "./pages/TaskPage";
 import ForecastPage from "./pages/Forecast";
@@ -23,7 +21,6 @@ function App() {
           <Navbar />
           <Switch>
             <ProtectedRoute exact path="/">
-              {/* <Home /> */}
               <Profile />
             </ProtectedRoute>
             <Route exact path="/login">
