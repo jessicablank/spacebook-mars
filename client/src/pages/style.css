@@ -47,7 +47,12 @@ button {
   font-size: 3em;
 }
 
-#taskTitleLink{
+#taskTitleLink {
   color: black;
-  
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
 }

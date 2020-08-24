@@ -59,7 +59,9 @@ function Signup() {
         <div className="card container-md clear-card">
           <div className="card-body">
             <h4>Greetings Earthling!</h4>
-            <p className="card-text">Imagine daily life as a Martian by creating an account. </p>
+            <p className="card-text">
+              Imagine daily life as a Martian by creating an account.{" "}
+            </p>
           </div>
         </div>
       </Container>
