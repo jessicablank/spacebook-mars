@@ -31,14 +31,6 @@ function TaskPage() {
       .catch((err) => console.log(err));
   }
 
-  //Saving for future functionality
-  // function updateTask(id) {
-  //   taskAPI
-  //     .getTask(id)
-  //     .then((res) => loadTasks())
-  //     .catch((err) => console.log(err));
-  // }
-
   function handleTaskSaved() {
     loadTasks();
   }
