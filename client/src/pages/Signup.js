@@ -5,6 +5,8 @@ import { useAuth } from "../utils/auth";
 import { Form, InputGroup } from "../components/LoginForm";
 import "./style.css";
 import Container from "../components/Container";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const signupStyles = {
   maxWidth: "20rem",
