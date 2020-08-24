@@ -43,7 +43,7 @@ function TaskPage() {
   return (
     <div>
       <Container>
-        <h1>Your Tasks</h1>
+        <h1>YOUR TASKS</h1>
         <div className="mb-3 row justify-content-around">
           <Link to="/profile">
             <button type="button" className="btn btn-primary btn-sm styledBtn">
@@ -62,7 +62,6 @@ function TaskPage() {
           </Link>
         </div>
       </Container>
-      <h2>Quickly Add a Task</h2>
       <Task onTaskSaved={handleTaskSaved} />
 
       {showModal && (
@@ -72,15 +71,15 @@ function TaskPage() {
         />
       )}
 
-      <h2>Click Task to See Details</h2>
+      <h2>Click Task Title to See Details</h2>
       <Container>
         {tasksData.length ? (
           <List>
             {tasksData.map((task) => (
               <ListItem key={task._id}>
-                <link onClick={() => setTaskStateAndShowModal(task)}>
+                <Link onClick={() => setTaskStateAndShowModal(task)}>
                   {task.title}
-                </link>
+                </Link>
 
                 <DeleteBtn onClick={() => deleteTask(task._id)} />
               </ListItem>
