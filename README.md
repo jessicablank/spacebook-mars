@@ -1,25 +1,25 @@
 # SPACEBOOK
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## About This Boilerplate
+🚀[Deployed on Heroku](https://spacebook-mars.herokuapp.com/)
 
-This setup allows for a Node/Express/React/JWT app which can be easily deployed to Heroku.
+## Description:  
+ The year is 2099. Martians live in small colonies and need an app to help them plan their day. 
+ 
+ Spacebook allows Martians to see the current weather for their colony location, check on photos from the nearby rover, and manage a task list. 
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+    
+## Table of Contents:
+* [Installation](#installing-locally)
+* [Quick Start](#quick-start)
+* [Tests](#tests)
+* [Routes](/routes.md)
+* [Questions](#questions)
+* [License](#license-info)
 
-An article on how the server is setup with JWT can be found [here](https://hptechblogs.com/using-json-web-token-for-authentication/). This has been modified to use a mongo database instead of hardcoded array of users.
+# Installing Locally
 
-The front end has been setup to use JWT as a way of authenticating users and routes. To understand it's structure better please refer to the following article [here](https://hptechblogs.com/using-json-web-token-react/)
-
-Please feel free to modify this code in anyway you see fit for your project. It is a boilerplate setup that tries to make sure you can get something up and running without having to worry about setting up user authentication from scratch.
-I highly suggest you read the articles before jumping in so you can have an better understanding of how everything works in the code.
-
-Server-side article and using JWT: https://hptechblogs.com/using-json-web-token-for-authentication/
-
-Front End article on using the JWT on a react application: https://hptechblogs.com/using-json-web-token-react/
-
-## Starting the app locally
-
-Add a .env at the top level of this project.
+Add a .env file at the top level of this project.
 
 Then inside of the .env add a SERVER_SECRET set to any value you'd like
 
@@ -47,42 +47,49 @@ npm start
 
 That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-## Deployment (Heroku)
+# Quick Start
+These Martians are already registered if the User would like to test the application without creating a new Martian. 
 
-### Create a Git Repo
+* Test User 1
 
-Once you're ready to deploy, start by making sure your project is a git repository. If so, proceed to the next section, otherwise run the following commands in your terminal:
+    * Martian Name: Mr. Martian XLF-12
+    * Email: Mars.Rocks@email.com
+    * Password: p@ssw0Rd
 
-```
-git init
-git add .
-git commit -m "Initial commit"
-```
+* Test User 2
 
-### Deploying
+    * Martian Name: Ms. Martian XLF-15
+    * Email: Martians.Rocks@email.com
+    * Password: p@ssw0Rd
 
-1. Go onto your heroku account and link your repository through the UI
-2. Go to resources and find mLab as a Add-on
-3. Provision a Mongo Database
-4. Go back and click "Deploy"
+# Tests
+* **Sign-Up Page** 
 
-## Tests/Linting
-
-Run `npm run lint` from the project root to run eslint checks on the backend
-and front end code. Run `npm run lint` from the `client` directory to lint the
-client only.
-
-The root and client have convenience scripts define to easily apply auto-fixes
-with eslint. Run `npm run lint:fix` from the root and `client` to apply fixes
-for the entire project or client only respectively.
-
-## Travis CI
-
-A basic configuration for Travis CI is included. Configure the GitHub repo to
-run checks before merging to enforce linting checks and tests.
-
-**IMPORTANT!** Add the mongodb service to `.travis.yml` if tests using MongoDB
-are included in the project. Likewise, if another database is used to replace
-MongoDB, then `.travis.yml` will need to be updated accordingly. Please refer
-to the [Travis CI Documentation](https://docs.travis-ci.com/) for more
-information.
+    New users must create a Martian profile to use the app. 
+    1. Martian Name
+        * Any combination of letters, numbers, characters, and spaces
+    2. Email 
+        * Must follow standard email@domain.com
+    3. Password 
+        * Any combination of letters, numbers, characters, and spaces
+* **Login Page**
+    1. Email 
+        * Must match the email entered during sign-up or receive an error
+    2. Password
+        * Must match the password entered during sign-up or receive an error
+* **Profile Page**
+    1. Upon log-in, the Martian will be greeted by Martian Name
+    2. The Martian will see the current Martian weather card:
+        * Season: Displays current Martian season using current data from the NASA InSight API
+        * Earth Day: Displays the Earth Day corresponding to the oldest data from the NASA InSight API. Note that this date will be approximately 15 days behind the actual current Earth Day. For example, if the actual Earth Day for the User is August 23, 2020, the Profile Page for the Spacebook Martian will display August 8, 2020. This is for several reasons:
+            1. The actual data from the InSight API displays seven days worth of historical Mars data. For the purposes of this application, the developers imagined that data as a forecast. As a result, the current weather card always displays the oldest data from the seven days received from the Insight API. 
+            2. There are 668 sols on Mars while there are 365 days on Earth. This means the data from Mars does not exactly line up with an Earth Day timeline. 
+            3. The data from the InSight API displays seven sols with the most recent sol corresponding to about 7 days behind the current actual Earth Day. 
+        * Martian Sol displays the Martian day, known as a Sol, for the weather information being displayed. 
+        * High Temp: Displays the high temperature recorded from the NASA InSight API in Celsius. 
+        * Low Temp: Displays the low temperature recorded from the NASA InSight API in Celsius. 
+    3. The Martian will see a task card to record a task. 
+        * The Task Title is required in order to save the task. For Example: "*Eat Mars Bars*"
+        * The Task Body is provided for more description. For Example: "*Because chocolate will help you stay alert.*"
+        * Once the Martian clicks "Save", a modal will confirm the task is saved.
+*

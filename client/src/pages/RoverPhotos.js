@@ -46,7 +46,6 @@ function RoverPhotos() {
           </Link>
         </div>
       </Container>
-     <h2>Curiosity Rover</h2>
       {images
         .filter((data) => data.id % 2 === 0)
         .slice(0, 3)
