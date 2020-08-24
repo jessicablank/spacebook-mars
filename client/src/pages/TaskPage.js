@@ -14,7 +14,6 @@ function TaskPage() {
   const [showModal, setShowModal] = useState(false);
   const [singleTaskForModal, setSingleTaskForModal] = useState({});
 
-
   useEffect(() => {
     loadTasks();
   }, []);
@@ -72,6 +71,7 @@ function TaskPage() {
           </Link>
         </div>
       </Container>
+      <h2>Quickly Add a Task</h2>
       <Task onTaskSaved={handleTaskSaved} />
 
       {showModal && (
@@ -81,7 +81,7 @@ function TaskPage() {
         />
       )}
 
-      <h2>Click Task Title to See Details</h2>
+      <h2>Click Task to See Details</h2>
       <Container>
         {tasksData.length ? (
           <List>

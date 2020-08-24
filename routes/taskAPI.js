@@ -6,10 +6,8 @@ const router = express.Router();
 
 // get all tasks
 router.get("/api/task", isAuthenticated, async (req, res) => {
-  console.log(req.user);
   try {
     const task = await db.Task.find({ martianID: req.user.id });
-    //What I keep trying: martianID:req.params.id
     res.json(task);
   } catch (error) {
     console.log(error);
@@ -24,7 +22,7 @@ router.post("/api/task", isAuthenticated, async (req, res) => {
     res.json(task);
   } catch (error) {
     console.log(error);
-    res.status(400).send(error.message);
+    res.status(400).send(error.message);n
   }
 });
 

@@ -47,13 +47,14 @@ function RoverPhotos() {
           </Link>
         </div>
       </Container>
+     <h2>Curiosity Rover</h2>
       {images
         .filter((data) => data.id % 2 === 0)
         .slice(0, 3)
         .map((filteredData) => {
           //const index = data.id
           const image = filteredData.img_src;
-          // const earthDate = filteredData.earth_date;
+          //const earthDate = filteredData.earth_date;
           const cameraName = filteredData.camera.full_name;
           //console.log("earth date" + earthDate);
 
