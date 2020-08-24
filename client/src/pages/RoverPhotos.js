@@ -50,14 +50,14 @@ function RoverPhotos() {
         .filter((data) => data.id % 2 === 0)
         .slice(0, 3)
         .map((filteredData) => {
-          //const index = data.id
+          const index = filteredData.id;
           const image = filteredData.img_src;
           //const earthDate = filteredData.earth_date;
           const cameraName = filteredData.camera.full_name;
           //console.log("earth date" + earthDate);
 
           return (
-            <Container>
+            <Container key={index}>
               <div className="card container-sm clear-card">
                 <img className="roverImages" alt="rover-camera" src={image} />
                 <div className="card-body">
