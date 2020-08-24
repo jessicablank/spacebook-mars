@@ -77,7 +77,12 @@ function TaskPage() {
           <List>
             {tasksData.map((task) => (
               <ListItem key={task._id}>
-                <Link onClick={() => setTaskStateAndShowModal(task)}>
+                <Link
+                  onClick={(event) => {
+                    setTaskStateAndShowModal(task);
+                    event.preventDefault();
+                  }}
+                >
                   {task.title}
                 </Link>
 
