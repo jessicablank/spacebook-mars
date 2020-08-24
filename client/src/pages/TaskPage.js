@@ -32,6 +32,14 @@ function TaskPage() {
       .catch((err) => console.log(err));
   }
 
+  //Saving for future functionality
+  // function updateTask(id) {
+  //   taskAPI
+  //     .getTask(id)
+  //     .then((res) => loadTasks())
+  //     .catch((err) => console.log(err));
+  // }
+
   function handleTaskSaved() {
     loadTasks();
   }
@@ -72,6 +80,7 @@ function TaskPage() {
         />
       )}
 
+  <h2>Click Task Title to See Details</h2>
       <Container>
         {tasksData.length ? (
           <List>
@@ -86,7 +95,7 @@ function TaskPage() {
             ))}
           </List>
         ) : (
-          <h3>Martian Will Tasks Display Here</h3>
+          <h4>Martian Tasks Will Display Here. Add some!</h4>
         )}
       </Container>
       {/* <div className="mb-3 row justify-content-around">

@@ -53,9 +53,9 @@ function RoverPhotos() {
         .map((filteredData) => {
           //const index = data.id
           const image = filteredData.img_src;
-          const earthDate = filteredData.earth_date;
+         // const earthDate = filteredData.earth_date;
           const cameraName = filteredData.camera.full_name;
-          console.log("earth date" + earthDate);
+          //console.log("earth date" + earthDate);
 
           return (
             <Container>
@@ -68,9 +68,6 @@ function RoverPhotos() {
             </Container>
           );
         })}
-      {/* <div className="mb-3 row justify-content-around">
-        <Logout />
-      </div> */}
     </div>
   );
 }

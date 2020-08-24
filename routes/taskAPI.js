@@ -7,7 +7,7 @@ const router = express.Router();
 // get all tasks
 router.get("/api/task", isAuthenticated,async (req, res) => {
   try {
-    const task = await db.Task.find({martianID:"5f42f9a0e0fa7836bce66524"});
+    const task = await db.Task.find({});
     res.json(task);
   } catch (error) {
     console.log(error);
@@ -18,7 +18,7 @@ router.get("/api/task", isAuthenticated,async (req, res) => {
 // create a new task
 router.post("/api/task", isAuthenticated, async (req, res) => {
   try {
-    const task = await db.Task.create({...req.body, martianID:req.user.id});
+    const task = await db.Task.create({...req.body, martianID:req.user.email});
     res.json(task);
   } catch (error) {
     console.log(error);

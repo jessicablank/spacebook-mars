@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-//Used on the Profile Page
+//Used on the Tasks Page
 function TaskModal({ onHide, task }) {
   return (
     <>

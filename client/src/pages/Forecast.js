@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
-//import Logout from "../components/Logout/Logout";
+import Logout from "../components/Logout/Logout";
 import { Link } from "react-router-dom";
 import "./style.css";
 
@@ -74,9 +74,9 @@ function ForecastPage() {
           </div>
         );
       })}
-      {/* <div className="mb-3 row justify-content-around">
+      <div className="mb-3 row justify-content-around">
         <Logout />
-      </div> */}
+      </div>
     </Container>
   );
 }
