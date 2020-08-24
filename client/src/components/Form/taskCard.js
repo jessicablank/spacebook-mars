@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import Container from "../Container";
 import { Input, TextArea, FormBtn } from "./index";
 import taskAPI from "../../utils/taskAPI";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Task({ onTaskSaved }) {
   const [title, setTitle] = useState("");
   const [textBody, setTextBody] = useState("");
   const [isPending, setIsPending] = useState(false);
+
+  const notify = () => toast.warn("You cannot save an empty task!");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,14 +21,14 @@ function Task({ onTaskSaved }) {
         setTitle("");
         setTextBody("");
       })
-      .then((response)=>{
+      .then((response) => {
         onTaskSaved();
         setIsPending(false);
       })
       .catch((error) => {
-        alert("You must have a title. Try Again 👽");
         console.log(error);
         setIsPending(false);
+        notify();
       });
   };
 
@@ -53,10 +57,10 @@ function Task({ onTaskSaved }) {
             <FormBtn
               value={isPending ? "Saving..." : "Submit"}
               onClick={handleSubmit}
-
             >
               Save
             </FormBtn>
+            <ToastContainer />
           </form>
         </div>
       </div>
