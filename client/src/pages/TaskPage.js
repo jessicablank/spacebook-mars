@@ -77,14 +77,15 @@ function TaskPage() {
           <List>
             {tasksData.map((task) => (
               <ListItem key={task._id}>
-                <Link
+                <a id="taskTitleLink" href="#taskTitleLink"
+                  title="Clickable Task Titles to Task Details"
                   onClick={(event) => {
                     setTaskStateAndShowModal(task);
                     event.preventDefault();
                   }}
                 >
                   {task.title}
-                </Link>
+                </a>
 
                 <DeleteBtn onClick={() => deleteTask(task._id)} />
               </ListItem>

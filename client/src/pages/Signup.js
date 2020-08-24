@@ -4,6 +4,7 @@ import API from "./../utils/API";
 import { useAuth } from "../utils/auth";
 import { Form, InputGroup } from "../components/LoginForm";
 import "./style.css";
+import Container from "../components/Container";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -54,6 +55,14 @@ function Signup() {
   return (
     <div style={signupStyles} className="Signup">
       <h1>SPACEBOOK</h1>
+      <Container>
+        <div className="card container-md clear-card">
+          <div className="card-body">
+            <h4>Greetings Earthling!</h4>
+            <p className="card-text">Imagine daily life as a Martian by creating an account. </p>
+          </div>
+        </div>
+      </Container>
       <Form onSubmit={handleFormSubmit}>
         <InputGroup
           id="username"
