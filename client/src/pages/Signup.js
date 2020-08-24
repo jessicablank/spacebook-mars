@@ -25,6 +25,8 @@ function Signup() {
 
   const history = useHistory();
 
+  const notify = () => toast.warn("Account already exists !");
+
   if (isLoggedIn) {
     return <Redirect to="/" />;
   }
@@ -84,9 +86,14 @@ function Signup() {
           type="password"
           onChange={handleChange}
         />
-        <button className="roundedBtn" type="submit">
+        <button
+          className="roundedBtn"
+          type="submit"
+          onClick={isLoggedIn ? <Redirect to="/" /> : notify}
+        >
           Submit
         </button>
+        <ToastContainer />
       </Form>
       <Link
         style={{
