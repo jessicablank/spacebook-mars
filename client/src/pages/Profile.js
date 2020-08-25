@@ -40,8 +40,6 @@ function Profile() {
 
   const handleWeatherModal = () => {
     setShowWeatherModal(true);
-   
-    console.log("show weather modal");
   };
 
   const handleTaskSaved = () => {
@@ -75,15 +73,21 @@ function Profile() {
           </button>
         </Link>
       </div>
+
+      {showWeatherModal && (
+        <WeatherInfoModal onHide={() => setShowWeatherModal(false)} />
+      )}
+
       <h2>
-        Today's Weather <button
+        Today's Weather{" "}
+        <button
           type="button"
           className="btn btn-dark"
-          onClick={handleWeatherModal}
+          onClick={(event) => {
+            handleWeatherModal();
+            event.preventDefault();
+          }}
         >
-          {showWeatherModal && (
-            <WeatherInfoModal onHide={() => setShowWeatherModal(false)} />
-          )}
           ?
         </button>
       </h2>

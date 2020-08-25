@@ -13,8 +13,6 @@ function RoverPhotos() {
     loadImages();
   }, []);
 
-
-
   function loadImages() {
     roverAPI
       .getImages()
@@ -27,10 +25,8 @@ function RoverPhotos() {
 
   const handleRoverModal = () => {
     setShowModal(true);
-   
-    console.log("show rover info");
   };
-  
+
   return (
     <div className="Rover-Photos">
       <Container>
@@ -55,16 +51,21 @@ function RoverPhotos() {
           </Link>
         </div>
       </Container>
-      <h2>Curiosity Rover  <button
+      {showModal && <RoverModal onHide={() => setShowModal(false)} />}
+
+      <h2>
+        Curiosity Rover{" "}
+        <button
           type="button"
           className="btn btn-dark"
-          onClick={handleRoverModal}
+          onClick={(event) => {
+            handleRoverModal();
+            event.preventDefault();
+          }}
         >
-          {showModal && (
-            <RoverModal onHide={() => setShowModal(false)} />
-          )}
           ?
-        </button></h2>
+        </button>
+      </h2>
       {images
         .filter((data) => data.id % 2 === 0)
         .slice(0, 3)

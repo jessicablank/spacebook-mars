@@ -25,8 +25,6 @@ function ForecastPage() {
 
   const handleWeatherModal = () => {
     setShowWeatherModal(true);
-   
-    console.log("show forecast modal");
   };
 
   return (
@@ -50,15 +48,20 @@ function ForecastPage() {
         </Link>
       </div>
 
+      {showWeatherModal && (
+        <WeatherInfoModal onHide={() => setShowWeatherModal(false)} />
+      )}
+
       <h2>
-        Next Seven Sols <button
+        Next Seven Sols{" "}
+        <button
           type="button"
           className="btn btn-dark"
-          onClick={handleWeatherModal}
+          onClick={(event) => {
+            handleWeatherModal();
+            event.preventDefault();
+          }}
         >
-          {showWeatherModal && (
-            <WeatherInfoModal onHide={() => setShowWeatherModal(false)} />
-          )}
           ?
         </button>
       </h2>
