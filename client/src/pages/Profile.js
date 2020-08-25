@@ -11,7 +11,7 @@ import "./style.css";
 
 function Profile() {
   const [username, setUsername] = useState("");
-   //const [email, setEmail] = useState("");
+  //const [email, setEmail] = useState("");
   const { user } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [showWeatherModal, setShowWeatherModal] = useState(false);
@@ -38,10 +38,11 @@ function Profile() {
     });
   }, [user]);
 
-  const handleWeatherModal=()=>{
-    setShowWeatherModal(true)
-    console.log("show weather")
-  }
+  const handleWeatherModal = () => {
+    setShowWeatherModal(true);
+   
+    console.log("show weather modal");
+  };
 
   const handleTaskSaved = () => {
     setShowModal(true);
@@ -74,16 +75,18 @@ function Profile() {
           </button>
         </Link>
       </div>
-      <h2>Today's Weather <button 
-      type="button"
-      className="btn btn-info helpBtn"
-      onClick={handleWeatherModal}> 
-      {showWeatherModal && <WeatherInfoModal onHide={() => setShowWeatherModal(false)}
-      />}
-            ?
-          </button>
-          
-          </h2>
+      <h2>
+        Today's Weather <button
+          type="button"
+          className="btn btn-dark"
+          onClick={handleWeatherModal}
+        >
+          {showWeatherModal && (
+            <WeatherInfoModal onHide={() => setShowWeatherModal(false)} />
+          )}
+          ?
+        </button>
+      </h2>
       {forecast.slice(0, 1).map((data) => {
         const marsDay = data[0];
         const min = data[1].AT?.mn;

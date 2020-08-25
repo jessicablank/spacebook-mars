@@ -3,13 +3,17 @@ import "./Home/home.css";
 import roverAPI from "../utils/roverAPI";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
+import RoverModal from "../components/Modal/RoverModal";
 
 function RoverPhotos() {
   const [images, setImages] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     loadImages();
   }, []);
+
+
 
   function loadImages() {
     roverAPI
@@ -21,6 +25,12 @@ function RoverPhotos() {
       .catch((err) => console.log(err));
   }
 
+  const handleRoverModal = () => {
+    setShowModal(true);
+   
+    console.log("show rover info");
+  };
+  
   return (
     <div className="Rover-Photos">
       <Container>
@@ -45,6 +55,16 @@ function RoverPhotos() {
           </Link>
         </div>
       </Container>
+      <h2>Curiosity Rover  <button
+          type="button"
+          className="btn btn-dark"
+          onClick={handleRoverModal}
+        >
+          {showModal && (
+            <RoverModal onHide={() => setShowModal(false)} />
+          )}
+          ?
+        </button></h2>
       {images
         .filter((data) => data.id % 2 === 0)
         .slice(0, 3)
