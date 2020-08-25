@@ -81,23 +81,31 @@ These Martians are already registered with populated task lists if the User woul
 
 # Screenshots
 
-Web Application View Signup Page:
+Web Application Views Signup Page:
 
 ![WebSignup](./assets/spacebook-web-signup.PNG)
 
-Web Application View Login Page:
+Web Application Views Login Page:
 
 ![WebLogin](./assets/spacebook-web-login.PNG)
 
-Tablet Application View Home Page:
+Home Page:
 
 ![TabletHome](./assets/spacebook-tablet-home.png)
 
-Tablet Application View Home Banner:
+Home Banner:
 
 ![TabletBanner](./assets/spacebook-banner-home.png)
 
-Phone Application View:
+Home Weather:
+
+![HomeWeather](./assets/spacebook-weather-home.png)
+
+Home Task:
+
+![HomeTask](./assets/spacebook-task-home.png)
+
+Phone Application Views:
 
 Home Page:
 
