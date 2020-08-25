@@ -84,6 +84,10 @@ No Match Page:
 
 ![NoMatch](./assets/no-match.PNG)
 
+Web Application Signup Page:
+
+![WebSignup](./assets/spacebook-web-signup.PNG)
+
 ## License
 Copyright 2020 - present Lisbeth Machado, Timothy Lam, Jessica Blankemeier.
 This project is licensed under the terms of the MIT license. 
