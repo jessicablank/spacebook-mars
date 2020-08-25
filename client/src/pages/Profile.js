@@ -6,13 +6,15 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import Task from "../components/Form/taskCard";
 import ModalComp from "../components/Modal/Modal";
+import WeatherInfoModal from "../components/Modal/WeatherInfo";
 import "./style.css";
 
 function Profile() {
   const [username, setUsername] = useState("");
-  //const [email, setEmail] = useState("");
+   //const [email, setEmail] = useState("");
   const { user } = useAuth();
   const [showModal, setShowModal] = useState(false);
+  const [showWeatherModal, setShowWeatherModal] = useState(false);
   const [forecast, setForecast] = useState([]);
 
   useEffect(() => {
@@ -33,9 +35,13 @@ function Profile() {
   useEffect(() => {
     API.getUser(user.id).then((res) => {
       setUsername(res.data.username);
-      //setEmail(res.data.email);
     });
   }, [user]);
+
+  const handleWeatherModal=()=>{
+    setShowWeatherModal(true)
+    console.log("show weather")
+  }
 
   const handleTaskSaved = () => {
     setShowModal(true);
@@ -68,7 +74,16 @@ function Profile() {
           </button>
         </Link>
       </div>
-      <h2>Today's Weather</h2>
+      <h2>Today's Weather <button 
+      type="button"
+      className="btn btn-info helpBtn"
+      onClick={handleWeatherModal}> 
+      {showWeatherModal && <WeatherInfoModal onHide={() => setShowWeatherModal(false)}
+      />}
+            ?
+          </button>
+          
+          </h2>
       {forecast.slice(0, 1).map((data) => {
         const marsDay = data[0];
         const min = data[1].AT?.mn;
