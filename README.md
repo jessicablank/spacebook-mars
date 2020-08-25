@@ -107,6 +107,14 @@ Rover Page
 
 ![PhoneRover](./assets/spacebook-phone-rover.png)
 
+Inavlid Signup:
+
+![InvalidSignup](./assets/spacebook-invalid-signup.png)
+
+Invalid Login:
+
+![InvalidLogin](./assets/spacebook-invalid-login.png)
+
 No Match Page:
 
 ![NoMatch](./assets/no-match.PNG)
