@@ -91,7 +91,7 @@ Web Application Views Login Page:
 
 Home Page:
 
-![TabletHome](./assets/spacebook-tablet-home.png)
+![PhoneHome](./assets/sapcebook-phone-home.png)
 
 Home Banner:
 
@@ -101,27 +101,33 @@ Home Weather:
 
 ![HomeWeather](./assets/spacebook-weather-home.png)
 
-Home Task:
+Weather Info:
 
-![HomeTask](./assets/spacebook-task-home.png)
-
-Phone Application Views:
-
-Home Page:
-
-![PhoneHome](./assets/sapcebook-phone-home.png)
+![WeatherInfo](./assets/spacebook-weather-modal.png)
 
 Weather Page:
 
 ![PhoneWeather](./assets/spacebook-phone-weatherfull.png)
 
+Home Task:
+
+![HomeTask](./assets/spacebook-task-home.png)
+
 Task Page:
 
 ![PhoneTask](./assets/spacebook-phone-taskfull.png)
 
+Task Info:
+
+![TaskInfo](./assets/spacebook-task-modal.png)
+
 Rover Page:
 
 ![PhoneRover](./assets/spacebook-phone-rover.png)
+
+Rover Info:
+
+![RoverInfo](./assets/spacebook-rover-modal.png)
 
 Inavlid Signup:
 
