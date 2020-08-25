@@ -16,21 +16,21 @@ For future development: Martians will be able to connect with other Martians to 
 * [Quick Start](#quick-start)
 * [Usage](./USAGE.md)
 * [ScreenShots](#screenshots)
-* [Tests](./Tests)
+* [Tests](./TESTS.md)
 * [License](#license)
 
 # Developers
-These Earthlings enjoyed imagining life as Martians:
+These Earthlings enjoy imagining life as Martians. Please feel free to reach out with questions or comments. 
 
-* **Lisbeth Machado**
+### Lisbeth Machado
 * :octocat: [GitHub](https://github.com/lisbethmachado)
-* 📧 E-mail: 
+* 📧 E-mail: lizmachado.xo@gmail.com
 
-* **Timothy Lam**
+### Timothy Lam
 * :octocat: [GitHub](https://github.com/tlam1288)
 *  📧 E-mail: tlam1288@gmail.com
 
-* **Jessica Blankemeier**
+### Jessica Blankemeier
 * :octocat: [GitHub](https://github.com/jessicablank)
 *  📧 E-mail: jessicablankemeier@gmail.com
 
