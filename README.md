@@ -80,6 +80,63 @@ These Martians are already registered with populated task lists if the User woul
     * Password: p@ssw0Rd
 
 # Screenshots
+
+Web Application Views Signup Page:
+
+![WebSignup](./assets/spacebook-web-signup.PNG)
+
+Web Application Views Login Page:
+
+![WebLogin](./assets/spacebook-web-login.PNG)
+
+Home Page:
+
+![PhoneHome](./assets/sapcebook-phone-home.png)
+
+Home Banner:
+
+![TabletBanner](./assets/spacebook-banner-home.png)
+
+Home Weather:
+
+![HomeWeather](./assets/spacebook-weather-home.png)
+
+Weather Info:
+
+![WeatherInfo](./assets/spacebook-weather-modal.png)
+
+Weather Page:
+
+![PhoneWeather](./assets/spacebook-phone-weatherfull.png)
+
+Home Task:
+
+![HomeTask](./assets/spacebook-task-home.png)
+
+Task Page:
+
+![PhoneTask](./assets/spacebook-phone-taskfull.png)
+
+Task Info:
+
+![TaskInfo](./assets/spacebook-task-modal.png)
+
+Rover Page:
+
+![PhoneRover](./assets/spacebook-phone-rover.png)
+
+Rover Info:
+
+![RoverInfo](./assets/spacebook-rover-modal.png)
+
+Inavlid Signup:
+
+![InvalidSignup](./assets/spacebook-invalid-signup.png)
+
+Invalid Login:
+
+![InvalidLogin](./assets/spacebook-invalid-login.png)
+
 No Match Page:
 
 ![NoMatch](./assets/no-match.PNG)
