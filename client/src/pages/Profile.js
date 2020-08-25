@@ -97,6 +97,7 @@ function Profile() {
         const max = data[1].AT?.mx;
         const season = data[1].Season;
         const earthDay = data[1].First_UTC;
+        console.log("data:"+ data)
 
         const formatDate = (date) =>
           date.toLocaleDateString(undefined, {
@@ -106,8 +107,8 @@ function Profile() {
           });
         const earthDate = formatDate(new Date(earthDay));
 
-        const marsMax = max.toFixed(2);
-        const marsMin = min.toFixed(2);
+        const marsMax = max ? max.toFixed(2) : "N/A";
+        const marsMin = min ? min.toFixed(2) : "N/A";
 
         const marsMaxF = ((marsMax * 9) / 5 + 32).toFixed(2);
         const marsMaxC = ((marsMin * 9) / 5 + 32).toFixed(2);
