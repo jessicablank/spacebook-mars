@@ -88,6 +88,28 @@ Web Application Signup Page:
 
 ![WebSignup](./assets/spacebook-web-signup.PNG)
 
+Web Application Login Page:
+
+![WebLogin](./assets/spacebook-web-login.PNG)
+
+Phone Application:
+
+Home Page
+
+![PhoneHome](./assets/sapcebook-phone-home.png)
+
+Weather Page
+
+![PhoneWeather](./assets/spacebook-phone-weatherfull.png)
+
+Task Page
+
+![PhoneTask](./assets/spacebook-phone-taskfull.png)
+
+Rover Page
+
+![PhoneRover](./assets/spacebook-phone-rover.png)
+
 ## License
 Copyright 2020 - present Lisbeth Machado, Timothy Lam, Jessica Blankemeier.
 This project is licensed under the terms of the MIT license. 
