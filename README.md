@@ -80,9 +80,6 @@ These Martians are already registered with populated task lists if the User woul
     * Password: p@ssw0Rd
 
 # Screenshots
-No Match Page:
-
-![NoMatch](./assets/no-match.PNG)
 
 Web Application Signup Page:
 
@@ -109,6 +106,10 @@ Task Page
 Rover Page
 
 ![PhoneRover](./assets/spacebook-phone-rover.png)
+
+No Match Page:
+
+![NoMatch](./assets/no-match.PNG)
 
 ## License
 Copyright 2020 - present Lisbeth Machado, Timothy Lam, Jessica Blankemeier.
