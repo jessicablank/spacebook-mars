@@ -79,8 +79,8 @@ function ForecastPage() {
             year: "numeric",
           });
         const earthDate = formatDate(new Date(earthDay));
-        const marsMax = max.toFixed(2);
-        const marsMin = min.toFixed(2);
+        const marsMax = max ? max.toFixed(2) : "N/A";
+        const marsMin = min ? min.toFixed(2) : "N/A";
 
         const marsMaxF = ((marsMax * 9) / 5 + 32).toFixed(2);
         const marsMaxC = ((marsMin * 9) / 5 + 32).toFixed(2);

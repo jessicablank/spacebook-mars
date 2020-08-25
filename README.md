@@ -83,11 +83,11 @@ These Martians are already registered with populated task lists if the User woul
 
 Web Application Views Signup Page:
 
-![WebSignup](./assets/spacebook-web-signup.PNG)
+![WebSignup](./assets/spacebook-web-signup.png)
 
 Web Application Views Login Page:
 
-![WebLogin](./assets/spacebook-web-login.PNG)
+![WebLogin](./assets/spacebook-web-login.png)
 
 Home Page:
 
