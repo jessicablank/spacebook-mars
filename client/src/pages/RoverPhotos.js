@@ -3,9 +3,11 @@ import "./Home/home.css";
 import roverAPI from "../utils/roverAPI";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
+import RoverModal from "../components/Modal/RoverModal";
 
 function RoverPhotos() {
   const [images, setImages] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     loadImages();
@@ -20,6 +22,10 @@ function RoverPhotos() {
       })
       .catch((err) => console.log(err));
   }
+
+  const handleRoverModal = () => {
+    setShowModal(true);
+  };
 
   return (
     <div className="Rover-Photos">
@@ -45,6 +51,21 @@ function RoverPhotos() {
           </Link>
         </div>
       </Container>
+      {showModal && <RoverModal onHide={() => setShowModal(false)} />}
+
+      <h2>
+        Curiosity Rover{" "}
+        <button
+          type="button"
+          className="btn btn-dark"
+          onClick={(event) => {
+            handleRoverModal();
+            event.preventDefault();
+          }}
+        >
+          ?
+        </button>
+      </h2>
       {images
         .filter((data) => data.id % 2 === 0)
         .slice(0, 3)

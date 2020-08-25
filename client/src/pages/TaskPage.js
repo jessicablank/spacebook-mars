@@ -62,6 +62,7 @@ function TaskPage() {
           </Link>
         </div>
       </Container>
+      <h2> Quickly Add a New Task</h2>
       <Task onTaskSaved={handleTaskSaved} />
 
       {showModal && (
@@ -71,7 +72,7 @@ function TaskPage() {
         />
       )}
 
-      <h2>Click Task Title to See Details</h2>
+      <h2>Click Tasks to See Details</h2>
       <Container>
         {tasksData.length ? (
           <List>
