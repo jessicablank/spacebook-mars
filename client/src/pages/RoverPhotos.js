@@ -13,12 +13,25 @@ function RoverPhotos() {
     loadImages();
   }, []);
 
+
+  //TODO: create universal objects for each camera
+  //display one image from each camera each day
+
   function loadImages() {
     roverAPI
       .getImages()
       .then((res) => {
         const imagesData = Object.entries(res.data);
+        //retrieve each image src from individual camera
+        console.log(imagesData[0][1][0].img_src)
+
         setImages(imagesData[0][1]);
+        
+        //name and angle from each camera 
+        console.log(imagesData[0][1][0].camera.full_name)
+        console.log(imagesData[0][1][2].camera.full_name)
+        console.log(imagesData[0][1][4].camera.full_name)
+
       })
       .catch((err) => console.log(err));
   }
