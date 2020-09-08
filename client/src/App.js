@@ -1,9 +1,11 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-// Our Components
+// Components
 import { AuthProvider } from "./utils/auth";
 import ProtectedRoute from "./components/ProtectedRoute";
+import LoadingIndicator from './components/LoadingIndicator/LoadingIndicator';
+// Pages
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
@@ -19,6 +21,7 @@ function App() {
       <Router>
         <div>
           <Navbar />
+          <LoadingIndicator />
           <Switch>
             <ProtectedRoute exact path="/">
               <Profile />

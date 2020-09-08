@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import API from "./../utils/API";
 import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
+import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator';
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import Task from "../components/Form/taskCard";
+import { trackPromise} from 'react-promise-tracker';
 import ModalComp from "../components/Modal/Modal";
 import WeatherInfoModal from "../components/Modal/WeatherInfo";
 import "./style.css";
@@ -33,9 +35,10 @@ function Profile() {
   }
 
   useEffect(() => {
+    trackPromise(
     API.getUser(user.id).then((res) => {
       setUsername(res.data.username);
-    });
+    }));
   }, [user]);
 
   const handleWeatherModal = () => {
