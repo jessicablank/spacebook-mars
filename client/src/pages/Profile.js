@@ -97,7 +97,7 @@ function Profile() {
         const max = data[1].AT?.mx;
         const season = data[1].Season;
         const earthDay = data[1].First_UTC;
-        console.log("data:"+ data);
+        console.log("data:" + data);
 
         const formatDate = (date) =>
           date.toLocaleDateString(undefined, {
@@ -105,20 +105,22 @@ function Profile() {
             month: "long",
             year: "numeric",
           });
-        const earthDate = formatDate(new Date(earthDay));
+        const earthDate = earthDay
+          ? formatDate(new Date(earthDay))
+          : "Data Currently Unavailable";
 
         const marsMax = max ? max.toFixed(2) : "N/A";
         const marsMin = min ? min.toFixed(2) : "N/A";
 
-        const marsMaxF = ((marsMax * 9) / 5 + 32).toFixed(2);
-        const marsMaxC = ((marsMin * 9) / 5 + 32).toFixed(2);
+        const marsMaxF = max ? ((marsMax * 9) / 5 + 32).toFixed(2) : "N/A";
+        const marsMaxC = min ? ((marsMin * 9) / 5 + 32).toFixed(2) : "N/A";
 
         return (
           <div className="card mb-3 clear-card" key={marsDay}>
             <div className="card-body">
-              <p>Season: {season}</p>
+              <p>Season: {season ? season : "Data Currently Unavailable"}</p>
               <p>Earth Day: {earthDate}</p>
-              <p>Martian Sol: {marsDay}</p>
+              <p>Martian Sol: {marsDay ? marsDay : "N/A"}</p>
               <p>
                 High Temp: {marsMax} °C | {marsMaxF} °F
               </p>
