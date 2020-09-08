@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Components
 import { AuthProvider } from "./utils/auth";
 import ProtectedRoute from "./components/ProtectedRoute";
-import LoadingIndicator from './components/LoadingIndicator/LoadingIndicator';
 // Pages
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
@@ -21,7 +20,6 @@ function App() {
       <Router>
         <div>
           <Navbar />
-          <LoadingIndicator />
           <Switch>
             <ProtectedRoute exact path="/">
               <Profile />

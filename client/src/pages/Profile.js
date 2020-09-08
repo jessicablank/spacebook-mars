@@ -56,7 +56,8 @@ function Profile() {
       <div className="card mb-3 text-center clear-card">
         <div className="card-body welcome-banner">
           Greetings <br />
-          {username}!
+          {username}
+          <LoadingIndicator />
         </div>
       </div>
       <div className="mb-3 row justify-content-around">
