@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
-import { trackPromise} from 'react-promise-tracker';
-import LoadingIndicator from '../components/LoadingIndicator';
+import { trackPromise} from "react-promise-tracker";
+import LoadingIndicator from "../components/LoadingIndicator";
 import WeatherInfoModal from "../components/Modal/WeatherInfo";
 import "./style.css";
 
@@ -93,7 +93,7 @@ function ForecastPage() {
         return (
           <div className="card mb-3 clear-card" key={marsDay}>
             <div className="card-body">
-            <LoadingIndicator />
+              <LoadingIndicator />
               <p>Earth Day: {earthDate}</p>
               <p>Martian Sol: {marsDay ? marsDay : "N/A"}</p>
               <p>

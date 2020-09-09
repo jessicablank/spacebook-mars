@@ -4,8 +4,8 @@ import roverAPI from "../utils/roverAPI";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
 import RoverModal from "../components/Modal/RoverModal";
-import LoadingIndicator from '../components/LoadingIndicator';
-import { trackPromise} from 'react-promise-tracker';
+import LoadingIndicator from "../components/LoadingIndicator";
+import { trackPromise} from "react-promise-tracker";
 
 function RoverPhotos() {
   const [images, setImages] = useState([]);

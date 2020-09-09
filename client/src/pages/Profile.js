@@ -84,7 +84,7 @@ function Profile() {
         </Link>
       </div>
     
-    {/* Weather Start */}
+      {/* Weather Start */}
       {showWeatherModal && (
         <WeatherInfoModal onHide={() => setShowWeatherModal(false)} />
       )}
@@ -129,7 +129,7 @@ function Profile() {
         return (
           <div className="card mb-3 clear-card" key={marsDay}>
             <div className="card-body">
-            <LoadingIndicator />
+              <LoadingIndicator />
               <p>Season: {season ? season : "Data Currently Unavailable"}</p>
               <p>Earth Day: {earthDate}</p>
               <p>Martian Sol: {marsDay ? marsDay : "N/A"}</p>

@@ -4,11 +4,11 @@ import taskAPI from "../utils/taskAPI";
 import Task from "../components/Form/taskCard";
 import TaskModal from "../components/Modal/TaskModal";
 import TaskInfoModal from "../components/Modal/TaskInfoModal";
-import LoadingIndicator from '../components/LoadingIndicator';
+import LoadingIndicator from "../components/LoadingIndicator";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
 import { List, ListItem } from "../components/List";
-import { trackPromise} from 'react-promise-tracker';
+import { trackPromise} from "react-promise-tracker";
 import "./style.css";
 
 function TaskPage() {
@@ -23,10 +23,10 @@ function TaskPage() {
 
   function loadTasks() {
     trackPromise(
-    taskAPI
-      .getTasks()
-      .then((res) => setTasksData(res.data))
-      .catch((err) => console.log(err)));
+      taskAPI
+        .getTasks()
+        .then((res) => setTasksData(res.data))
+        .catch((err) => console.log(err)));
   }
 
   function deleteTask(id) {
@@ -77,7 +77,7 @@ function TaskPage() {
         <TaskInfoModal onHide={() => setShowTaskInfoModal(false)} />
       )}
       <h2> Quickly Add a New Task{" "}
-      <button
+        <button
           type="button"
           className="btn btn-dark"
           onClick={(event) => {
@@ -99,7 +99,7 @@ function TaskPage() {
 
       <h2>Click Tasks to See Details</h2>
       <Container>
-      <LoadingIndicator /> 
+        <LoadingIndicator /> 
         {tasksData.length ? (
           <List>
             {tasksData.map((task) => (
