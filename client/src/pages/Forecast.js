@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
+import { trackPromise} from 'react-promise-tracker';
+import LoadingIndicator from '../components/LoadingIndicator';
 import WeatherInfoModal from "../components/Modal/WeatherInfo";
 import "./style.css";
 
@@ -13,13 +15,14 @@ function ForecastPage() {
     loadForecast();
   }, []);
 
+  //trackPromise sets the loading indicator while data is fetched. 
   function loadForecast() {
-    insightAPI
+    trackPromise(insightAPI
       .getForecast()
       .then((res) => {
         const forecastData = Object.entries(res.data);
         setForecast(forecastData);
-      })
+      }))
       .catch((err) => console.log(err));
   }
 
@@ -90,6 +93,7 @@ function ForecastPage() {
         return (
           <div className="card mb-3 clear-card" key={marsDay}>
             <div className="card-body">
+            <LoadingIndicator />
               <p>Earth Day: {earthDate}</p>
               <p>Martian Sol: {marsDay ? marsDay : "N/A"}</p>
               <p>

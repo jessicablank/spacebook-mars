@@ -4,7 +4,7 @@ import roverAPI from "../utils/roverAPI";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
 import RoverModal from "../components/Modal/RoverModal";
-import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator';
+import LoadingIndicator from '../components/LoadingIndicator';
 import { trackPromise} from 'react-promise-tracker';
 
 function RoverPhotos() {
@@ -15,6 +15,7 @@ function RoverPhotos() {
     loadImages();
   }, []);
 
+  //trackPromise sets the loading indicator while data is fetched. 
   function loadImages() {
     trackPromise(roverAPI
       .getImages()

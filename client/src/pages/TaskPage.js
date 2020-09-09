@@ -3,7 +3,7 @@ import DeleteBtn from "../components/DeleteBtn";
 import taskAPI from "../utils/taskAPI";
 import Task from "../components/Form/taskCard";
 import TaskModal from "../components/Modal/TaskModal";
-import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator';
+import LoadingIndicator from '../components/LoadingIndicator';
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
 import { List, ListItem } from "../components/List";
@@ -97,7 +97,7 @@ function TaskPage() {
             ))}
           </List>
         ) : (
-          <h4>Saved Martian Tasks Will Display Here. Add some!</h4>
+          <h4>Saved Martian Tasks Will Display Here.</h4>
         )}
       </Container>
     </div>

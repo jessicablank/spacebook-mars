@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "./../utils/API";
 import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
-import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator';
+import LoadingIndicator from '../components/LoadingIndicator';
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import Task from "../components/Form/taskCard";
@@ -13,7 +13,6 @@ import "./style.css";
 
 function Profile() {
   const [username, setUsername] = useState("");
-  //const [email, setEmail] = useState("");
   const { user } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [showWeatherModal, setShowWeatherModal] = useState(false);
@@ -23,17 +22,19 @@ function Profile() {
     loadForecast();
   }, []);
 
+  //trackPromise sets the loading indicator while data is fetched. 
   function loadForecast() {
-    insightAPI
+   trackPromise(insightAPI
       .getForecast()
       .then((res) => {
         const forecastData = Object.entries(res.data);
         setForecast(forecastData);
         // console.log(res.data);
-      })
+      }))
       .catch((err) => console.log(err));
   }
 
+  
   useEffect(() => {
     trackPromise(
     API.getUser(user.id).then((res) => {
@@ -52,10 +53,9 @@ function Profile() {
   return (
     <Container>
       <h1>SPACEBOOK</h1>
-
       <div className="card mb-3 text-center clear-card">
         <div className="card-body welcome-banner">
-          Greetings <br />
+          Greetings! <br />
           {username}
           <LoadingIndicator />
         </div>
@@ -122,6 +122,7 @@ function Profile() {
         return (
           <div className="card mb-3 clear-card" key={marsDay}>
             <div className="card-body">
+            <LoadingIndicator />
               <p>Season: {season ? season : "Data Currently Unavailable"}</p>
               <p>Earth Day: {earthDate}</p>
               <p>Martian Sol: {marsDay ? marsDay : "N/A"}</p>
