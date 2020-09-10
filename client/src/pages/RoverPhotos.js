@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import Container from "../components/Container";
 import RoverModal from "../components/Modal/RoverModal";
 import LoadingIndicator from "../components/LoadingIndicator";
-import { trackPromise} from "react-promise-tracker";
+import { trackPromise } from "react-promise-tracker";
+import "./style.css";
 
 function RoverPhotos() {
   const [images, setImages] = useState([]);
@@ -15,15 +16,14 @@ function RoverPhotos() {
     loadImages();
   }, []);
 
-  //trackPromise sets the loading indicator while data is fetched. 
+  //trackPromise sets the loading indicator while data is fetched.
   function loadImages() {
-    trackPromise(roverAPI
-      .getImages()
-      .then((res) => {
+    trackPromise(
+      roverAPI.getImages().then((res) => {
         const imagesData = Object.entries(res.data);
         setImages(imagesData[0][1]);
-      }))
-      .catch((err) => console.log(err));
+      })
+    ).catch((err) => console.log(err));
   }
 
   const handleRoverModal = () => {
@@ -71,17 +71,24 @@ function RoverPhotos() {
       </h2>
       <LoadingIndicator />
       {images
-        .filter((data) => data.id % 2 === 0)
-        .slice(0, 3)
-        .map((filteredData) => {
-          const index = filteredData.id;
-          const image = filteredData.img_src;
-          const cameraName = filteredData.camera.full_name;
-
+        // remove duplicates in the images object and return one of each image
+        .filter(
+          (v, index, filteredData) =>
+            filteredData.findIndex((t) => t.camera.name === v.camera.name) ===
+            index
+        )
+        .map((mappedData) => {
+          const index = mappedData.id;
+          const image = mappedData.img_src;
+          const cameraName = mappedData.camera.full_name;
           return (
             <Container key={index}>
               <div className="card container-sm clear-card">
-                <img className="roverImages" alt="rover-camera" src={image} />
+                <img
+                  className="roverImages"
+                  alt="rover camera images"
+                  src={image}
+                />
                 <div className="card-body">
                   <p className="card-text">{cameraName}</p>
                 </div>

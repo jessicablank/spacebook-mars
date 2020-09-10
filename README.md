@@ -62,7 +62,7 @@ After all installations complete, run the following command in your terminal:
 npm start
 ```
 
-That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+That's it! your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
 # Quick Start
 These Martians are already registered with populated task lists if the User would like to test the application without creating a new Martian. 

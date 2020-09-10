@@ -55,6 +55,11 @@ button {
   color: black;
 }
 
+.roverImages{
+  height: 100rem;
+  width: 100rem;
+}
+
 input:focus,
 textarea:focus,
 select:focus {
