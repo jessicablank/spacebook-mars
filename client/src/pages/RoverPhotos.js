@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import "./Home/home.css";
 import roverAPI from "../utils/roverAPI";
 import { Link } from "react-router-dom";
@@ -83,9 +83,9 @@ function RoverPhotos() {
           const cameraName = mappedData.camera.full_name;
           return (
             <Container key={index}>
-              <div className="card container-sm clear-card">
-                <img
-                  className="roverImages"
+              <div className="card container-sm clear-card" id="rover-images">
+                <img className="card-img-top"
+                  id="roverImages"
                   alt="rover camera images"
                   src={image}
                 />

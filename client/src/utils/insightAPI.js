@@ -2,8 +2,14 @@ import axios from "axios";
 
 export default {
   getForecast: function () {
-    return axios.get(
-      "https://mars.nasa.gov/rss/api/?feed=weather&category=insight&feedtype=json&ver=1.0"
-    );
+    return axios
+      .get(
+        "https://mars.nasa.gov/rss/api/?feed=weather&category=insight&feedtype=json&ver=1.0"
+      ).catch((error) => {
+        if (error.response.status === 404) {
+          throw new Error("No Weather Data from Insight API");
+        }
+        throw error;
+      });
   },
 };
