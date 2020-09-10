@@ -2,58 +2,68 @@ import React, { useState, useEffect } from "react";
 import API from "./../utils/API";
 import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
+import LoadingIndicator from "../components/LoadingIndicator";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import Task from "../components/Form/taskCard";
+import { trackPromise } from "react-promise-tracker";
 import ModalComp from "../components/Modal/Modal";
+import TaskInfoModal from "../components/Modal/TaskInfoModal";
 import WeatherInfoModal from "../components/Modal/WeatherInfo";
 import "./style.css";
 
 function Profile() {
   const [username, setUsername] = useState("");
-  //const [email, setEmail] = useState("");
   const { user } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [showWeatherModal, setShowWeatherModal] = useState(false);
+  const [showTaskInfoModal, setShowTaskInfoModal] = useState(false);
   const [forecast, setForecast] = useState([]);
 
   useEffect(() => {
     loadForecast();
   }, []);
 
+  //trackPromise sets the loading indicator while data is fetched.
   function loadForecast() {
-    insightAPI
-      .getForecast()
-      .then((res) => {
+    trackPromise(
+      insightAPI.getForecast().then((res) => {
         const forecastData = Object.entries(res.data);
         setForecast(forecastData);
         // console.log(res.data);
       })
-      .catch((err) => console.log(err));
+    ).catch((err) => console.log(err));
   }
 
   useEffect(() => {
-    API.getUser(user.id).then((res) => {
-      setUsername(res.data.username);
-    });
+    trackPromise(
+      API.getUser(user.id).then((res) => {
+        setUsername(res.data.username);
+      })
+    );
   }, [user]);
-
-  const handleWeatherModal = () => {
-    setShowWeatherModal(true);
-  };
 
   const handleTaskSaved = () => {
     setShowModal(true);
   };
 
+  const handleTaskInfoModal = () => {
+    setShowTaskInfoModal(true);
+  };
+
+  const handleWeatherModal = () => {
+    setShowWeatherModal(true);
+  };
+
   return (
+    // Header Start
     <Container>
       <h1>SPACEBOOK</h1>
-
       <div className="card mb-3 text-center clear-card">
         <div className="card-body welcome-banner">
-          Greetings <br />
-          {username}!
+          Greetings! <br />
+          {username}
+          <LoadingIndicator />
         </div>
       </div>
       <div className="mb-3 row justify-content-around">
@@ -73,7 +83,8 @@ function Profile() {
           </button>
         </Link>
       </div>
-
+    
+      {/* Weather Start */}
       {showWeatherModal && (
         <WeatherInfoModal onHide={() => setShowWeatherModal(false)} />
       )}
@@ -118,6 +129,7 @@ function Profile() {
         return (
           <div className="card mb-3 clear-card" key={marsDay}>
             <div className="card-body">
+              <LoadingIndicator />
               <p>Season: {season ? season : "Data Currently Unavailable"}</p>
               <p>Earth Day: {earthDate}</p>
               <p>Martian Sol: {marsDay ? marsDay : "N/A"}</p>
@@ -131,7 +143,25 @@ function Profile() {
           </div>
         );
       })}
-      <h2>Quickly Add a Task</h2>
+
+      {/* Tasks Start */}
+      {showTaskInfoModal && (
+        <TaskInfoModal onHide={() => setShowTaskInfoModal(false)} />
+      )}
+
+      <h2>
+        Quickly Add a Task{" "}
+        <button
+          type="button"
+          className="btn btn-dark"
+          onClick={(event) => {
+            handleTaskInfoModal();
+            event.preventDefault();
+          }}
+        >
+          ?
+        </button>
+      </h2>
       <Task onTaskSaved={handleTaskSaved} />
       {showModal && <ModalComp onHide={() => setShowModal(false)} />}
     </Container>

@@ -1,9 +1,10 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-// Our Components
+// Components
 import { AuthProvider } from "./utils/auth";
 import ProtectedRoute from "./components/ProtectedRoute";
+// Pages
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";

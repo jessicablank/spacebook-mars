@@ -3,25 +3,30 @@ import DeleteBtn from "../components/DeleteBtn";
 import taskAPI from "../utils/taskAPI";
 import Task from "../components/Form/taskCard";
 import TaskModal from "../components/Modal/TaskModal";
+import TaskInfoModal from "../components/Modal/TaskInfoModal";
+import LoadingIndicator from "../components/LoadingIndicator";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
 import { List, ListItem } from "../components/List";
+import { trackPromise} from "react-promise-tracker";
 import "./style.css";
 
 function TaskPage() {
   const [tasksData, setTasksData] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [singleTaskForModal, setSingleTaskForModal] = useState({});
+  const [showTaskInfoModal, setShowTaskInfoModal] = useState(false);
 
   useEffect(() => {
     loadTasks();
   }, []);
 
   function loadTasks() {
-    taskAPI
-      .getTasks()
-      .then((res) => setTasksData(res.data))
-      .catch((err) => console.log(err));
+    trackPromise(
+      taskAPI
+        .getTasks()
+        .then((res) => setTasksData(res.data))
+        .catch((err) => console.log(err)));
   }
 
   function deleteTask(id) {
@@ -39,6 +44,11 @@ function TaskPage() {
     setSingleTaskForModal(task);
     setShowModal(true);
   }
+
+  const handleTaskInfoModal = () => {
+    setShowTaskInfoModal(true);
+  };
+
 
   return (
     <div>
@@ -62,7 +72,22 @@ function TaskPage() {
           </Link>
         </div>
       </Container>
-      <h2> Quickly Add a New Task</h2>
+      
+      {showTaskInfoModal && (
+        <TaskInfoModal onHide={() => setShowTaskInfoModal(false)} />
+      )}
+      <h2> Quickly Add a New Task{" "}
+        <button
+          type="button"
+          className="btn btn-dark"
+          onClick={(event) => {
+            handleTaskInfoModal();
+            event.preventDefault();
+          }}
+        >
+          ?
+        </button>
+      </h2>
       <Task onTaskSaved={handleTaskSaved} />
 
       {showModal && (
@@ -74,6 +99,7 @@ function TaskPage() {
 
       <h2>Click Tasks to See Details</h2>
       <Container>
+        <LoadingIndicator /> 
         {tasksData.length ? (
           <List>
             {tasksData.map((task) => (
@@ -92,8 +118,8 @@ function TaskPage() {
               </ListItem>
             ))}
           </List>
-        ) : (
-          <h4>Martian Tasks Will Display Here. Add some!</h4>
+        ) : ( 
+          <h4>Saved Martian Tasks Will Display Here.</h4>
         )}
       </Container>
     </div>
