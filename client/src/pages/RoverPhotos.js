@@ -20,7 +20,7 @@ function RoverPhotos() {
   function loadImages() {
     trackPromise(
       roverAPI.getImages().then((res) => {
-        const imagesData = Object.entries(res.data)
+        const imagesData = Object.entries(res.data);
         setImages(imagesData[0][1]);
       })
     ).catch((err) => console.log(err));

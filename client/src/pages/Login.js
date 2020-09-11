@@ -67,9 +67,9 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button 
-        className="roundedBtn" 
-        type="submit"
-        onClick={isLoggedIn ? <Redirect to="/" /> : notify}>
+          className="roundedBtn" 
+          type="submit"
+          onClick={isLoggedIn ? <Redirect to="/" /> : notify}>
           Submit
         </button>
         <ToastContainer />

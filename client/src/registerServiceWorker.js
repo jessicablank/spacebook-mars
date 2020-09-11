@@ -14,11 +14,11 @@ const DATA_CACHE_NAME = "data-cache-v1";
 
 const staticFilesToPreCache = [
   "/",
- "/index.html",
- "/app.js",
- "/index.css",
- "/manifest.webmanifest",
- ];
+  "/index.html",
+  "/app.js",
+  "/index.css",
+  "/manifest.webmanifest",
+];
 
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
@@ -30,21 +30,6 @@ const isLocalhost = Boolean(
     )
 );
 
-// Check for browser support of service worker
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js')
-  .then(function(registration) {
-    // Successful registration
-    console.log('Hooray. Registration successful, scope is:', registration.scope);
-  }).catch(function(err) {
-    // Failed registration, service worker won’t be installed
-    console.log('Whoops. Service worker registration failed, error:', err);
-  });
- }
-
- navigator.serviceWorker.register('service-worker.js', {
-  scope: '/app/'
- });
 
 export default function register() {
   if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
@@ -59,7 +44,6 @@ export default function register() {
 
     window.addEventListener("load", () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
-
       if (!isLocalhost) {
         // Is not local host. Just register service worker
         registerValidSW(swUrl);
@@ -72,37 +56,32 @@ export default function register() {
 }
 
 // install sw
-window.addEventListener("install", function(evt) {
+window.addEventListener("install", (evt) => {
   evt.waitUntil(
-caches.open(CACHE_NAME).then(cache => {
- console.log("Your files were pre-cached successfully!");
-   return cache.addAll(staticFilesToPreCache);
-  })
- );
-
+    caches.open(CACHE_NAME).then(cache => {
+      console.log("Your files were pre-cached successfully!");
+      return cache.addAll(staticFilesToPreCache);
+    })
+  );
   window.skipWaiting();
 });
 
 // when the sw activates, remove any outdated caches
-window.addEventListener("activate", function(evt) {
+window.addEventListener("activate", evt => {
+  const currentCashes = [CACHE_NAME, DATA_CACHE_NAME];
   evt.waitUntil(
-    caches.keys().then(keyList => {
-      return Promise.all(
-        keyList.map(key => {
-          if (key !== CACHE_NAME && key !== DATA_CACHE_NAME) {
-            console.log("Removing old cache data", key);
-            return caches.delete(key);
-          } 
-        })
-      );
-    })
+    caches.keys().then(cacheNames => {
+      return cacheNames.filter(cacheName => !currentCashes.includes(cacheName));
+    }).then(cachesToDelete=>{
+      return Promise.all(cachesToDelete.map(cacheToDelete=>{
+        return caches.delete(cacheToDelete);
+      }));
+    }).then(()=>window.clients.claim())
   );
-
-  window.clients.claim();
 });
 
 //whenever the client triggers fetch, respond from cache falling back to the network
-window.addEventListener("fetch", function(evt) {
+window.addEventListener("fetch", (evt) => {
   const {url} = evt.request;
   if (url.includes("/all") || url.includes("/find")) {
     evt.respondWith(
@@ -132,7 +111,7 @@ window.addEventListener("fetch", function(evt) {
       })
     );
   }
- });
+});
 
 
 function registerValidSW(swUrl) {

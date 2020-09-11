@@ -108,7 +108,7 @@ function Profile() {
         const max = data[1].AT?.mx;
         const season = data[1].Season;
         const earthDay = data[1].First_UTC;
-       // console.log("data:" + data);
+        // console.log("data:" + data);
 
         const formatDate = (date) =>
           date.toLocaleDateString(undefined, {

@@ -15,10 +15,25 @@ router.get("/api/task", isAuthenticated, async (req, res) => {
   }
 });
 
-// create a new task
+// create a single new task
 router.post("/api/task", isAuthenticated, async (req, res) => {
   try {
     const task = await db.Task.create({ ...req.body, martianID: req.user.id });
+    res.json(task);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error.message);
+    n;
+  }
+});
+
+// Post bulk tasks when retrieved from indexedDB
+router.post("/api/task/bulk", isAuthenticated, async ({ body }, res) => {
+  try {
+    const task = await db.Task.insertMany({
+      ...req.body,
+      martianID: req.user.id,
+    });
     res.json(task);
   } catch (error) {
     console.log(error);
