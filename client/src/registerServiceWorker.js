@@ -1,5 +1,5 @@
 // In production, we register a service worker to serve assets from local cache.
-
+console.log("Hello from your service worker!");
 // This lets the app load faster on subsequent visits in production, and gives
 // it offline capabilities. However, it also means that developers (and users)
 // will only see deployed updates on the "N+1" visit to a page, since previously
@@ -7,6 +7,18 @@
 
 // To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
 // This link also includes instructions on opting out of this behavior.
+//create variable for cache
+
+const CACHE_NAME = "static-cache-v1";
+const DATA_CACHE_NAME = "data-cache-v1";
+
+const staticFilesToPreCache = [
+  "/",
+ "/index.html",
+ "/app.js",
+ "/index.css",
+ "/manifest.webmanifest",
+ ];
 
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
@@ -17,6 +29,22 @@ const isLocalhost = Boolean(
       /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
     )
 );
+
+// Check for browser support of service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js')
+  .then(function(registration) {
+    // Successful registration
+    console.log('Hooray. Registration successful, scope is:', registration.scope);
+  }).catch(function(err) {
+    // Failed registration, service worker won’t be installed
+    console.log('Whoops. Service worker registration failed, error:', err);
+  });
+ }
+
+ navigator.serviceWorker.register('service-worker.js', {
+  scope: '/app/'
+ });
 
 export default function register() {
   if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
@@ -42,6 +70,70 @@ export default function register() {
     });
   }
 }
+
+// install sw
+window.addEventListener("install", function(evt) {
+  evt.waitUntil(
+caches.open(CACHE_NAME).then(cache => {
+ console.log("Your files were pre-cached successfully!");
+   return cache.addAll(staticFilesToPreCache);
+  })
+ );
+
+  window.skipWaiting();
+});
+
+// when the sw activates, remove any outdated caches
+window.addEventListener("activate", function(evt) {
+  evt.waitUntil(
+    caches.keys().then(keyList => {
+      return Promise.all(
+        keyList.map(key => {
+          if (key !== CACHE_NAME && key !== DATA_CACHE_NAME) {
+            console.log("Removing old cache data", key);
+            return caches.delete(key);
+          } 
+        })
+      );
+    })
+  );
+
+  window.clients.claim();
+});
+
+//whenever the client triggers fetch, respond from cache falling back to the network
+window.addEventListener("fetch", function(evt) {
+  const {url} = evt.request;
+  if (url.includes("/all") || url.includes("/find")) {
+    evt.respondWith(
+      caches.open(DATA_CACHE_NAME).then(cache => {
+        return fetch(evt.request)
+          .then(response => {
+            // If the response was good, clone it and store it in the cache.
+            if (response.status === 200) {
+              cache.put(evt.request, response.clone());
+            }
+
+            return response;
+          })
+          .catch(err => {
+            // Network request failed, try to get it from the cache.
+            return cache.match(evt.request);
+          });
+      }).catch(err => console.log(err))
+    );
+  } else {
+    // respond from static cache, request is not for /api/*
+    evt.respondWith(
+      caches.open(CACHE_NAME).then(cache => {
+        return cache.match(evt.request).then(response => {
+          return response || fetch(evt.request);
+        });
+      })
+    );
+  }
+ });
+
 
 function registerValidSW(swUrl) {
   navigator.serviceWorker
