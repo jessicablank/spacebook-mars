@@ -119,7 +119,7 @@ function TaskPage() {
             ))}
           </List>
         ) : ( 
-          <h4>Saved Martian Tasks Will Display Here.</h4>
+          <h4 className= "center">Add Some Tasks!</h4>
         )}
       </Container>
     </div>

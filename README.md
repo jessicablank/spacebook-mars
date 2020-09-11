@@ -12,8 +12,8 @@ For future development: Martians will be able to connect with other Martians to 
 
 ## Table of Contents:
 * [Developers](#developers)
-* [Installing Locally](#installing-locally)
 * [Quick Start](#quick-start)
+* [Installing Locally](#installing-locally)
 * [Usage](./USAGE.md)
 * [ScreenShots](#screenshots)
 * [Tests](./TESTS.md)
@@ -33,6 +33,22 @@ These Earthlings enjoy imagining life as Martians. Please feel free to reach out
 ### Jessica Blankemeier
 * :octocat: [GitHub](https://github.com/jessicablank)
 *  📧 E-mail: jessicablankemeier@gmail.com
+
+# Quick Start
+
+These Martians are already registered on the 🚀[deployed site](https://spacebook-mars.herokuapp.com/) with populated task lists if you would like to test the application without creating a new Martian. 
+
+* Test User 1
+
+    * Martian Name: Mr. Martian XLF-12
+    * Email: Mars.Rocks@email.com
+    * Password: p@ssw0Rd
+
+* Test User 2
+
+    * Martian Name: Ms. Martian XLF-15
+    * Email: Martians.Rocks@email.com
+    * Password: p@ssw0Rd
 
 # Installing Locally
 
@@ -63,21 +79,6 @@ npm start
 ```
 
 That's it! your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-# Quick Start
-These Martians are already registered on the deployed site with populated task lists if the User would like to test the application without creating a new Martian. 
-
-* Test User 1
-
-    * Martian Name: Mr. Martian XLF-12
-    * Email: Mars.Rocks@email.com
-    * Password: p@ssw0Rd
-
-* Test User 2
-
-    * Martian Name: Ms. Martian XLF-15
-    * Email: Martians.Rocks@email.com
-    * Password: p@ssw0Rd
 
 # Screenshots
 

@@ -70,9 +70,10 @@ function RoverPhotos() {
         </button>
       </h2>
       <LoadingIndicator />
-      {images
-        // remove duplicates in the images object and return one of each image
-        .filter(
+       {/* Check for images, then remove duplicates from the images object */}
+       {images.length ? (
+         <div>
+      {images.filter(
           (v, index, filteredData) =>
             filteredData.findIndex((t) => t.camera.name === v.camera.name) ===
             index
@@ -81,6 +82,7 @@ function RoverPhotos() {
           const index = mappedData.id;
           const image = mappedData.img_src;
           const cameraName = mappedData.camera.full_name;
+         
           return (
             <Container key={index}>
               <div className="card container-sm clear-card" id="rover-images">
@@ -90,12 +92,14 @@ function RoverPhotos() {
                   src={image}
                 />
                 <div className="card-body">
-                  <p className="card-text">{cameraName}</p>
+                  <p className="card-text">{cameraName ? cameraName : "There seems to be an error. Make a task to check the Rover"}</p>
                 </div>
               </div>
             </Container>
-          );
+          ) 
         })}
+        </div>
+        ) : <h4 className= "center">No Images🤔Add a Task to Check the Rover</h4>}
     </div>
   );
 }

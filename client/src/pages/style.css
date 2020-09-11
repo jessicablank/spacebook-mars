@@ -66,18 +66,20 @@ select:focus {
 /* Rover Page Start */
 /*can use to make the images smaller if desired*/
 /* #rover-images{
-  width: 18em;
+  width: 25em;
   
 } */
 
 #roverImages{
-  padding: 1px;
   transition: transform .2s; /* Animation */
-
   margin: 0 auto;
 }
 
 #roverImages:hover{
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
+/* Center*/
+.center{
+  text-align: center;
+}
