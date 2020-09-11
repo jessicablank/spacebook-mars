@@ -4,6 +4,7 @@ import roverAPI from "../utils/roverAPI";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
 import RoverModal from "../components/Modal/RoverModal";
+import RoverError from "../components/Modal/RoverError"
 import LoadingIndicator from "../components/LoadingIndicator";
 import { trackPromise } from "react-promise-tracker";
 import "./style.css";
@@ -11,6 +12,8 @@ import "./style.css";
 function RoverPhotos() {
   const [images, setImages] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  
 
   useEffect(() => {
     loadImages();
@@ -29,6 +32,11 @@ function RoverPhotos() {
   const handleRoverModal = () => {
     setShowModal(true);
   };
+
+  const handleRoverErrorModal = () => {
+    setShowErrorModal(true);
+  };
+
 
   return (
     <div className="Rover-Photos">
@@ -54,7 +62,9 @@ function RoverPhotos() {
           </Link>
         </div>
       </Container>
+    
       {showModal && <RoverModal onHide={() => setShowModal(false)} />}
+      {showErrorModal && <RoverError onHide={() => setShowErrorModal(false)} />}
 
       <h2>
         Curiosity Rover{" "}
@@ -92,14 +102,26 @@ function RoverPhotos() {
                   src={image}
                 />
                 <div className="card-body">
-                  <p className="card-text">{cameraName ? cameraName : "There seems to be an error. Make a task to check the Rover"}</p>
+                  <p className="card-text">{cameraName}</p>
                 </div>
               </div>
             </Container>
           ) 
         })}
         </div>
-        ) : <h4 className= "center">No Images🤔Add a Task to Check the Rover</h4>}
+        ) : (<Container>
+          <div className="card container-sm clear-card" id = "center"><button
+          type="button"
+          className="btn btn-dark"
+          onClick={(event) => {
+            handleRoverErrorModal();
+            event.preventDefault();
+          }}
+        >
+          !
+        </button>
+        </div>
+        </Container>)}
     </div>
   );
 }

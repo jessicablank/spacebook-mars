@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DeleteBtn from "../components/DeleteBtn";
+import HighlightBtn from "../components/HighlightBtn";
 import taskAPI from "../utils/taskAPI";
 import Task from "../components/Form/taskCard";
 import TaskModal from "../components/Modal/TaskModal";
@@ -34,6 +35,10 @@ function TaskPage() {
       .deleteTask(id)
       .then((res) => loadTasks())
       .catch((err) => console.log(err));
+  }
+
+  function highlightTask(id) {
+    return (<li style={{fontWeight: "bold" }} ></li>)
   }
 
   function handleTaskSaved() {
@@ -113,7 +118,7 @@ function TaskPage() {
                 >
                   {task.title}
                 </a>
-
+                <HighlightBtn onClick={() => highlightTask(task._id)} />
                 <DeleteBtn onClick={() => deleteTask(task._id)} />
               </ListItem>
             ))}
