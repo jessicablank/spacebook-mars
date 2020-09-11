@@ -73,6 +73,7 @@ select:focus {
 #roverImages{
   transition: transform .2s; /* Animation */
   margin: 0 auto;
+  overflow: hidden;
 }
 
 #roverImages:hover{
