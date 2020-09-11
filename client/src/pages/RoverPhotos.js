@@ -1,13 +1,14 @@
 import React, { useState, useEffect} from "react";
-import "./Home/home.css";
-import roverAPI from "../utils/roverAPI";
-import { Link } from "react-router-dom";
 import Container from "../components/Container";
+import { Link } from "react-router-dom";
+import LoadingIndicator from "../components/LoadingIndicator";
+import roverAPI from "../utils/roverAPI";
 import RoverModal from "../components/Modal/RoverModal";
 import RoverError from "../components/Modal/RoverError"
-import LoadingIndicator from "../components/LoadingIndicator";
 import { trackPromise } from "react-promise-tracker";
+import "./Home/home.css";
 import "./style.css";
+
 
 function RoverPhotos() {
   const [images, setImages] = useState([]);

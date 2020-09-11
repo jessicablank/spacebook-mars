@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import API from "./../utils/API";
-import insightAPI from "./../utils/insightAPI";
 import Container from "../components/Container";
+import insightAPI from "./../utils/insightAPI";
 import LoadingIndicator from "../components/LoadingIndicator";
 import { Link } from "react-router-dom";
-import { useAuth } from "../utils/auth";
+import ModalComp from "../components/Modal/Modal";
 import Task from "../components/Form/taskCard";
 import { trackPromise } from "react-promise-tracker";
-import ModalComp from "../components/Modal/Modal";
 import TaskInfoModal from "../components/Modal/TaskInfoModal";
+import { useAuth } from "../utils/auth";
 import WeatherInfoModal from "../components/Modal/WeatherInfo";
 import "./style.css";
 

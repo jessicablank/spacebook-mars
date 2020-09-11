@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
-import { useAuth } from "../utils/auth";
-import { Form, InputGroup } from "../components/LoginForm";
 import Container from "../components/Container";
+import { Form, InputGroup } from "../components/LoginForm";
+import { Link, Redirect, useHistory } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { useAuth } from "../utils/auth";
 import "./style.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const loginStyle = {
   display: "flex",
@@ -19,6 +21,8 @@ function Login() {
   const { isLoggedIn, login } = useAuth();
   const history = useHistory();
 
+  const notify = () => toast.warn("Incorrect Username or Password!");
+
   if (isLoggedIn) {
     return <Redirect to="/" />;
   }
@@ -30,7 +34,7 @@ function Login() {
       // navigate to the profile page
       .then(() => history.push("/profile"))
       .catch((err) => {
-        alert(err.response.data.message);
+        console.log(err);
       });
   };
 
@@ -62,9 +66,13 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="roundedBtn" type="submit">
+        <button 
+        className="roundedBtn" 
+        type="submit"
+        onClick={isLoggedIn ? <Redirect to="/" /> : notify}>
           Submit
         </button>
+        <ToastContainer />
       </Form>
       <Link
         style={{

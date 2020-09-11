@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
+import Container from "../components/Container";
 import DeleteBtn from "../components/DeleteBtn";
-
+import LoadingIndicator from "../components/LoadingIndicator";
+import { Link } from "react-router-dom";
+import { List, ListItem } from "../components/List";
 import taskAPI from "../utils/taskAPI";
 import Task from "../components/Form/taskCard";
 import TaskModal from "../components/Modal/TaskModal";
 import TaskInfoModal from "../components/Modal/TaskInfoModal";
-import LoadingIndicator from "../components/LoadingIndicator";
-import { Link } from "react-router-dom";
-import Container from "../components/Container";
-import { List, ListItem } from "../components/List";
 import { trackPromise} from "react-promise-tracker";
 import "./style.css";
 

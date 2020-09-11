@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
 import API from "./../utils/API";
-import { useAuth } from "../utils/auth";
-import { Form, InputGroup } from "../components/LoginForm";
-import "./style.css";
 import Container from "../components/Container";
+import { Form, InputGroup } from "../components/LoginForm";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { useAuth } from "../utils/auth";
+import "./style.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const signupStyles = {
@@ -27,7 +27,7 @@ function Signup() {
 
   const history = useHistory();
 
-  const notify = () => toast.warn("Account already exists !");
+  const notify = () => toast.warn("Account already exists! Please Login");
 
   if (isLoggedIn) {
     return <Redirect to="/" />;
@@ -41,7 +41,7 @@ function Signup() {
         // send them to the login page
         history.replace("/login");
       })
-      .catch((err) => alert(err));
+      .catch((err) => console.log(err));
   };
 
   const handleChange = (event) => {
