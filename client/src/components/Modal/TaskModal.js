@@ -1,17 +1,32 @@
-import React from "react";
-import Modal from "react-bootstrap/Modal";
+import React, { useState } from 'react';
 import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import taskAPI from "../../utils/taskAPI";
+
+
+function TaskModal({ onHide, task }) {
+  const [tasksData, setTasksData] = useState([]);
+
+function updateTask(id) {
+  console.log("button works")
+
+}
+
+
 
 //Used on the Tasks Page
-function TaskModal({ onHide, task }) {
+function TaskModal() {
   return (
     <>
       <Modal show={true} onHide={onHide}>
         <Modal.Header closeButton>
-          <Modal.Title>{task.title}</Modal.Title>
+          <Modal.Title><input value={task.title} onChange={(e) => task.titleHandler(e)}/></Modal.Title>
         </Modal.Header>
-        <Modal.Body>{task.textBody}</Modal.Body>
+        <Modal.Body><input className = "module-body" value={task.textBody}/></Modal.Body>
         <Modal.Footer>
+        <Button variant="primary" onClick={updateTask}>
+            Save Changes
+          </Button>
           <Button variant="secondary" onClick={onHide}>
             Close
           </Button>
@@ -19,6 +34,7 @@ function TaskModal({ onHide, task }) {
       </Modal>
     </>
   );
+}
 }
 
 export default TaskModal;

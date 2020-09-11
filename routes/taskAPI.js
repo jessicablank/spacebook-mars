@@ -27,20 +27,6 @@ router.post("/api/task", isAuthenticated, async (req, res) => {
   }
 });
 
-// Post bulk tasks when retrieved from indexedDB
-router.post("/api/task/bulk", isAuthenticated, async ({ body }, res) => {
-  try {
-    const task = await db.Task.insertMany({
-      ...req.body,
-      martianID: req.user.id,
-    });
-    res.json(task);
-  } catch (error) {
-    console.log(error);
-    res.status(400).send(error.message);
-    n;
-  }
-});
 
 // read one task by task id
 router.get("/api/task/:id", isAuthenticated, async (req, res) => {
