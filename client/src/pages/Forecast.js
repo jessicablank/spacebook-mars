@@ -26,6 +26,7 @@ function ForecastPage() {
       .catch((err) => console.log(err));
   }
 
+  //Info Modal
   const handleWeatherModal = () => {
     setShowWeatherModal(true);
   };

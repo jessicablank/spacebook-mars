@@ -9,7 +9,7 @@ function NoMatch() {
       <h1>404 Page Not Found</h1>
       <List>
         <p>Sorry Martian. Do you want to go home?</p>
-        <span role="img" aria-label="earth emogi">
+        <span role="img" aria-label="earth emoji">
           🌎
         </span>
         <Link to="/profile">

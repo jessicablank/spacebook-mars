@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import API from "./../utils/API";
 import Container from "../components/Container";
 import { Form, InputGroup } from "../components/LoginForm";
+import LoginInfoModal from "../components/Modal/LoginInfoModal";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../utils/auth";
@@ -22,6 +23,7 @@ function Signup() {
     email: "",
     password: "",
   });
+  const [showLoginInfoModal, setShowLoginInfoModal] = useState(false);
 
   const { isLoggedIn } = useAuth();
 
@@ -52,6 +54,11 @@ function Signup() {
     });
   };
 
+    //Info Modal
+    const handleLoginInfoModal = () => {
+      setShowLoginInfoModal(true);
+    };
+
   return (
     <div style={signupStyles} className="Signup">
       <h1>SPACEBOOK</h1>
@@ -74,6 +81,7 @@ function Signup() {
           type="text"
           onChange={handleChange}
         />
+        
         <InputGroup
           id="email"
           labelText="Email"
@@ -99,6 +107,11 @@ function Signup() {
         </button>
         <ToastContainer />
       </Form>
+
+      {showLoginInfoModal && (
+        <LoginInfoModal onHide={() => setShowLoginInfoModal(false)} />
+      )}
+
       <Link
         style={{
           marginTop: "1.5rem",
@@ -110,6 +123,15 @@ function Signup() {
           Already a Martian?
         </button>
       </Link>
+      <button className="roundedBtn btnWidth btn-dark" type="button" style={{
+          marginTop: "1.5rem",
+          textAlign: "center",
+        }}  onClick={(event) => {
+          handleLoginInfoModal();
+          event.preventDefault();
+        }}>
+          More Information
+        </button>
     </div>
   );
 }
