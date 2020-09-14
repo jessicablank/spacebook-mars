@@ -1,5 +1,9 @@
 # SPACEBOOK
+[![Build Status](https://travis-ci.org/jessicablank/spacebook-mars.svg?branch=master)](https://travis-ci.org/jessicablank/spacebook-mars)
+[![GitHub stars](https://img.shields.io/github/stars/jessicablank/spacebook-mars)](https://github.com/jessicablank/spacebook-mars/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/jessicablank/spacebook-mars)](https://github.com/jessicablank/spacebook-mars/network)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub issues](https://img.shields.io/github/issues/jessicablank/spacebook-mars)](https://github.com/jessicablank/spacebook-mars/issues)
 
 🚀[Deployed on Heroku: https://spacebook-mars.herokuapp.com/](https://spacebook-mars.herokuapp.com/)
 
