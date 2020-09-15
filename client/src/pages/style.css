@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
 
 h1 {
+  /* saving as back-up: */
   /* font-family: "Rubik Mono One", sans-serif; */
   font-family: "Press Start 2P", cursive;
   color: black;
@@ -51,6 +52,7 @@ button {
   font-size: 3em;
 }
 
+/* Task Card & Page Start */
 #taskTitleLink {
   color: black;
 }
@@ -59,4 +61,30 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
+}
+
+/* Rover Page Start 
+can use to make the images smaller if desired */
+ /* #rover-images{
+  width: 18em;
+  
+} */
+
+#roverImages{
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#roverImages:hover{
+  transform: scale(1.1);
+}
+
+/* Center*/
+.center{
+  text-align: center;
+}
+
+#center{
+  text-align: center;
 }

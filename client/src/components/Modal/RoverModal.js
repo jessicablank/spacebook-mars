@@ -12,7 +12,7 @@ function RoverInfoModal({ onHide }) {
         </Modal.Header>
         <Modal.Body>
           <p> This page shows actual pictures taken by NASA's Mars Curiosity Rover the Earth day corresponding to day on the SPACEBOOK Profile Page</p>
-          The developers of SPACEBOOK imagine that Martians will periodically check in with nearby Rovers to conduct research. 
+          The developers of SPACEBOOK imagine that Martians will use rovers to explore the neighborhood. 
         </Modal.Body>
         <Modal.Footer>
           <p>Learn more about NASA's Mar's Curiosity Rover at <a href="https://mars.nasa.gov/msl/home/"

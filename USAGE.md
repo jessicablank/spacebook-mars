@@ -1,5 +1,4 @@
-# Usage
-
+# Usage & Tests
 - **Sign-Up Page**
 
   New users must create a Martian profile to use the app.
@@ -10,6 +9,11 @@
     - Must follow standard email@domain.com
   - Password
     - Any combination of letters, numbers, characters, and spaces
+
+    **Test:** Martian will receive an error message if:
+    - Email does not follow standard *email@domain.com* format.
+    - User account already exists. 
+    - Any field is left blank
 
 - **Login Page**
   - Email
@@ -31,11 +35,13 @@
     - The Task Title is required in order to save the task. For Example: "_Eat Mars Bars_"
     - The Task Body is provided for more description. For Example: "_Because chocolate will help you stay alert._"
     - Once the Martian clicks **Save**, a modal will confirm the task is saved.
+    - **Test:** Martian will receive an error if attempting to save a task without a title.
 - **Tasks Page**
   - The Martian will see a card to quickly add a new task. Upon **save**, task will be added to the bottom of the task list below.
   - The task list allows the Martian to see previously added tasks with the oldest tasks displaying first.
     - These tasks are specific to each user. 
     - The Martian can click on the title of a task to see a modal with the task body.
     - The Martian can delete the task by clicking the **X**.
+    - **Test:** Martian will receive an error if attempting to save a task without a title.
 - **Rover Page**
-    -   The Martian will see up to three images from the Curiosity Rover that correspond to the approximate date displayed on the **Profile** page.
+    -   The Martian will see images from the Curiosity Rover that correspond to the approximate date displayed on the **Profile** page.

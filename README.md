@@ -1,5 +1,9 @@
 # SPACEBOOK
+[![Build Status](https://travis-ci.org/jessicablank/spacebook-mars.svg?branch=master)](https://travis-ci.org/jessicablank/spacebook-mars)
+[![GitHub stars](https://img.shields.io/github/stars/jessicablank/spacebook-mars)](https://github.com/jessicablank/spacebook-mars/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/jessicablank/spacebook-mars)](https://github.com/jessicablank/spacebook-mars/network)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub issues](https://img.shields.io/github/issues/jessicablank/spacebook-mars)](https://github.com/jessicablank/spacebook-mars/issues)
 
 🚀[Deployed on Heroku: https://spacebook-mars.herokuapp.com/](https://spacebook-mars.herokuapp.com/)
 
@@ -8,15 +12,17 @@
  
 SPACEBOOK allows Martians to see the current weather for their colony location, check on photos from the nearby rover, and manage a task list. 
 
-For future development: Martians will be able to connect with other Martians to share tasks, alert to weather conditions, and save Rover photographs. 
+Ideas for future development include Martians connecting with other Martians to share tasks, alert to weather conditions, and share Rover images. 
 
 ## Table of Contents:
 * [Developers](#developers)
-* [Installing Locally](#installing-locally)
 * [Quick Start](#quick-start)
-* [Usage](./USAGE.md)
+* [Installing Locally](./LOCALINSTALL.md)
+* [Usage & Tests](./USAGE.md)
 * [ScreenShots](#screenshots)
-* [Tests](./TESTS.md)
+* [Technologies Used](#Technologies-Used)
+* [File Structure](./FILES.md)
+* [API EndPoints](./API.md)
 * [License](#license)
 
 # Developers
@@ -34,38 +40,9 @@ These Earthlings enjoy imagining life as Martians. Please feel free to reach out
 * :octocat: [GitHub](https://github.com/jessicablank)
 *  📧 E-mail: jessicablankemeier@gmail.com
 
-# Installing Locally
-
-Add a .env file at the top level of this project.
-
-Then inside of the .env add a SERVER_SECRET set to any value you'd like
-
-```
-SERVER_SECRET = 123456
-```
-
-First off make sure you have a local version of MongoDB running on your machine. This project will make a local database for you called `appDB`.
-
-```
-mongod
-```
-
-Start by installing front and backend dependencies. While in the root directory, run the following command:
-
-```
-npm install
-```
-
-After all installations complete, run the following command in your terminal:
-
-```
-npm start
-```
-
-That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
 # Quick Start
-These Martians are already registered with populated task lists if the User would like to test the application without creating a new Martian. 
+
+These Martians are already registered on the 🚀[deployed site](https://spacebook-mars.herokuapp.com/) with populated task lists if you would like to test the application without creating a new Martian. 
 
 * Test User 1
 
@@ -140,6 +117,16 @@ Invalid Login:
 No Match Page:
 
 ![NoMatch](./assets/no-match.PNG)
+
+## Technologies Used
+* [React](https://reactjs.org/)
+* [React-bootstrap](https://react-bootstrap.github.io/)
+* [Heroku - Deployment](https://www.heroku.com/)
+* [Postman- Route Testing](https://www.postman.com/)
+* [Travis CI](https://travis-ci.org/)
+* [MockFlow Wireframe](https://www.mockflow.com/)
+
+
 
 ## License
 Copyright 2020 - present Lisbeth Machado, Timothy Lam, Jessica Blankemeier.

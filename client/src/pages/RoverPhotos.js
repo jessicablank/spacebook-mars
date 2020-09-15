@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./Home/home.css";
-import roverAPI from "../utils/roverAPI";
-import { Link } from "react-router-dom";
 import Container from "../components/Container";
-import RoverModal from "../components/Modal/RoverModal";
+import { Link } from "react-router-dom";
 import LoadingIndicator from "../components/LoadingIndicator";
-import { trackPromise} from "react-promise-tracker";
+import roverAPI from "../utils/roverAPI";
+import RoverModal from "../components/Modal/RoverModal";
+import { trackPromise } from "react-promise-tracker";
+import "./Home/home.css";
+import "./style.css";
 
 function RoverPhotos() {
   const [images, setImages] = useState([]);
@@ -15,15 +16,14 @@ function RoverPhotos() {
     loadImages();
   }, []);
 
-  //trackPromise sets the loading indicator while data is fetched. 
+  //trackPromise sets the loading indicator while data is fetched.
   function loadImages() {
-    trackPromise(roverAPI
-      .getImages()
-      .then((res) => {
+    trackPromise(
+      roverAPI.getImages().then((res) => {
         const imagesData = Object.entries(res.data);
         setImages(imagesData[0][1]);
-      }))
-      .catch((err) => console.log(err));
+      })
+    ).catch((err) => console.log(err));
   }
 
   const handleRoverModal = () => {
@@ -54,6 +54,7 @@ function RoverPhotos() {
           </Link>
         </div>
       </Container>
+
       {showModal && <RoverModal onHide={() => setShowModal(false)} />}
 
       <h2>
@@ -70,18 +71,28 @@ function RoverPhotos() {
         </button>
       </h2>
       <LoadingIndicator />
+      {/* remove duplicates from the images object */}
+
       {images
-        .filter((data) => data.id % 2 === 0)
-        .slice(0, 3)
-        .map((filteredData) => {
-          const index = filteredData.id;
-          const image = filteredData.img_src;
-          const cameraName = filteredData.camera.full_name;
+        .filter(
+          (v, index, filteredData) =>
+            filteredData.findIndex((t) => t.camera.name === v.camera.name) ===
+            index
+        )
+        .map((mappedData) => {
+          const index = mappedData.id;
+          const image = mappedData.img_src;
+          const cameraName = mappedData.camera.full_name;
 
           return (
             <Container key={index}>
-              <div className="card container-sm clear-card">
-                <img className="roverImages" alt="rover-camera" src={image} />
+              <div className="card container-sm clear-card" id="rover-images">
+                <img
+                  className="card-img-top"
+                  id="roverImages"
+                  alt="rover camera images"
+                  src={image ? image : <h4 className= "center">Image Unavailable. Check Rover</h4>}
+                />
                 <div className="card-body">
                   <p className="card-text">{cameraName}</p>
                 </div>

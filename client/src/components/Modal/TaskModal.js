@@ -8,7 +8,7 @@ function TaskModal({ onHide, task }) {
     <>
       <Modal show={true} onHide={onHide}>
         <Modal.Header closeButton>
-          <Modal.Title>{task.title}</Modal.Title>
+          <Modal.Title placeholder>{task.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>{task.textBody}</Modal.Body>
         <Modal.Footer>

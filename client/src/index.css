@@ -8,10 +8,10 @@ body {
 
 .hero-image {
   background-image: url("../src/images/planets.jpg");
-  background-color: black;
+  background-color: #35224d;
   height: 2000px;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-size: cover;
   position: relative;
 }

@@ -1,5 +1,5 @@
 {
-  "name": "create-react-express-jwt-server",
+  "name": "SPACEBOOK",
   "version": "2.1.2",
   "description": "Mern Demo",
   "main": "server.js",
@@ -17,7 +17,7 @@
     "lint": "eslint . && cd client && npm run lint",
     "lint:fix": "eslint --fix . && cd client && npm run lint:fix"
   },
-  "author": "Travis Thompson, John Desrosiers",
+  "author": "Travis Thompson, John Desrosiers, Jessica Blankemeier, Timothy Lam, Lisbeth Machado",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.2.0",

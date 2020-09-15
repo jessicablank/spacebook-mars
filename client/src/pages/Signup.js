@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
 import API from "./../utils/API";
-import { useAuth } from "../utils/auth";
-import { Form, InputGroup } from "../components/LoginForm";
-import "./style.css";
 import Container from "../components/Container";
+import { Form, InputGroup } from "../components/LoginForm";
+import LoginInfoModal from "../components/Modal/LoginInfoModal";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { useAuth } from "../utils/auth";
+import "./style.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const signupStyles = {
@@ -22,12 +23,13 @@ function Signup() {
     email: "",
     password: "",
   });
+  const [showLoginInfoModal, setShowLoginInfoModal] = useState(false);
 
   const { isLoggedIn } = useAuth();
 
   const history = useHistory();
 
-  const notify = () => toast.warn("Account already exists !");
+  const notify = () => toast.warn("Account already exists! Please Login");
 
   if (isLoggedIn) {
     return <Redirect to="/" />;
@@ -41,7 +43,7 @@ function Signup() {
         // send them to the login page
         history.replace("/login");
       })
-      .catch((err) => alert(err));
+      .catch((err) => console.log(err));
   };
 
   const handleChange = (event) => {
@@ -50,6 +52,11 @@ function Signup() {
       ...formState,
       [name]: value,
     });
+  };
+
+  //Info Modal
+  const handleLoginInfoModal = () => {
+    setShowLoginInfoModal(true);
   };
 
   return (
@@ -74,6 +81,7 @@ function Signup() {
           type="text"
           onChange={handleChange}
         />
+        
         <InputGroup
           id="email"
           labelText="Email"
@@ -99,6 +107,11 @@ function Signup() {
         </button>
         <ToastContainer />
       </Form>
+
+      {showLoginInfoModal && (
+        <LoginInfoModal onHide={() => setShowLoginInfoModal(false)} />
+      )}
+
       <Link
         style={{
           marginTop: "1.5rem",
@@ -110,6 +123,15 @@ function Signup() {
           Already a Martian?
         </button>
       </Link>
+      <button className="roundedBtn btnWidth btn-dark" type="button" style={{
+        marginTop: "1.5rem",
+        textAlign: "center",
+      }} onClick={(event) => {
+        handleLoginInfoModal();
+        event.preventDefault();
+      }}>
+          More Information
+      </button>
     </div>
   );
 }

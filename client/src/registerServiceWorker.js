@@ -1,5 +1,5 @@
 // In production, we register a service worker to serve assets from local cache.
-
+//console.log("Hello from your service worker!");
 // This lets the app load faster on subsequent visits in production, and gives
 // it offline capabilities. However, it also means that developers (and users)
 // will only see deployed updates on the "N+1" visit to a page, since previously
@@ -7,6 +7,18 @@
 
 // To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
 // This link also includes instructions on opting out of this behavior.
+//create variable for cache
+
+const CACHE_NAME = "static-cache-v1";
+const DATA_CACHE_NAME = "data-cache-v1";
+
+const staticFilesToPreCache = [
+  "/",
+  "/index.html",
+  "/app.js",
+  "/index.css",
+  "webmanifest.json",
+];
 
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
@@ -17,6 +29,7 @@ const isLocalhost = Boolean(
       /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
     )
 );
+
 
 export default function register() {
   if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
@@ -31,7 +44,6 @@ export default function register() {
 
     window.addEventListener("load", () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
-
       if (!isLocalhost) {
         // Is not local host. Just register service worker
         registerValidSW(swUrl);
@@ -42,6 +54,65 @@ export default function register() {
     });
   }
 }
+
+// install sw
+window.addEventListener("install", (evt) => {
+  evt.waitUntil(
+    caches.open(CACHE_NAME).then(cache => {
+      console.log("Your files were pre-cached successfully!");
+      return cache.addAll(staticFilesToPreCache);
+    })
+  );
+  window.skipWaiting();
+});
+
+// when the sw activates, remove any outdated caches
+window.addEventListener("activate", evt => {
+  const currentCashes = [CACHE_NAME, DATA_CACHE_NAME];
+  evt.waitUntil(
+    caches.keys().then(cacheNames => {
+      return cacheNames.filter(cacheName => !currentCashes.includes(cacheName));
+    }).then(cachesToDelete=>{
+      return Promise.all(cachesToDelete.map(cacheToDelete=>{
+        return caches.delete(cacheToDelete);
+      }));
+    }).then(()=>window.clients.claim())
+  );
+});
+
+//whenever the client triggers fetch, respond from cache falling back to the network
+window.addEventListener("fetch", (evt) => {
+  const {url} = evt.request;
+  if (url.includes("/all") || url.includes("/find")) {
+    evt.respondWith(
+      caches.open(DATA_CACHE_NAME).then(cache => {
+        return fetch(evt.request)
+          .then(response => {
+            // If the response was good, clone it and store it in the cache.
+            if (response.status === 200) {
+              cache.put(evt.request, response.clone());
+            }
+
+            return response;
+          })
+          .catch(err => {
+            // Network request failed, try to get it from the cache.
+            return cache.match(evt.request);
+          });
+      }).catch(err => console.log(err))
+    );
+  } else {
+    // respond from static cache, request is not for /api/*
+    evt.respondWith(
+      caches.open(CACHE_NAME).then(cache => {
+        return cache.match(evt.request).then(response => {
+          return response || fetch(evt.request);
+        });
+      })
+    );
+  }
+});
+
 
 function registerValidSW(swUrl) {
   navigator.serviceWorker
