@@ -27,7 +27,7 @@ Before testing any routes:
 }
 ```
 
-# **GET** http://localhost:3001/api/task
+**GET** http://localhost:3001/api/task
 - Press *Send*.
 - Example Response: 
 ```
@@ -98,7 +98,7 @@ Before testing any routes:
 - In the *Body* tab
     - Set *KEY* to "title" and "textBody".
     - Update *VALUE* to your desired task.
-- Press *Send* twice to see the change response. 
+- Press *Send*. 
 - Example Response:
 ```
 {

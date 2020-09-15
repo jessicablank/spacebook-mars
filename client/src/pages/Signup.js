@@ -54,10 +54,10 @@ function Signup() {
     });
   };
 
-    //Info Modal
-    const handleLoginInfoModal = () => {
-      setShowLoginInfoModal(true);
-    };
+  //Info Modal
+  const handleLoginInfoModal = () => {
+    setShowLoginInfoModal(true);
+  };
 
   return (
     <div style={signupStyles} className="Signup">
@@ -124,14 +124,14 @@ function Signup() {
         </button>
       </Link>
       <button className="roundedBtn btnWidth btn-dark" type="button" style={{
-          marginTop: "1.5rem",
-          textAlign: "center",
-        }}  onClick={(event) => {
-          handleLoginInfoModal();
-          event.preventDefault();
-        }}>
+        marginTop: "1.5rem",
+        textAlign: "center",
+      }} onClick={(event) => {
+        handleLoginInfoModal();
+        event.preventDefault();
+      }}>
           More Information
-        </button>
+      </button>
     </div>
   );
 }

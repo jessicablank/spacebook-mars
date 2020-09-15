@@ -27,7 +27,6 @@ router.post("/api/task", isAuthenticated, async (req, res) => {
   }
 });
 
-
 // read one task by task id
 router.get("/api/task/:id", isAuthenticated, async (req, res) => {
   try {
