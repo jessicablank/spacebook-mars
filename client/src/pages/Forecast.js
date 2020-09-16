@@ -89,7 +89,7 @@ function ForecastPage() {
         const marsMin = min ? min.toFixed(2) : "N/A";
 
         const marsMaxF = max ? ((marsMax * 9) / 5 + 32).toFixed(2) : "N/A";
-        const marsMaxC = min ? ((marsMin * 9) / 5 + 32).toFixed(2) : "N/A";
+        const marsMinF = min ? ((marsMin * 9) / 5 + 32).toFixed(2) : "N/A";
 
         return (
           <div className="card mb-3 clear-card" key={marsDay}>
@@ -101,7 +101,7 @@ function ForecastPage() {
                 High Temp: {marsMax} °C | {marsMaxF} °F
               </p>
               <p>
-                Low Temp: {marsMin} °C | {marsMaxC} °F
+                Low Temp: {marsMin} °C | {marsMinF} °F
               </p>
             </div>
           </div>
