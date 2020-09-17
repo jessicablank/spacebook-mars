@@ -29,15 +29,15 @@ Ideas for future development include Martians connecting with other Martians to 
 These Earthlings enjoy imagining life as Martians. Please feel free to reach out with questions or comments. 
 
 ### Lisbeth Machado
-* :octocat: [GitHub](https://github.com/lisbethmachado)
+* :octocat: [GitHub: https://github.com/lisbethmachado](https://github.com/lisbethmachado)
 * 📧 E-mail: lizmachado.xo@gmail.com
 
 ### Timothy Lam
-* :octocat: [GitHub](https://github.com/tlam1288)
+* :octocat: [GitHub: https://github.com/tlam1288](https://github.com/tlam1288)
 *  📧 E-mail: tlam1288@gmail.com
 
 ### Jessica Blankemeier
-* :octocat: [GitHub](https://github.com/jessicablank)
+* :octocat: [GitHub: https://github.com/jessicablank](https://github.com/jessicablank)
 *  📧 E-mail: jessicablankemeier@gmail.com
 
 # Quick Start
