@@ -48,7 +48,7 @@ function Task({ onTaskSaved }) {
             <TextArea
               onChange={(e) => setTextBody(e.target.value)}
               type="text"
-              id="title"
+              id="textBody"
               value={textBody}
               name="textBody"
               placeholder="Plan your day on Mars!"

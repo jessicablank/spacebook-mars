@@ -20,6 +20,6 @@ export default {
   },
   //Updates a single task with the given id
   updateTask: function (id) {
-    return axios.put("/api/task" + id);
+    return axios.put("/api/task/" + id);
   },
 };
