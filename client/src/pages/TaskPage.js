@@ -17,6 +17,7 @@ function TaskPage() {
   const [showModal, setShowModal] = useState(false);
   const [singleTaskForModal, setSingleTaskForModal] = useState({});
   const [showTaskInfoModal, setShowTaskInfoModal] = useState(false);
+  //need to set state for task priority level:
   const [taskPriority, setTaskPriority] = useState(false);
   
 
@@ -40,6 +41,7 @@ function TaskPage() {
       .catch((err) => console.log(err));
   }
 
+  //how do we use this to set task priority?
   function updateTask(id) {
     taskAPI
       .updateTask(id)
@@ -56,6 +58,7 @@ function TaskPage() {
     setShowModal(true);
   }
 
+  //on track to toggle priority level here.
   function togglePriority(task) {
     setTaskPriority(true);
     updateTask();
@@ -65,6 +68,7 @@ function TaskPage() {
     setShowTaskInfoModal(true);
   };
 
+  //these variables set the task counter data
   const tasksNoun = tasksData.length !== 1 ? "Tasks" : "Task";
   const headingText = `${tasksData.length} ${tasksNoun} Remaining`;
 
