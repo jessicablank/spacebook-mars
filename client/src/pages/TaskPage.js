@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DeleteBtn from "../components/DeleteBtn";
-import CompleteBtn from "../components/CompleteBtn";
+import HighlightBtn from "../components/HighlightBtn";
 import taskAPI from "../utils/taskAPI";
 import Task from "../components/Form/taskCard";
 import TaskModal from "../components/Modal/TaskModal";
@@ -17,6 +17,7 @@ function TaskPage() {
   const [showModal, setShowModal] = useState(false);
   const [singleTaskForModal, setSingleTaskForModal] = useState({});
   const [showTaskInfoModal, setShowTaskInfoModal] = useState(false);
+  const [taskPriority, setTaskPriority] = useState(false);
   
 
   useEffect(() => {
@@ -53,6 +54,11 @@ function TaskPage() {
   function setTaskStateAndShowModal(task) {
     setSingleTaskForModal(task);
     setShowModal(true);
+  }
+
+  function togglePriority(task) {
+    setTaskPriority(true);
+    updateTask();
   }
 
   const handleTaskInfoModal = () => {
@@ -131,7 +137,7 @@ function TaskPage() {
                 >
                   {task.title}
                 </a>
-                <CompleteBtn onClick={() => updateTask(task._id)}/>
+                <HighlightBtn onClick={() => togglePriority(task._id)}/>
                 <DeleteBtn onClick={() => deleteTask(task._id)} />
               </ListItem>
             ))}
