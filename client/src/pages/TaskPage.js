@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DeleteBtn from "../components/DeleteBtn";
+import CompleteBtn from "../components/CompleteBtn";
 import taskAPI from "../utils/taskAPI";
 import Task from "../components/Form/taskCard";
 import TaskModal from "../components/Modal/TaskModal";
@@ -16,6 +17,7 @@ function TaskPage() {
   const [showModal, setShowModal] = useState(false);
   const [singleTaskForModal, setSingleTaskForModal] = useState({});
   const [showTaskInfoModal, setShowTaskInfoModal] = useState(false);
+  
 
   useEffect(() => {
     loadTasks();
@@ -33,6 +35,13 @@ function TaskPage() {
   function deleteTask(id) {
     taskAPI
       .deleteTask(id)
+      .then((res) => loadTasks())
+      .catch((err) => console.log(err));
+  }
+
+  function updateTask(id) {
+    taskAPI
+      .updateTask(id)
       .then((res) => loadTasks())
       .catch((err) => console.log(err));
   }
@@ -122,6 +131,7 @@ function TaskPage() {
                 >
                   {task.title}
                 </a>
+                <CompleteBtn onClick={() => updateTask(task._id)}/>
                 <DeleteBtn onClick={() => deleteTask(task._id)} />
               </ListItem>
             ))}

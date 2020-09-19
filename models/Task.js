@@ -5,6 +5,7 @@ const taskSchema = new Schema({
   martianID: { type: String, required: true },
   title: { type: String, required: true },
   textBody: String,
+  isComplete: {type: Boolean, default: false},
   date: { type: Date, default: Date.now },
 });
 

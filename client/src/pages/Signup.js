@@ -30,7 +30,7 @@ function Signup() {
   const history = useHistory();
 
   const notify = () => toast.warn("Account already exists! Please Login", { delay: 1000 } );
-  const emptyNotify = () => toast.warn("Fields Cannot Be Blank", { delay: 1000 } );
+  
 
   if (isLoggedIn) {
     return <Redirect to="/" />;
