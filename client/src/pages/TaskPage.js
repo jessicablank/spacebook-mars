@@ -102,13 +102,13 @@ function TaskPage() {
         />
       )}
 
-      <h2>{headingText}</h2>
-      <h2>Click Tasks to See Details</h2>
+      <h2>Click to See Details</h2>
 
       <Container>
         <LoadingIndicator />
         {tasksData.length ? (
           <List>
+            <p>{headingText}</p>
             {tasksData.map((task) => (
               <ListItem key={task._id}>
                 <a
