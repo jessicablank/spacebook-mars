@@ -24,7 +24,7 @@ initDb();
 
 // Serve up static assets in production (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("client/public"));
 }
 
 app.use(authRouter, usersRouter, taskRouter, errorMiddleware);
