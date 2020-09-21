@@ -1,10 +1,10 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "SPACEBOOK",
+  "name": "SPACEBOOK",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64",
+      "sizes": "144x144",
       "type": "image/png"
     }
   ],
