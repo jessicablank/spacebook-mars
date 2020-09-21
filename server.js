@@ -31,7 +31,7 @@ app.use(authRouter, usersRouter, taskRouter, errorMiddleware);
 
 // Send all other requests to react app
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 app.listen(PORT, () => {
