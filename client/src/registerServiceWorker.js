@@ -17,7 +17,7 @@ const staticFilesToPreCache = [
   "/index.html",
   "/app.js",
   "/index.css",
-  "/manifest.json",
+  "../public/manifest.json",
 ];
 
 const isLocalhost = Boolean(
