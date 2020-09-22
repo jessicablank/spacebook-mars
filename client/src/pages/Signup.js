@@ -29,8 +29,7 @@ function Signup() {
 
   const history = useHistory();
 
-  const notify = () => toast.warn("Account already exists! Please Login", { delay: 1000 } );
-  
+  const notify = () => toast.warn("Account Already Exists.", { delay: 1000 });
 
   if (isLoggedIn) {
     return <Redirect to="/" />;
@@ -44,7 +43,7 @@ function Signup() {
         // send them to the login page
         history.replace("/login");
       })
-      .catch((err) => console.log(err));
+     .catch((err) => console.log(err));
   };
 
   const handleChange = (event) => {
@@ -82,7 +81,7 @@ function Signup() {
           type="text"
           onChange={handleChange}
         />
-        
+
         <InputGroup
           id="email"
           labelText="Email"
@@ -95,12 +94,13 @@ function Signup() {
           id="pwd"
           labelText="Password"
           placeholder="p@ssw0Rd!"
-          name="password"
+          title="password"
           type="password"
           onChange={handleChange}
         />
         <button
           className="roundedBtn"
+          title="Submit New Martian Credentials"
           type="submit"
           onClick={isLoggedIn ? <Redirect to="/" /> : notify}
         >
@@ -120,18 +120,24 @@ function Signup() {
         }}
         to="/login"
       >
-        <button className="roundedBtn btnWidth" type="button">
+        <button className="roundedBtn btnWidth" title="Go to Login Page" type="button">
           Already a Martian?
         </button>
       </Link>
-      <button className="roundedBtn btnWidth btn-dark" type="button" style={{
-        marginTop: "1.5rem",
-        textAlign: "center",
-      }} onClick={(event) => {
-        handleLoginInfoModal();
-        event.preventDefault();
-      }}>
-          More Information
+      <button
+        className="roundedBtn btnWidth btn-dark"
+        title="More Information About SPACEBOOK"
+        type="button"
+        style={{
+          marginTop: "1.5rem",
+          textAlign: "center",
+        }}
+        onClick={(event) => {
+          handleLoginInfoModal();
+          event.preventDefault();
+        }}
+      >
+        More Information
       </button>
     </div>
   );

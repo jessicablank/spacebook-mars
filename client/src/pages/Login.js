@@ -70,6 +70,7 @@ function Login() {
         />
         <button 
           className="roundedBtn" 
+          title="Martian Login"
           type="submit"
           onClick={isLoggedIn ? <Redirect to="/" /> : notify}>
           Submit
@@ -83,7 +84,9 @@ function Login() {
         }}
         to="/signup"
       >
-        <button className="roundedBtn btnWidth" type="button">
+        <button className="roundedBtn btnWidth" 
+        title="Go to Register New Martian" 
+        type="button">
           Not a Martian yet?
         </button>
       </Link>

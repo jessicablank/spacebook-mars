@@ -3,7 +3,7 @@ import "./style.css";
 
 function DeleteBtn(props) {
   return (
-    <span className="delete-btn" {...props} role="button" tabIndex="0">
+    <span title="Click to Delete Task" className="delete-btn" {...props} role="button" tabIndex="0">
       ✗
     </span>
   );

@@ -94,6 +94,7 @@ function Profile() {
         <button
           type="button"
           className="btn btn-dark"
+          title="More information"
           onClick={(event) => {
             handleWeatherModal();
             event.preventDefault();
@@ -154,6 +155,7 @@ function Profile() {
         <button
           type="button"
           className="btn btn-dark"
+          title="More information"
           onClick={(event) => {
             handleTaskInfoModal();
             event.preventDefault();

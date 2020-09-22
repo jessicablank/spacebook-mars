@@ -4,7 +4,6 @@ import axios from "axios";
 
 import "./index.css";
 import App from "./App";
-
 import registerServiceWorker from "./registerServiceWorker";
 
 // Here is if we have an id_token in localStorage

@@ -4,6 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/jessicablank/spacebook-mars)](https://github.com/jessicablank/spacebook-mars/network)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub issues](https://img.shields.io/github/issues/jessicablank/spacebook-mars)](https://github.com/jessicablank/spacebook-mars/issues)
+![Last Commit](https://img.shields.io/github/last-commit/jessicablank/spacebook-mars)
 
 🚀[Deployed on Heroku: https://spacebook-mars.herokuapp.com/](https://spacebook-mars.herokuapp.com/)
 

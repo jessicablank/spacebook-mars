@@ -62,6 +62,7 @@ function RoverPhotos() {
         <button
           type="button"
           className="btn btn-dark"
+          title="More information"
           onClick={(event) => {
             handleRoverModal();
             event.preventDefault();

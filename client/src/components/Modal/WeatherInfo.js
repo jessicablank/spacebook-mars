@@ -20,7 +20,7 @@ function WeatherInfoModal({ onHide }) {
         </Modal.Body>
         <Modal.Footer>
           <p>Learn more about NASA's Insight Mission at <a href="https://www.nasa.gov/mission_pages/insight/main/index.html"
-            target="_blank" aria-label="Link to Nasa's Insight Mission Takes You to Another Website" rel="noopener noreferrer">NASA InSight</a></p>
+            target="_blank" aria-label="Link to Nasa's Insight Mission Takes You to Another Website" rel="noopener noreferrer" title="https://www.nasa.gov/mission_pages/insight/main/index.html">NASA InSight</a></p>
           <Button variant="secondary" onClick={onHide}>
             Close
           </Button>

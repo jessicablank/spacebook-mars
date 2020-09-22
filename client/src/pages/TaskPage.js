@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import DeleteBtn from "../components/DeleteBtn";
-import HighlightBtn from "../components/HighlightBtn";
 import taskAPI from "../utils/taskAPI";
 import Task from "../components/Form/taskCard";
 import TaskModal from "../components/Modal/TaskModal";
@@ -15,11 +14,9 @@ import "./style.css";
 function TaskPage() {
   const [tasksData, setTasksData] = useState([]);
   const [showModal, setShowModal] = useState(false);
+
   const [singleTaskForModal, setSingleTaskForModal] = useState({});
-  const [showTaskInfoModal, setShowTaskInfoModal] = useState(false);
-  //need to set state for task priority level:
-  const [taskPriority, setTaskPriority] = useState(false);
-  
+  const [showTaskInfoModal, setShowTaskInfoModal] = useState(false);  
 
   useEffect(() => {
     loadTasks();
@@ -41,14 +38,6 @@ function TaskPage() {
       .catch((err) => console.log(err));
   }
 
-  //how do we use this to set task priority?
-  function updateTask(id) {
-    taskAPI
-      .updateTask(id)
-      .then((res) => loadTasks())
-      .catch((err) => console.log(err));
-  }
-
   function handleTaskSaved() {
     loadTasks();
   }
@@ -56,12 +45,6 @@ function TaskPage() {
   function setTaskStateAndShowModal(task) {
     setSingleTaskForModal(task);
     setShowModal(true);
-  }
-
-  //on track to toggle priority level here.
-  function togglePriority(task) {
-    setTaskPriority(true);
-    updateTask();
   }
 
   const handleTaskInfoModal = () => {
@@ -104,6 +87,7 @@ function TaskPage() {
         <button
           type="button"
           className="btn btn-dark"
+          title="More information"
           onClick={(event) => {
             handleTaskInfoModal();
             event.preventDefault();
@@ -133,7 +117,7 @@ function TaskPage() {
                 <a
                   id="taskTitleLink"
                   href="#taskTitleLink"
-                  title="Clickable Task Titles to Task Details"
+                  title="Clickable Task Title to Task Details"
                   onClick={(event) => {
                     setTaskStateAndShowModal(task);
                     event.preventDefault();
@@ -141,8 +125,8 @@ function TaskPage() {
                 >
                   {task.title}
                 </a>
-                <HighlightBtn onClick={() => togglePriority(task._id)}/>
                 <DeleteBtn onClick={() => deleteTask(task._id)} />
+               
               </ListItem>
             ))}
           </List>
