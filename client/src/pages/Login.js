@@ -85,8 +85,8 @@ function Login() {
         to="/signup"
       >
         <button className="roundedBtn btnWidth" 
-        title="Go to Register New Martian" 
-        type="button">
+          title="Go to Register New Martian" 
+          type="button">
           Not a Martian yet?
         </button>
       </Link>

@@ -31,7 +31,7 @@ These Earthlings enjoy imagining life as Martians. Please feel free to reach out
 
 ### Lisbeth Machado
 * :octocat: [GitHub: https://github.com/lisbethmachado](https://github.com/lisbethmachado)
-* 📧 E-mail: lizmachado.xo@gmail.com
+* 📧 E-mail: lisbeth.webdev@gmail.com
 
 ### Timothy Lam
 * :octocat: [GitHub: https://github.com/tlam1288](https://github.com/tlam1288)

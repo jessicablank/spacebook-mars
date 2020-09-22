@@ -43,7 +43,7 @@ function Signup() {
         // send them to the login page
         history.replace("/login");
       })
-     .catch((err) => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   const handleChange = (event) => {
