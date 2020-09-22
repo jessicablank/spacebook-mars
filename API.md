@@ -7,7 +7,7 @@ Before testing any routes:
 - Set *Body* tab to *x-www-form-urlencoded*.
 - Here is an example of getting the token from local storage in Chrome:
 
-![Bearer Token in Chrome Local Storage](./assets/spacebook-user-token.png)
+![Bearer Token in Chrome Local Storage](./assets/spacebook-user-token.PNG)
 
  **POST** http://localhost:3001/api/task
 - In the *Body* tab
