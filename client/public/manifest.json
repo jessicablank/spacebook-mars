@@ -1,10 +1,61 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "SPACEBOOK",
+  "name": "SPACEBOOK",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/rocket72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/rocket96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/rocket120.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/rocket128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/rocket144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/rocket152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/rocket180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/rocket192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/rocket384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/rocket512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
