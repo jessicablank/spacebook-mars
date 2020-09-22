@@ -4,6 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/jessicablank/spacebook-mars)](https://github.com/jessicablank/spacebook-mars/network)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub issues](https://img.shields.io/github/issues/jessicablank/spacebook-mars)](https://github.com/jessicablank/spacebook-mars/issues)
+![Last Commit](https://img.shields.io/github/last-commit/jessicablank/spacebook-mars)
 
 🚀[Deployed on Heroku: https://spacebook-mars.herokuapp.com/](https://spacebook-mars.herokuapp.com/)
 
@@ -29,15 +30,15 @@ Ideas for future development include Martians connecting with other Martians to 
 These Earthlings enjoy imagining life as Martians. Please feel free to reach out with questions or comments. 
 
 ### Lisbeth Machado
-* :octocat: [GitHub](https://github.com/lisbethmachado)
-* 📧 E-mail: lizmachado.xo@gmail.com
+* :octocat: [GitHub: https://github.com/lisbethmachado](https://github.com/lisbethmachado)
+* 📧 E-mail: lisbeth.webdev@gmail.com
 
 ### Timothy Lam
-* :octocat: [GitHub](https://github.com/tlam1288)
+* :octocat: [GitHub: https://github.com/tlam1288](https://github.com/tlam1288)
 *  📧 E-mail: tlam1288@gmail.com
 
 ### Jessica Blankemeier
-* :octocat: [GitHub](https://github.com/jessicablank)
+* :octocat: [GitHub: https://github.com/jessicablank](https://github.com/jessicablank)
 *  📧 E-mail: jessicablankemeier@gmail.com
 
 # Quick Start

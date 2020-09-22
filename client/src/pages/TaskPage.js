@@ -8,14 +8,15 @@ import LoadingIndicator from "../components/LoadingIndicator";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
 import { List, ListItem } from "../components/List";
-import { trackPromise} from "react-promise-tracker";
+import { trackPromise } from "react-promise-tracker";
 import "./style.css";
 
 function TaskPage() {
   const [tasksData, setTasksData] = useState([]);
   const [showModal, setShowModal] = useState(false);
+
   const [singleTaskForModal, setSingleTaskForModal] = useState({});
-  const [showTaskInfoModal, setShowTaskInfoModal] = useState(false);
+  const [showTaskInfoModal, setShowTaskInfoModal] = useState(false);  
 
   useEffect(() => {
     loadTasks();
@@ -26,7 +27,8 @@ function TaskPage() {
       taskAPI
         .getTasks()
         .then((res) => setTasksData(res.data))
-        .catch((err) => console.log(err)));
+        .catch((err) => console.log(err))
+    );
   }
 
   function deleteTask(id) {
@@ -49,6 +51,9 @@ function TaskPage() {
     setShowTaskInfoModal(true);
   };
 
+  //these variables set the task counter data
+  const tasksNoun = tasksData.length !== 1 ? "Tasks" : "Task";
+  const headingText = `${tasksData.length} ${tasksNoun} Remaining`;
 
   return (
     <div>
@@ -72,14 +77,17 @@ function TaskPage() {
           </Link>
         </div>
       </Container>
-      
+
       {showTaskInfoModal && (
         <TaskInfoModal onHide={() => setShowTaskInfoModal(false)} />
       )}
-      <h2> Quickly Add a New Task{" "}
+      <h2>
+        {" "}
+        Quickly Add a New Task{" "}
         <button
           type="button"
           className="btn btn-dark"
+          title="More information"
           onClick={(event) => {
             handleTaskInfoModal();
             event.preventDefault();
@@ -97,15 +105,19 @@ function TaskPage() {
         />
       )}
 
-      <h2>Click Tasks to See Details</h2>
+      <h2>Click to See Details</h2>
+
       <Container>
-        <LoadingIndicator /> 
+        <LoadingIndicator />
         {tasksData.length ? (
           <List>
+            <p>{headingText}</p>
             {tasksData.map((task) => (
               <ListItem key={task._id}>
-                <a id="taskTitleLink" href="#taskTitleLink"
-                  title="Clickable Task Titles to Task Details"
+                <a
+                  id="taskTitleLink"
+                  href="#taskTitleLink"
+                  title="Clickable Task Title to Task Details"
                   onClick={(event) => {
                     setTaskStateAndShowModal(task);
                     event.preventDefault();
@@ -113,12 +125,12 @@ function TaskPage() {
                 >
                   {task.title}
                 </a>
-
                 <DeleteBtn onClick={() => deleteTask(task._id)} />
+               
               </ListItem>
             ))}
           </List>
-        ) : ( 
+        ) : (
           <h4>Saved Martian Tasks Will Display Here.</h4>
         )}
       </Container>

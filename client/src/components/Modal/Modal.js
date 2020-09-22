@@ -12,7 +12,7 @@ function ModalComp({ onHide }) {
         </Modal.Header>
         <Modal.Body>Click Tasks Button to View All of Your Tasks!</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={onHide}>
+          <Button variant="secondary" name="Close this Info Box" onClick={onHide}>
             Close
           </Button>
         </Modal.Footer>

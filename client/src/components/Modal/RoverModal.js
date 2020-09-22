@@ -16,7 +16,7 @@ function RoverInfoModal({ onHide }) {
         </Modal.Body>
         <Modal.Footer>
           <p>Learn more about NASA's Mar's Curiosity Rover at <a href="https://mars.nasa.gov/msl/home/"
-            target="_blank" aria-label="Link to NASA's Curiosity Rover Takes You to Another Website" rel="noopener noreferrer">Mars Curiosity Rover</a></p>
+            target="_blank" aria-label="Link to NASA's Curiosity Rover Takes You to Another Website" rel="noopener noreferrer" title="https://mars.nasa.gov/msl/home/">Mars Curiosity Rover</a></p>
           <Button variant="secondary" onClick={onHide}>
             Close
           </Button>

@@ -22,7 +22,7 @@ function TaskInfoModal({ onHide }) {
         <Modal.Footer>
           <p>Learn more about life as a Martian at <a href="https://en.wikipedia.org/wiki/Colonization_of_Mars#:~:text=Human%20survival%20on%20Mars%20would,matter%20of%20days%20without%20it."
             target="_blank" aria-label="Link to Wikipedia entry about Colonization of Mars Takes You to a Wikipedia entry" rel="noopener noreferrer">Wikipedia: Colonization of Mars</a></p>
-          <Button variant="secondary" onClick={onHide}>
+          <Button variant="secondary" name="Close this Info Box" onClick={onHide}>
             Close
           </Button>
         </Modal.Footer>

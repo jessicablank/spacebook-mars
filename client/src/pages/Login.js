@@ -21,7 +21,7 @@ function Login() {
   const { isLoggedIn, login } = useAuth();
   const history = useHistory();
 
-  const notify = () => toast.warn("Incorrect Username or Password!");
+  const notify = () => toast.warn("Incorrect Username or Password!", { delay: 1000 });
 
   if (isLoggedIn) {
     return <Redirect to="/" />;
@@ -53,6 +53,7 @@ function Login() {
         <InputGroup
           id="email"
           labelText="Email"
+          placeholder="Email"
           name="email"
           type="email"
           value={email}
@@ -61,6 +62,7 @@ function Login() {
         <InputGroup
           id="password"
           labelText="Password"
+          placeholder="Password"
           name="password"
           type="password"
           value={password}
@@ -68,6 +70,7 @@ function Login() {
         />
         <button 
           className="roundedBtn" 
+          title="Martian Login"
           type="submit"
           onClick={isLoggedIn ? <Redirect to="/" /> : notify}>
           Submit
@@ -81,7 +84,9 @@ function Login() {
         }}
         to="/signup"
       >
-        <button className="roundedBtn btnWidth" type="button">
+        <button className="roundedBtn btnWidth" 
+          title="Go to Register New Martian" 
+          type="button">
           Not a Martian yet?
         </button>
       </Link>
