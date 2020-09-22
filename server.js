@@ -24,14 +24,14 @@ initDb();
 
 // Serve up static assets in production (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/public"));
+  app.use(express.static("client/build"));
 }
 
 app.use(authRouter, usersRouter, taskRouter, errorMiddleware);
 
 // Send all other requests to react app
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 app.listen(PORT, () => {
