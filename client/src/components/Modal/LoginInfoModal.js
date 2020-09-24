@@ -13,9 +13,9 @@ function LoginInfoModal({ onHide }) {
         </Modal.Header>
         <Modal.Body>
           <p> Educational for Earthlings. Useful for Martians. Fun for Everyone.  </p>
-          <p> The developers of SPACEBOOK created an application just for Martians like you!</p>
+          <p> Imagine life on Mars using real-time data from current NASA Mars Missions.</p>
           <ul>
-            <li><span className="Login-Info">Martian Name: </span>Get creative with your Martian username. </li>
+            <li><span className="Login-Info">Martian Name: </span>Get creative with your Martian username. It's a new you! </li>
             <li><span className="Login-Info">Email: </span>SPACEBOOK will never email share your email.</li>
             <li><span className="Login-Info">Password: </span>Your password is encrypted and will never be shared. </li>
           </ul>

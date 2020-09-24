@@ -38,16 +38,16 @@ function Signup() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
  
-      API.signUpUser(
-        formState.username,
-        formState.email,
-        formState.password
-      ).then((res) => {
-        // once the user has signed up
-        // send them to the login page
-        history.replace("/login");
-      })
-    .catch((err) => alert(err));
+    API.signUpUser(
+      formState.username,
+      formState.email,
+      formState.password
+    ).then((res) => {
+      // once the user has signed up
+      // send them to the login page
+      history.replace("/login");
+    })
+      .catch((err) => alert(err));
   };
 
   const handleChange = (event) => {
