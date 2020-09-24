@@ -112,6 +112,7 @@ Before testing any routes:
 ```
 - Confirm the task was updated by repeating the **GET** route test. 
 - Following our example, the **GET** response is now:
+```
 [
     {
         "_id": "5f57c2f642dd173744d5fec6",
@@ -130,3 +131,4 @@ Before testing any routes:
         "__v": 0
     },
 ]
+```
