@@ -9,7 +9,7 @@
 🚀[Deployed on Heroku: https://spacebook-mars.herokuapp.com/](https://spacebook-mars.herokuapp.com/)
 
 ## Description:  
- The year is 2099. Humans now live in a colony on Mars. They need an app to help them plan their day. 
+Educational for Earthlings. Useful for Martians. Fun for Everyone.  
  
 SPACEBOOK allows Martians to see the current weather for their colony location, check on photos from the nearby rover, and manage a task list. 
 

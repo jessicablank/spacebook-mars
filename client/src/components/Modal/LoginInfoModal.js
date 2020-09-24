@@ -12,7 +12,7 @@ function LoginInfoModal({ onHide }) {
           <Modal.Title>Welcome to SPACEBOOK</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p> Imagine the year is 2099. You are a human living on a colony on Mars. You want to see a weather forecast, view nearby rover images, and manage your tasks for the day.  </p>
+          <p> Educational for Earthlings. Useful for Martians. Fun for Everyone.  </p>
           <p> The developers of SPACEBOOK created an application just for Martians like you!</p>
           <ul>
             <li><span className="Login-Info">Martian Name: </span>Get creative with your Martian username. </li>

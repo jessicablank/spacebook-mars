@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import API from "./../utils/API";
 import Container from "../components/Container";
 import { Form, InputGroup } from "../components/LoginForm";
-import LoginInfoModal from "../components/Modal/LoginInfoModal";
 import { Link, Redirect, useHistory } from "react-router-dom";
+import LoginInfoModal from "../components/Modal/LoginInfoModal";
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../utils/auth";
-import "./style.css";
 import "react-toastify/dist/ReactToastify.css";
+import "./style.css";
 
 const signupStyles = {
   maxWidth: "20rem",
@@ -29,7 +29,7 @@ function Signup() {
 
   const history = useHistory();
 
-  const notify = () => toast.warn("Account Already Exists.", { delay: 1000 });
+  const notify = () => toast.warn("Account already exists !");
 
   if (isLoggedIn) {
     return <Redirect to="/" />;
@@ -37,13 +37,17 @@ function Signup() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    API.signUpUser(formState.username, formState.email, formState.password)
-      .then((res) => {
+ 
+      API.signUpUser(
+        formState.username,
+        formState.email,
+        formState.password
+      ).then((res) => {
         // once the user has signed up
         // send them to the login page
         history.replace("/login");
       })
-      .catch((err) => console.log(err));
+    .catch((err) => alert(err));
   };
 
   const handleChange = (event) => {
@@ -72,6 +76,11 @@ function Signup() {
           </div>
         </div>
       </Container>
+
+      {showLoginInfoModal && (
+        <LoginInfoModal onHide={() => setShowLoginInfoModal(false)} />
+      )}
+      
       <Form onSubmit={handleFormSubmit}>
         <InputGroup
           id="username"
@@ -81,7 +90,6 @@ function Signup() {
           type="text"
           onChange={handleChange}
         />
-
         <InputGroup
           id="email"
           labelText="Email"
@@ -94,13 +102,12 @@ function Signup() {
           id="pwd"
           labelText="Password"
           placeholder="p@ssw0Rd!"
-          title="password"
+          name="password"
           type="password"
           onChange={handleChange}
         />
         <button
           className="roundedBtn"
-          title="Submit New Martian Credentials"
           type="submit"
           onClick={isLoggedIn ? <Redirect to="/" /> : notify}
         >
@@ -108,11 +115,6 @@ function Signup() {
         </button>
         <ToastContainer />
       </Form>
-
-      {showLoginInfoModal && (
-        <LoginInfoModal onHide={() => setShowLoginInfoModal(false)} />
-      )}
-
       <Link
         style={{
           marginTop: "1.5rem",
@@ -120,10 +122,11 @@ function Signup() {
         }}
         to="/login"
       >
-        <button className="roundedBtn btnWidth" title="Go to Login Page" type="button">
+        <button className="roundedBtn btnWidth" type="button">
           Already a Martian?
         </button>
       </Link>
+
       <button
         className="roundedBtn btnWidth btn-dark"
         title="More Information About SPACEBOOK"
