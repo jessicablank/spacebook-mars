@@ -18,12 +18,12 @@ Ideas for future development include Martians connecting with other Martians to 
 ## Table of Contents:
 * [Developers](#developers)
 * [Quick Start](#quick-start)
-* [Installing Locally](./LOCALINSTALL.md)
-* [Usage & Tests](./USAGE.md)
+* [Local Installation Guide](./LOCALINSTALL.md)
+* [Usage & Tests Page](./USAGE.md)
 * [ScreenShots](#screenshots)
 * [Technologies Used](#Technologies-Used)
-* [File Structure](./FILES.md)
-* [API EndPoints](./API.md)
+* [File Structure Page](./FILES.md)
+* [API EndPoints Page](./API.md)
 * [License](#license)
 
 # Developers
@@ -120,13 +120,14 @@ No Match Page:
 ![NoMatch](./assets/no-match.PNG)
 
 ## Technologies Used
+* [GitHub](https://www.github.com/)
+* [Heroku](https://www.heroku.com/)
+* [MockFlow Wireframe](https://www.mockflow.com/)
+* [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+* [Postman- Route Testing](https://www.postman.com/)
 * [React](https://reactjs.org/)
 * [React-bootstrap](https://react-bootstrap.github.io/)
-* [Heroku - Deployment](https://www.heroku.com/)
-* [Postman- Route Testing](https://www.postman.com/)
 * [Travis CI](https://travis-ci.org/)
-* [MockFlow Wireframe](https://www.mockflow.com/)
-
 
 
 ## License
