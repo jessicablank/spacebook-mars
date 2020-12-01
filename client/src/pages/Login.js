@@ -21,7 +21,7 @@ function Login() {
   const { isLoggedIn, login } = useAuth();
   const history = useHistory();
 
-  const notify = () => toast.warn("Incorrect Username or Password!", { delay: 10000 });
+  const notify = () => toast.warn("Incorrect Username or Password!", { delay: 30000 });
 
   if (isLoggedIn) {
     return <Redirect to="/" />;
